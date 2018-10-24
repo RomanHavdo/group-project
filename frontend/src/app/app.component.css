@@ -1,8 +1,5 @@
-p,
-h1{
-    text-align: center;
-}
 
-.div-input{
-    text-align: center;
+#main {
+    position: relative;
+    height: 400px;
 }

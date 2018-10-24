@@ -1,0 +1,17 @@
+.footerItem {
+    border-right: 2px solid;
+    padding: 0 10px;
+    color: black;
+    text-decoration: none;
+
+}
+
+.footerElement {
+    text-align: center;
+    background-color: #96984f;
+    height: 100px;
+}
+
+.footerItem:last-child {
+    border: none;
+}

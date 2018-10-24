@@ -1,0 +1,12 @@
+.modalBtn {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: -webkit-linear-gradient(#fbc315, #fded1a);
+    color: white;
+}
+
+.modalBtn:hover {
+    background: -webkit-linear-gradient(#fded1a, #fffea5);
+}
