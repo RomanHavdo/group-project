@@ -1,9 +1,9 @@
 <div class="row d-flex align-items-center">
     <div class="col-md-2 col-lg-2 d-flex flex-column align-items-center">
         <a class="navbar-brand logo" href="#">
-            <img [src]="logo" class="logoImg">
+            <img [src]="menuItems.logo" class="logoImg">
         </a>
-        <a href="" class="navbar-brand logoName">{{clinicName}}</a>
+        <a href="" class="navbar-brand logoName">{{menuItems.clinicName}}</a>
     </div>
     <div class="col-md-8 col-lg-8">
         <nav class="navbar navbar-expand-lg menu">
@@ -15,19 +15,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active menuItem">
-                        <a class="nav-link" href="#">Головна<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">{{menuItems.main}}<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item menuItem">
-                        <a class="nav-link" href="#">Про нас</a>
+                        <a class="nav-link" href="#">{{menuItems.about}}</a>
                     </li>
                     <li class="nav-item menuItem">
-                        <a class="nav-link" href="#">Послуги та ціни</a>
+                        <a class="nav-link" href="#">{{menuItems.services}}</a>
                     </li>
                     <li class="nav-item menuItem">
-                        <a class="nav-link" href="#">Наші лікарі</a>
+                        <a class="nav-link" href="#">{{menuItems.doctors}}</a>
                     </li>
                     <li class="nav-item menuItem">
-                        <a class="nav-link" href="#">Контакти</a>
+                        <a class="nav-link" href="#">{{menuItems.contacts}}</a>
                     </li>
                 </ul>
             </div>
@@ -35,8 +35,8 @@
     </div>
     <div class=" col-md-2 col-lg-2">
         <div class="loginMenuElement">
-            <a href="#" class="loginMenuItem">Увійти</a>
-            <a href="#" class="loginMenuItem">Зареєструватися</a>
+            <a href="#" class="loginMenuItem">{{menuItems.signIn}}</a>
+            <a href="#" class="loginMenuItem">{{menuItems.logIn}}</a>
         </div>
     </div>
 </div>

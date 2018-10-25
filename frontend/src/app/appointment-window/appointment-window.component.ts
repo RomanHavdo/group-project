@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -7,13 +7,10 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
     templateUrl: './appointment-window.component.html',
     styleUrls: ['./appointment-window.component.css']
 })
-export class AppointmentWindowComponent implements OnInit {
+export class AppointmentWindowComponent {
     closeResult: string;
 
     constructor(private modalService: NgbModal) {
-    }
-
-    ngOnInit() {
     }
 
     open(content) {
@@ -23,6 +20,5 @@ export class AppointmentWindowComponent implements OnInit {
             // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
     }
-
 }
 
