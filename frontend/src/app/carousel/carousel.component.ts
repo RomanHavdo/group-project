@@ -24,7 +24,8 @@ export class CarouselComponent {
 
     @Input() images: Array<string>;
     counter = 0;
-
+    activeButton = "";
+  
     onClickInc() {
         const total = this.images.length - 1;
         this.counter = this.counter < total ? this.counter + 1 : 0;
@@ -40,10 +41,11 @@ export class CarouselComponent {
         this.setActive(`btn${this.counter}`);
     }
 
-    setActive = function (buttonName) {
+    setActive(buttonName) {
         this.activeButton = buttonName;
     }
-    isActive = function (buttonName) {
+
+    isActive(buttonName) {
         return this.activeButton === buttonName;
     }
 
