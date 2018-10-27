@@ -1,0 +1,85 @@
+.tmb{
+    position: absolute;
+    left: 180px;
+}
+.tmb img{
+    position: absolute;
+}
+.carousel-btn{
+    cursor: pointer;
+}
+.btn-change-dec{
+    position: absolute;
+    top: 400px;
+    left: 106px;
+    height: 115px;
+    width: 60px;
+    font-size: 75px;
+}
+.btn-change-inc{
+    position: absolute;
+    top: 400px;
+    height: 115px;
+    width: 60px;
+    font-size: 75px;
+    left: 1400px;
+}
+
+.indecator-1{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 670px;
+    background-color: initial;;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    top: 750px;
+}
+
+.indecator-2{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 700px;
+    background-color: initial;;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    top: 750px;
+}
+
+.indecator-3{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 730px;
+    background-color: initial;;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    top: 750px;
+}
+
+.indecator-4{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 760px;
+    background-color: initial;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    top: 750px;
+}
+
+.indecator-5{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 790px;
+    background-color: initial;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    top: 750px;
+}
+.indecators button:hover,
+.active{
+    background-color: white;
+}
