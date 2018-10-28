@@ -1,8 +1,12 @@
-p,
-h1{
-    text-align: center;
+
+#main {
+    position: relative;
+    margin: 10px auto;
+    box-sizing: border-box;
 }
 
-.div-input{
-    text-align: center;
+.carousel__container{
+    position: relative;
+    width: 90%;
+    height: 900px;
 }

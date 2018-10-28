@@ -1,0 +1,44 @@
+.logo {
+    text-align: center;
+    width: 40%;
+}
+
+.logoName {
+    font-size: 1.5em;
+    padding-top: 0;
+    /*color: black;*/
+    background: -webkit-linear-gradient(white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.logoImg {
+    width: 100%;
+}
+
+.menuItem {
+    padding: 0 10px;
+}
+
+.menuItem a {
+    color: black;
+}
+
+.menuItem:hover a, .loginMenuItem:hover {
+    color: #96984f;
+}
+
+.loginMenuElement {
+    text-align: center;
+}
+
+.loginMenuItem {
+    color: black;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.loginMenuItem:first-child {
+    border-right: 2px solid #96984f;
+}

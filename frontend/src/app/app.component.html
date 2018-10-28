@@ -1,9 +1,18 @@
-<h1>{{title}}</h1>
-<p>Welcome Group 3</p>
-<p>My name is {{name}}</p>
-<div class="div-input">
-  <label>Put your name here:
-    <input type="text" [(ngModel)]="visitorName">
-  </label>
+<div class="container-fluid">
+    <header>
+        <app-nav-bar [menuItems]="menuItems"></app-nav-bar>
+    </header>
+    <div id="main">
+        <app-appointment-window></app-appointment-window>
+        <div class="carousel__container">
+            <app-carousel [images]="images"></app-carousel>
+        </div>
+    </div>
+
+    <div class="itemGridBlock">
+            <app-cards-container></app-cards-container>
+        </div>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
 </div>
-<p>Hello,{{visitorName}},my old friend</p>
