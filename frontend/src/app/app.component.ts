@@ -18,11 +18,15 @@ export class AppComponent {
         logo: '/assets/img/logo.png',
         clinicName: 'BabyMed',
         main: 'Головна',
+        services: 'Послуги',
+        doctors: 'Наші спеціалісти',
+        news: 'Новини',
         about: 'Про нас',
-        services: 'Послуги та ціни',
-        doctors: 'Наші лікарі',
-        contacts: 'Контакти',
         signIn: 'Увійти',
         logIn: 'Зареєструватися'
     };
+    contacts={
+        phone:'321-654-98',
+        mail:'BabyMed@gmail.com'
+    }
 }
