@@ -2,13 +2,10 @@
     <header>
         <app-nav-bar [menuItems]="menuItems"></app-nav-bar>
     </header>
-    <div id="main">
-  <router-outlet></router-outlet>
+    <div class="appDiv">
+        <router-outlet></router-outlet>
         <app-appointment-window></app-appointment-window>
-        <app-carousel [images]="images"></app-carousel>
-        <div class="itemGridBlock"></div>
     </div>
-    <app-cards-container></app-cards-container>
     <footer>
         <app-footer [contacts]="contacts"></app-footer>
     </footer>

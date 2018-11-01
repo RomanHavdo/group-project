@@ -21,8 +21,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class CarouselComponent {
+    images=[
+        'assets/img/slides/slide1.jpg',
+        'assets/img/slides/slide2.jpg',
+        'assets/img/slides/slide3.jpg',
+        'assets/img/slides/slide4.jpg',
+        'assets/img/slides/slide5.jpg',
+    ];
 
-    @Input() images: Array<string>;
     counter = 0;
     activeButton = "";
   
