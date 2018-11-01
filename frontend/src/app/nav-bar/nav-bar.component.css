@@ -29,6 +29,10 @@
     color: #96984f;
 }
 
+.menuItem .active{
+    color: #96984f;
+}
+
 .loginMenuElement {
     text-align: center;
 }
