@@ -1,3 +1,7 @@
+// TODO: use ProdMod after dev stage, uncomment two lines of code below
+// import { enableProdMode} from '@angular/core';
+// enableProdMode();
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
