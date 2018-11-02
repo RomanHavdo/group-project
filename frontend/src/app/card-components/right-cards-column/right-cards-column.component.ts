@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, OnInit, AfterViewChecked, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import {
     trigger,
     state,
@@ -11,6 +11,7 @@ import {
     selector: 'app-right-cards-column',
     templateUrl: './right-cards-column.component.html',
     styleUrls: ['./right-cards-column.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [
         trigger('appearLeft', [
             state('hidden', style({

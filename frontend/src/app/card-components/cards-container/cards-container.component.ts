@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {CardsDataService} from './cards-data.service';
 
 @Component({
@@ -6,6 +6,7 @@ import {CardsDataService} from './cards-data.service';
     templateUrl: './cards-container.component.html',
     styleUrls: ['./cards-container.component.scss'],
     providers: [CardsDataService],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardsContainerComponent implements OnInit {
 
