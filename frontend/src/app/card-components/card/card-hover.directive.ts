@@ -8,11 +8,11 @@ export class OnHoverDirective {
     constructor(private element: ElementRef, private renderer: Renderer2) { }
 
     @HostListener('mouseenter') onMouseEnter() {
-        this.setScale('scale(1.05,1.05)', '0.3s all');
+        this.setScale('scale(1.05, 1.05)', '0.3s all');
     }
 
     @HostListener('mouseleave') onMouseLeave() {
-        this.setScale('scale(1,1)', '0.2s all');
+        this.setScale('scale(1, 1)', '0.2s all');
     }
 
     private setScale(val: string, duration: string) {
