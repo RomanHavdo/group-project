@@ -12,9 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from './carousel/carousel.module';
 import { CardsComponentModule } from './card-components/cards-component.module';
 
-// import { enableProdMode} from '@angular/core'; ***use it after dev stage
-// enableProdMode(); ***use it after dev stage
-
 @NgModule({
     declarations: [
         AppComponent,
