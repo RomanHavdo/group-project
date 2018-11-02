@@ -1,19 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpService} from './http.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    
+    providers: [HttpService]
+
 })
-export class AppComponent {
-    images=[
-        'assets/img/slides/slide1.jpg',
-        'assets/img/slides/slide2.jpg',
-        'assets/img/slides/slide3.jpg',
-        'assets/img/slides/slide4.jpg',
-        'assets/img/slides/slide5.jpg',
-    ];
+export class AppComponent implements OnInit {
+
+    images = [];
+
     menuItems = {
         logo: '/assets/img/logo.png',
         clinicName: 'BabyMed',
@@ -25,4 +23,11 @@ export class AppComponent {
         signIn: 'Увійти',
         logIn: 'Зареєструватися'
     };
+
+constructor(private httpService: HttpService) { }
+
+ngOnInit() {
+    this.httpService.getCarouselData().subscribe((data: any[]) => this.images = data);
+}
+
 }
