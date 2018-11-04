@@ -1,14 +1,20 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {HttpService} from '../http.service';
 
 @Component({
     selector: 'app-nav-bar',
     templateUrl: './nav-bar.component.html',
     styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
-    @Input() menuItems;
+export class NavBarComponent implements OnInit {
+    menuItems;
+    constructor(private _httpService: HttpService) {
+    }
 
-    constructor() {
+    ngOnInit() {
+      this._httpService.getMenuItems().subscribe((res) => {
+        this.menuItems = res[0];
+      })
     }
 
 }
