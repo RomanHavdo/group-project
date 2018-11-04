@@ -5,9 +5,7 @@ import { HttpService} from './http.service';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-
     providers: [HttpService]
-
 })
 export class AppComponent implements OnInit {
     images ={} 
@@ -28,5 +26,4 @@ constructor(private httpService: HttpService) { }
 ngOnInit() {
     this.httpService.getCarouselData().subscribe((data: any[]) => this.images = data);
 }
-
 }
