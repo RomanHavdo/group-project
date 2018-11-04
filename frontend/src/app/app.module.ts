@@ -37,5 +37,3 @@ import { CardsComponentModule } from './card-components/cards-component.module';
 
 export class AppModule {
 }
-
-

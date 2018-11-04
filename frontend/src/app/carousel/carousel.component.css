@@ -1,85 +1,117 @@
 .tmb{
-    position: absolute;
-    left: 180px;
+    height: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .tmb img{
     position: absolute;
+    width: 95%;
+    left: 70px;
+    height: 650px;
+}
+.tmb h3{
+    position: absolute;
+    top: 29%;
+    left: 10%;
+    width: 110%;
+    text-shadow: 5px 5px 1px rgba(28,110,164,0.57);
+}
+.tmb p{
+    position: absolute;
+    top: 31%;
+    left: 10%;
+    width: 110%;
+    text-shadow: 3px 5px 6px #6C9, -6px -7px 6px #D9FFA7;
+}
+a{
+    text-decoration: none;
+    color: rgb(120, 107, 192);
 }
 .carousel-btn{
     cursor: pointer;
 }
 .btn-change-dec{
     position: absolute;
-    top: 400px;
-    left: 106px;
-    height: 115px;
+    top:0;
+    padding-top: 250px;
+    left: 69px;
+    height: 650px;
     width: 60px;
     font-size: 75px;
+    background-color: white;
+    opacity: 0.4;
 }
 .btn-change-inc{
     position: absolute;
-    top: 400px;
-    height: 115px;
+    top:0;
+    padding-top: 250px;
+    height: 650px;
     width: 60px;
     font-size: 75px;
-    left: 1400px;
+    right: 6px;
+    background-color: white;
+    opacity: 0.4;
 }
 
 .indecator-1{
     position: absolute;
     height: 20px;
     width: 20px;
-    left: 670px;
+    left: 45%;
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 750px;
+    top: 600px;
 }
 
 .indecator-2{
     position: absolute;
     height: 20px;
     width: 20px;
-    left: 700px;
+    left: 47%;
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 750px;
+    top: 600px;
 }
 
 .indecator-3{
     position: absolute;
     height: 20px;
     width: 20px;
-    left: 730px;
+    left: 49%;
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 750px;
+    top: 600px;
 }
 
 .indecator-4{
     position: absolute;
     height: 20px;
     width: 20px;
-    left: 760px;
+    left: 51%;
     background-color: initial;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 750px;
+    top: 600px;
 }
 
 .indecator-5{
     position: absolute;
     height: 20px;
     width: 20px;
-    left: 790px;
+    left: 53%;
     background-color: initial;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 750px;
+    top: 600px;
 }
 .indecators button:hover,
 .active{
     background-color: white;
+}
+
+.span-btn-none{
+    display: none;
 }

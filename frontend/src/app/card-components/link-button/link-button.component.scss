@@ -1,0 +1,13 @@
+.wrapper {
+  width: 100%;
+  padding: 0;
+
+  & a {
+    padding: 5px 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    color: white;
+    text-decoration: none;
+  }
+}
