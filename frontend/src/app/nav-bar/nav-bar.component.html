@@ -155,7 +155,7 @@
     </div>
     <div class="modal-footer">
         <button type="submit" [disabled]="registrationForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
-                (click)="onSubmit(name,dateofbirth,sex,homeAddress,emailAddress,phoneNumber, password);modal.close() ">
+                (click)="registerUser(name,dateofbirth,sex,homeAddress,emailAddress,phoneNumber, password);modal.close() ">
             Підтвердити
         </button>
     </div>
@@ -196,7 +196,7 @@
 
     <div class="modal-footer">
         <button type="submit" [disabled]="loginForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
-                (click)="checkUser(logInEmail,logInPassword)">Підтвердити
+                (click)="login(logInEmail,logInPassword)">Підтвердити
         </button>
     </div>
 </ng-template>

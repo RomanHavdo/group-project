@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {User} from "./user";
-import {el} from "@angular/platform-browser/testing/src/browser_util";
-import {current} from "codelyzer/util/syntaxKind";
+import {Component, Input} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from "../interfaces/user";
+import {AuthService} from "../auth.service";
 
 
 @Component({
@@ -13,25 +12,17 @@ import {current} from "codelyzer/util/syntaxKind";
 export class NavBarComponent {
     @Input() menuItems;
     closeResult: string;
-    newUser: User[] = [{
-        name: "Petia",
-        dateOfBirth: "12-09-1953",
-        sex: "Чоловіча",
-        homeAddress: "NY, Manhattan, 22",
-        emailAddress: "admin",
-        phoneNumber: "+380001234567",
-        password: "admin"
-    }];
+
     authError: string;
     sexs: string[] = ["Чоловіча", "Жіноча"];
 
-    constructor(private modalService: NgbModal) {
+    constructor(private modalService: NgbModal, private authService: AuthService) {
     }
 
-    checkUser(logInEmail, logInPassword) {
-        let foundUser =
-            this.newUser.filter(item => item.emailAddress === logInEmail.viewModel && item.password === logInPassword.viewModel)[0];
-        if (foundUser) {
+
+    login(logInEmail, logInPassword) {
+        let user = this.authService.checkUser(logInEmail, logInPassword);
+        if (user) {
             this.authError = '';
             console.log('in');
             this.modalService.dismissAll();
@@ -41,9 +32,9 @@ export class NavBarComponent {
     }
 
 
-    onSubmit(name, dateofbirth, sex, homeAddress, emailAddress, phoneNumber, password) {
-        this.newUser.push(new User(name.viewModel, dateofbirth.viewModel,sex.value, homeAddress.viewModel, emailAddress.viewModel, phoneNumber.viewModel, password.viewModel));
-        console.log(this.newUser);
+    registerUser(name, dateofbirth, sex, homeAddress, emailAddress, phoneNumber, password) {
+        let user: User = new User(name.viewModel, dateofbirth.viewModel, sex.value, homeAddress.viewModel, emailAddress.viewModel, phoneNumber.viewModel, password.viewModel);
+        this.authService.register(user);
     }
 
 

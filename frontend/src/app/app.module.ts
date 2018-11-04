@@ -20,13 +20,7 @@ import {MainComponent} from './Pages/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponentModule } from './card-components/cards-component.module';
 
-const appRoutes: Routes = [
-    {path: '', component: MainComponent},
-    {path: 'about', component: AboutComponent},
-    {path: 'doctors', component: DoctorsComponent},
-    {path: 'news', component: NewsComponent},
-    {path: 'services', component: ServicesComponent}
-];
+import {appRoutes} from './appRoutes';
 
 @NgModule({
     declarations: [
