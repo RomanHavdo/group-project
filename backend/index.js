@@ -24,14 +24,7 @@ app.use(express.json());
 app.use('/api', route);
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'))
-});
-
-app.get('/', (req, res) => {
-    res.send('foobar176');
-})
+app.use('/', route);
 
 app.listen(PORT, () => {
     console.log(`Server stardet at port ${PORT}`);

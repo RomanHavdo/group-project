@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
@@ -30,8 +30,8 @@ export class CarouselComponent {
     ];
 
     counter = 0;
-    activeButton = "";
-  
+    activeButton = '';
+
     onClickInc() {
         const total = this.images.length - 1;
         this.counter = this.counter < total ? this.counter + 1 : 0;
@@ -56,10 +56,9 @@ export class CarouselComponent {
     }
 
     constructor() {
-        ;
         setInterval(() => {
             this.onClickInc();
-        }, 3000)
+        }, 3000);
     }
 
 }
