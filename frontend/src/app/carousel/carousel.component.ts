@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
-
 @Component({
     selector: 'app-carousel',
     templateUrl: './carousel.component.html',
@@ -49,11 +48,11 @@ export class CarouselComponent {
 
 
     onClickInc() {
-        this.stan = 'inactive';
         const total = this.images.pictures.length - 1;
         const totalText = this.images.textH1.length - 1;
         const totalInfo = this.images.textInfo.length - 1;
-
+      
+        this.stan = 'inactive';
         this.counter = this.counter < total ? this.counter + 1 : 0;
         this.counterText = this.counterText < totalText ? this.counterText + 1 : 0;
         this.counterInfo=this.counterInfo < totalInfo ? this.counterInfo + 1 : 0;
@@ -61,11 +60,11 @@ export class CarouselComponent {
         this.setActive(`btn${this.counter}`);
     }
     onClickDec() {
-        this.stan = 'inactive-left';
-
         const total = this.images.pictures.length - 1;
         const totalText = this.images.textH1.length - 1;
         const totalInfo = this.images.textInfo.length - 1;
+      
+        this.stan = 'inactive-left';
 
         this.counterInfo = this.counterInfo > 0 ? this.counterInfo - 1 : totalInfo;
         this.counterText = this.counterText > 0 ? this.counterText - 1 : totalText;
