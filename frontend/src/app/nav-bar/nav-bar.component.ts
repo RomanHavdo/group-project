@@ -23,7 +23,7 @@ export class NavBarComponent {
         password: "admin"
     }];
     authError: string;
-    sex: string[] = ["Чоловіча", "Жіноча"];
+    sexs: string[] = ["Чоловіча", "Жіноча"];
 
     constructor(private modalService: NgbModal) {
     }
@@ -41,7 +41,7 @@ export class NavBarComponent {
     }
 
 
-    onSubmit(name, dateofbirth,sex, homeAddress, emailAddress, phoneNumber, password) {
+    onSubmit(name, dateofbirth, sex, homeAddress, emailAddress, phoneNumber, password) {
         this.newUser.push(new User(name.viewModel, dateofbirth.viewModel,sex.value, homeAddress.viewModel, emailAddress.viewModel, phoneNumber.viewModel, password.viewModel));
         console.log(this.newUser);
     }

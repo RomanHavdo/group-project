@@ -80,7 +80,7 @@
                         name='sex'
                         #sex="ngModel"
                         required>
-                    <option *ngFor="let item of sex" [value]="item">{{item}}
+                    <option *ngFor="let item of sexs" [value]="item">{{item}}
                     </option>
                 </select>
             </div>
@@ -155,7 +155,7 @@
     </div>
     <div class="modal-footer">
         <button type="submit" [disabled]="registrationForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
-                (click)="onSubmit(name,dateofbirth,sex,homeAddress,emailAddress,phoneNumber, password);modal.close()">
+                (click)="onSubmit(name,dateofbirth,sex,homeAddress,emailAddress,phoneNumber, password);modal.close() ">
             Підтвердити
         </button>
     </div>
