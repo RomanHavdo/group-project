@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import {HttpService} from '../http.service';
+
 
 @Component({
     selector: 'app-carousel',
@@ -26,9 +28,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         ]),
     ]
 })
-
-export class CarouselComponent {
-    @Input() images;
+export class CarouselComponent implements OnInit {
     counter = 0;
     counterText = 0;
     counterInfo=0;
@@ -86,11 +86,20 @@ export class CarouselComponent {
     isActive(buttonName) {
         return this.activeButton === buttonName;
     }
-    constructor() {
+
+    constructor(private _httpService: HttpService) {
 
         setInterval(() => {
             this.onClickInc();
         }, 3000);
+    }
+
+
+    ngOnInit(){
+     this._httpService.getCarouselData()
+     .subscribe(res => {
+       console.log(res);
+     })
     }
 
 }

@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CarouselModule } from './carousel/carousel.module';
 import { CardsComponentModule } from './card-components/cards-component.module';
+import { HttpService } from './http.service';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,7 @@ import { CardsComponentModule } from './card-components/cards-component.module';
         HttpClientModule,
         CardsComponentModule
     ],
-    providers: [],
+    providers: [HttpService],
     bootstrap: [AppComponent]
 })
 
