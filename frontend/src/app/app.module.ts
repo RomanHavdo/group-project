@@ -10,15 +10,15 @@ import {AppointmentWindowComponent} from './appointment-window/appointment-windo
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {CarouselModule} from './carousel/carousel.module';
-import {CardsContainerComponent} from './card-components/cards-container/cards-container.component';
-import {CardComponent} from './card-components/card/card.component';
-import {LinkButtonComponent} from './card-components/link-button/link-button.component';
-import {OnHoverLinkButtonDirective} from './card-components/card/on-hover-link-button.directive';
+
 import {ServicesComponent} from './Pages/services/services.component';
 import {DoctorsComponent} from './Pages/doctors/doctors.component';
 import {NewsComponent} from './Pages/news/news.component';
 import {AboutComponent} from './Pages/about/about.component';
 import {MainComponent} from './Pages/main/main.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { CardsComponentModule } from './card-components/cards-component.module';
 
 const appRoutes: Routes = [
     {path: '', component: MainComponent},
@@ -34,16 +34,11 @@ const appRoutes: Routes = [
         NavBarComponent,
         FooterComponent,
         AppointmentWindowComponent,
-        CardsContainerComponent,
-        CardComponent,
-        LinkButtonComponent,
-        OnHoverLinkButtonDirective,
         ServicesComponent,
         DoctorsComponent,
         NewsComponent,
         AboutComponent,
         MainComponent
-
     ],
     imports: [
         RouterModule.forRoot(
@@ -52,7 +47,9 @@ const appRoutes: Routes = [
         BrowserModule,
         FormsModule,
         NgbModule,
-        CarouselModule
+        CarouselModule,
+        HttpClientModule,
+        CardsComponentModule
     ],
     providers: [],
     bootstrap: [AppComponent]

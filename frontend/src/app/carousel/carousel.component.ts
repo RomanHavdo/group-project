@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core'
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {Component, Input} from '@angular/core';
+import {trigger, state, style, transition, animate} from '@angular/animations';
 
 
 @Component({
@@ -21,27 +21,24 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class CarouselComponent {
-    images=[
-        'assets/img/slides/slide1.jpg',
-        'assets/img/slides/slide2.jpg',
-        'assets/img/slides/slide3.jpg',
-        'assets/img/slides/slide4.jpg',
-        'assets/img/slides/slide5.jpg',
-    ];
+    @Input()
+    images;
 
     counter = 0;
-    activeButton = "";
-  
+    activeButton = '';
+
     onClickInc() {
         const total = this.images.length - 1;
         this.counter = this.counter < total ? this.counter + 1 : 0;
         this.setActive(`btn${this.counter}`);
     }
+
     onClickDec() {
         const total = this.images.length - 1;
         this.counter = this.counter > 0 ? this.counter - 1 : total;
         this.setActive(`btn${this.counter}`);
     }
+
     onClickItem(event) {
         this.counter = Number(event.explicitOriginalTarget.value);
         this.setActive(`btn${this.counter}`);
@@ -56,10 +53,9 @@ export class CarouselComponent {
     }
 
     constructor() {
-        ;
         setInterval(() => {
             this.onClickInc();
-        }, 3000)
+        }, 3000);
     }
 
 }
