@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
@@ -47,6 +47,7 @@ export class CarouselComponent {
         document.getElementById('carousel-btn').classList.add('span-btn-none');
     }
 
+
     onClickInc() {
         this.stan = 'inactive';
         const total = this.images.pictures.length - 1;
@@ -88,6 +89,9 @@ export class CarouselComponent {
     }
     constructor() {
 
+        setInterval(() => {
+            this.onClickInc();
+        }, 3000);
     }
 
 }

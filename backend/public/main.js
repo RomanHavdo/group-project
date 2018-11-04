@@ -41,7 +41,7 @@ module.exports = "\r\n#main {\r\n    position: relative;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <header>\r\n        <app-nav-bar [menuItems]=\"menuItems\"></app-nav-bar>\r\n    </header>\r\n    <div id=\"main\">\r\n        <app-appointment-window></app-appointment-window>\r\n        <app-carousel [images]=\"images\"></app-carousel>\r\n        <app-cards-container></app-cards-container>\r\n    </div>\r\n    \r\n    <footer>\r\n        <app-footer></app-footer>\r\n    </footer>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n    <header>\r\n        <app-nav-bar [menuItems]=\"menuItems\"></app-nav-bar>\r\n    </header>\r\n    <div id=\"main\">\r\n        <app-appointment-window></app-appointment-window>\r\n        <app-carousel [images]=\"images\"></app-carousel>\r\n        <app-cards-container></app-cards-container>\r\n    </div>\r\n    <app-cards-container></app-cards-container>\r\n    <footer>\r\n        <app-footer></app-footer>\r\n    </footer>\r\n</div>"
 
 /***/ }),
 
@@ -56,38 +56,22 @@ module.exports = "<div class=\"container-fluid\">\r\n    <header>\r\n        <ap
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        this.images = {
-            "pictures": [
-                'assets/img/slides/slide1.jpg',
-                'assets/img/slides/slide2.jpg',
-                'assets/img/slides/slide3.jpg',
-                'assets/img/slides/slide4.jpg',
-                'assets/img/slides/slide5.jpg',
-            ],
-            textH1: [
-                'Opening',
-                'Closing',
-                'Check',
-                'Move',
-                'What'
-            ],
-            textInfo: [
-                'Opening new hospital',
-                'Closing new hospital',
-                'Check hospital',
-                'Move our hospital',
-                'What is gooing'
-            ]
-        };
+    function AppComponent(httpService) {
+        this.httpService = httpService;
+        this.images = {};
         this.menuItems = {
             logo: '/assets/img/logo.png',
             clinicName: 'BabyMed',
@@ -100,12 +84,18 @@ var AppComponent = /** @class */ (function () {
             logIn: 'Зареєструватися'
         };
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.httpService.getCarouselData().subscribe(function (data) { return _this.images = data; });
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")],
-        })
+            providers: [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]]
+        }),
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -127,16 +117,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
-/* harmony import */ var _appointment_window_appointment_window_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./appointment-window/appointment-window.component */ "./src/app/appointment-window/appointment-window.component.ts");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _carousel_carousel_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./carousel/carousel.module */ "./src/app/carousel/carousel.module.ts");
-/* harmony import */ var _card_components_cards_container_cards_container_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./card-components/cards-container/cards-container.component */ "./src/app/card-components/cards-container/cards-container.component.ts");
-/* harmony import */ var _card_components_card_card_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./card-components/card/card.component */ "./src/app/card-components/card/card.component.ts");
-/* harmony import */ var _card_components_link_button_link_button_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./card-components/link-button/link-button.component */ "./src/app/card-components/link-button/link-button.component.ts");
-/* harmony import */ var _card_components_card_on_hover_link_button_directive__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./card-components/card/on-hover-link-button.directive */ "./src/app/card-components/card/on-hover-link-button.directive.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+/* harmony import */ var _appointment_window_appointment_window_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./appointment-window/appointment-window.component */ "./src/app/appointment-window/appointment-window.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _carousel_carousel_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./carousel/carousel.module */ "./src/app/carousel/carousel.module.ts");
+/* harmony import */ var _card_components_cards_component_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./card-components/cards-component.module */ "./src/app/card-components/cards-component.module.ts");
+// TODO: use ProdMod after dev stage, uncomment two lines of code below
+// import { enableProdMode} from '@angular/core';
+// enableProdMode();
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -154,31 +145,27 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_4__["NavBarComponent"],
-                _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"],
-                _appointment_window_appointment_window_component__WEBPACK_IMPORTED_MODULE_6__["AppointmentWindowComponent"],
-                _card_components_cards_container_cards_container_component__WEBPACK_IMPORTED_MODULE_9__["CardsContainerComponent"],
-                _card_components_card_card_component__WEBPACK_IMPORTED_MODULE_10__["CardComponent"],
-                _card_components_link_button_link_button_component__WEBPACK_IMPORTED_MODULE_11__["LinkButtonComponent"],
-                _card_components_card_on_hover_link_button_directive__WEBPACK_IMPORTED_MODULE_12__["OnHoverLinkButtonDirective"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_5__["NavBarComponent"],
+                _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
+                _appointment_window_appointment_window_component__WEBPACK_IMPORTED_MODULE_7__["AppointmentWindowComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModule"],
-                _carousel_carousel_module__WEBPACK_IMPORTED_MODULE_8__["CarouselModule"]
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"],
+                _carousel_carousel_module__WEBPACK_IMPORTED_MODULE_9__["CarouselModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                _card_components_cards_component_module__WEBPACK_IMPORTED_MODULE_10__["CardsComponentModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -260,6 +247,67 @@ var AppointmentWindowComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/card-components/card/card-hover.directive.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/card-components/card/card-hover.directive.ts ***!
+  \**************************************************************/
+/*! exports provided: OnHoverDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnHoverDirective", function() { return OnHoverDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var OnHoverDirective = /** @class */ (function () {
+    function OnHoverDirective(element, renderer) {
+        this.element = element;
+        this.renderer = renderer;
+    }
+    OnHoverDirective.prototype.onMouseEnter = function () {
+        this.setScale('scale(1.05, 1.05)', '0.3s all');
+    };
+    OnHoverDirective.prototype.onMouseLeave = function () {
+        this.setScale('scale(1, 1)', '0.2s all');
+    };
+    OnHoverDirective.prototype.setScale = function (val, duration) {
+        this.renderer.setStyle(this.element.nativeElement, 'transform', val);
+        this.renderer.setStyle(this.element.nativeElement, 'transition', duration);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('mouseenter'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], OnHoverDirective.prototype, "onMouseEnter", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('mouseleave'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], OnHoverDirective.prototype, "onMouseLeave", null);
+    OnHoverDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[appOnHover]'
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]])
+    ], OnHoverDirective);
+    return OnHoverDirective;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/card-components/card/card.component.html":
 /*!**********************************************************!*\
   !*** ./src/app/card-components/card/card.component.html ***!
@@ -267,7 +315,7 @@ var AppointmentWindowComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [@show]=\"isVisible ? 'visible' : 'hidden'\" class=\"card\">\r\n    <a class=\"card__link\" href=\"/\">\r\n        <div class=\"card__image-container\">\r\n            <img class=\"card__image\" src=\"{{card.url}}\" alt=\"clinic\">\r\n            <div class=\"card__button\" appOnHover>\r\n                <app-link-button [link]=\"card.link\"></app-link-button>\r\n            </div>\r\n        </div>\r\n        <div class=\"card__subscribe\">\r\n            <span>{{card.subscribe}}</span>\r\n        </div>\r\n    </a>\r\n</div>"
+module.exports = "\r\n<div class=\"card\" appOnHover>\r\n    <a class=\"card__link\" href=\"/\">\r\n        <div class=\"card__image-container\">\r\n            <img class=\"card__image\" src=\"{{card.imgUrl}}\" alt=\"clinic\">\r\n            <div class=\"card__button\">{{card.link.name}}</div>\r\n        </div>\r\n        <div class=\"card__subscribe\">\r\n            <span>{{card.subscribe}}</span>\r\n        </div>\r\n    </a>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -278,7 +326,7 @@ module.exports = "<div [@show]=\"isVisible ? 'visible' : 'hidden'\" class=\"card
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  width: 50%;\n  margin-bottom: 50px; }\n\n* {\n  box-sizing: border-box; }\n\n.card {\n  width: 80%;\n  height: 320px;\n  margin: auto;\n  color: #fafafa;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2); }\n\n.card .card__link {\n    text-decoration: none;\n    color: white; }\n\n.card__image-container {\n  width: 100%;\n  height: 320px; }\n\n.card__image-container .card__image {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover; }\n\n.card__button {\n  text-align: center;\n  font-size: 1.2rem;\n  font-weight: bold;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  z-index: 10;\n  background: rgba(54, 54, 54, 0.6);\n  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2); }\n\n.card__subscribe {\n  padding: 10px;\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  height: 70px;\n  background: rgba(54, 54, 54, 0.75);\n  box-shadow: 0 -3px 6px 0 rgba(0, 0, 0, 0.3), 0 -6px 20px 0 rgba(0, 0, 0, 0.2); }\n"
+module.exports = ":host {\n  padding: 20px 0; }\n\n* {\n  box-sizing: border-box; }\n\n.card {\n  width: 90%;\n  margin: auto;\n  color: #fafafa;\n  position: relative;\n  border-radius: 0;\n  overflow: hidden;\n  padding: 0;\n  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2); }\n\n.card .card__link {\n    text-decoration: none;\n    color: white; }\n\n.card__image-container {\n  width: 100%;\n  height: 360px; }\n\n.card__image-container .card__image {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover; }\n\n.card__button {\n  text-align: center;\n  font-size: 1.2rem;\n  font-weight: bold;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  z-index: 10;\n  background: rgba(54, 54, 54, 0.6);\n  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2); }\n\n.card__subscribe {\n  padding: 10px;\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  height: 70px;\n  background: rgba(54, 54, 54, 0.75);\n  box-shadow: 0 -3px 6px 0 rgba(0, 0, 0, 0.3), 0 -6px 20px 0 rgba(0, 0, 0, 0.2); }\n"
 
 /***/ }),
 
@@ -293,7 +341,6 @@ module.exports = ":host {\n  width: 50%;\n  margin-bottom: 50px; }\n\n* {\n  box
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardComponent", function() { return CardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -304,18 +351,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 var CardComponent = /** @class */ (function () {
     function CardComponent() {
-        this.isVisible = false;
     }
     CardComponent.prototype.ngOnInit = function () { };
-    CardComponent.prototype.ngAfterViewChecked = function () {
-        this.show();
-    };
-    CardComponent.prototype.show = function () {
-        this.isVisible = true;
-    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
@@ -323,27 +362,8 @@ var CardComponent = /** @class */ (function () {
     CardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-card-component',
-            animations: [
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('show', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        opacity: 0,
-                        width: '30%',
-                        right: '0%',
-                        top: '0%',
-                        transform: 'rotateX(90deg)'
-                    })),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        opacity: 1,
-                        width: '80%',
-                        right: '0%',
-                        top: '0%',
-                        transform: 'rotateX(0deg)'
-                    })),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('hidden => visible', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.6s')])
-                ])
-            ],
             template: __webpack_require__(/*! ./card.component.html */ "./src/app/card-components/card/card.component.html"),
-            styles: [__webpack_require__(/*! ./card.component.scss */ "./src/app/card-components/card/card.component.scss")]
+            styles: [__webpack_require__(/*! ./card.component.scss */ "./src/app/card-components/card/card.component.scss")],
         }),
         __metadata("design:paramtypes", [])
     ], CardComponent);
@@ -354,61 +374,56 @@ var CardComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/card-components/card/on-hover-link-button.directive.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/card-components/card/on-hover-link-button.directive.ts ***!
-  \************************************************************************/
-/*! exports provided: OnHoverLinkButtonDirective */
+/***/ "./src/app/card-components/cards-component.module.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/card-components/cards-component.module.ts ***!
+  \***********************************************************/
+/*! exports provided: CardsComponentModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnHoverLinkButtonDirective", function() { return OnHoverLinkButtonDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardsComponentModule", function() { return CardsComponentModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _cards_container_cards_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cards-container/cards-data.service */ "./src/app/card-components/cards-container/cards-data.service.ts");
+/* harmony import */ var _card_card_hover_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./card/card-hover.directive */ "./src/app/card-components/card/card-hover.directive.ts");
+/* harmony import */ var _cards_container_cards_container_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cards-container/cards-container.component */ "./src/app/card-components/cards-container/cards-container.component.ts");
+/* harmony import */ var _card_card_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./card/card.component */ "./src/app/card-components/card/card.component.ts");
+/* harmony import */ var _left_cards_column_left_cards_column_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./left-cards-column/left-cards-column.component */ "./src/app/card-components/left-cards-column/left-cards-column.component.ts");
+/* harmony import */ var _right_cards_column_right_cards_column_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./right-cards-column/right-cards-column.component */ "./src/app/card-components/right-cards-column/right-cards-column.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
-var OnHoverLinkButtonDirective = /** @class */ (function () {
-    function OnHoverLinkButtonDirective(element, renderer) {
-        this.element = element;
-        this.renderer = renderer;
+
+
+
+
+
+
+
+var CardsComponentModule = /** @class */ (function () {
+    function CardsComponentModule() {
     }
-    OnHoverLinkButtonDirective.prototype.onMouseEnter = function () {
-        this.setButtonBg('rgba(54, 54, 54, 0.75)', '0.3s all');
-    };
-    OnHoverLinkButtonDirective.prototype.onMouseLeave = function () {
-        this.setButtonBg('rgba(54, 54, 54, 0.6)', '0.2s all');
-    };
-    OnHoverLinkButtonDirective.prototype.setButtonBg = function (bgSet, effect) {
-        this.renderer.setStyle(this.element.nativeElement, 'background', bgSet);
-        this.renderer.setStyle(this.element.nativeElement, 'transition', effect);
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('mouseenter'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
-    ], OnHoverLinkButtonDirective.prototype, "onMouseEnter", null);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('mouseleave'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
-    ], OnHoverLinkButtonDirective.prototype, "onMouseLeave", null);
-    OnHoverLinkButtonDirective = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-            selector: '[appOnHover]'
-        }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]])
-    ], OnHoverLinkButtonDirective);
-    return OnHoverLinkButtonDirective;
+    CardsComponentModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            declarations: [
+                _card_card_component__WEBPACK_IMPORTED_MODULE_5__["CardComponent"],
+                _cards_container_cards_container_component__WEBPACK_IMPORTED_MODULE_4__["CardsContainerComponent"],
+                _left_cards_column_left_cards_column_component__WEBPACK_IMPORTED_MODULE_6__["LeftCardsColumnComponent"],
+                _right_cards_column_right_cards_column_component__WEBPACK_IMPORTED_MODULE_7__["RightCardsColumnComponent"],
+                _card_card_hover_directive__WEBPACK_IMPORTED_MODULE_3__["OnHoverDirective"]
+            ],
+            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]],
+            providers: [_cards_container_cards_data_service__WEBPACK_IMPORTED_MODULE_2__["CardsDataService"]],
+            exports: [_cards_container_cards_container_component__WEBPACK_IMPORTED_MODULE_4__["CardsContainerComponent"]]
+        })
+    ], CardsComponentModule);
+    return CardsComponentModule;
 }());
 
 
@@ -422,7 +437,7 @@ var OnHoverLinkButtonDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"cards-container\">\r\n\r\n  <app-card-component *ngFor=\"let card of cards\" [card]=\"card\"></app-card-component>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"cards-container\">\r\n  <app-left-cards-column [cards] = \"leftCardsColumn\"></app-left-cards-column>\r\n  <app-right-cards-column [cards] = \"rightCardsColumn\"></app-right-cards-column>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -433,7 +448,7 @@ module.exports = "<div class=\"cards-container\">\r\n\r\n  <app-card-component *
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".cards-container {\n  width: 80%;\n  margin: 0 auto;\n  display: flex;\n  position: relative;\n  flex-flow: row wrap;\n  justify-content: space-around;\n  box-sizing: border-box; }\n"
+module.exports = ".cards-container {\n  width: 90%;\n  margin: 0 auto;\n  display: flex;\n  position: relative;\n  flex-flow: row nowrap;\n  justify-content: space-evenly;\n  box-sizing: border-box;\n  margin-bottom: 50px;\n  overflow: hidden; }\n"
 
 /***/ }),
 
@@ -464,16 +479,21 @@ var CardsContainerComponent = /** @class */ (function () {
     function CardsContainerComponent(cardsDataService) {
         this.cardsDataService = cardsDataService;
         this.cards = [];
+        this.leftCardsColumn = [];
+        this.rightCardsColumn = [];
     }
     CardsContainerComponent.prototype.ngOnInit = function () {
         this.cards = this.cardsDataService.getData();
+        this.leftCardsColumn = this.cards.slice(0, this.cards.length / 2);
+        this.rightCardsColumn = this.cards.slice(this.cards.length / 2);
     };
     CardsContainerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-cards-container',
             template: __webpack_require__(/*! ./cards-container.component.html */ "./src/app/card-components/cards-container/cards-container.component.html"),
             styles: [__webpack_require__(/*! ./cards-container.component.scss */ "./src/app/card-components/cards-container/cards-container.component.scss")],
-            providers: [_cards_data_service__WEBPACK_IMPORTED_MODULE_1__["CardsDataService"]]
+            providers: [_cards_data_service__WEBPACK_IMPORTED_MODULE_1__["CardsDataService"]],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_cards_data_service__WEBPACK_IMPORTED_MODULE_1__["CardsDataService"]])
     ], CardsContainerComponent);
@@ -497,39 +517,39 @@ __webpack_require__.r(__webpack_exports__);
 var CardsDataService = /** @class */ (function () {
     function CardsDataService() {
         this.cards = [
-            { url: '../../../assets/img/cards/call-doctor.jpg', link: {
+            { imgUrl: '../../../assets/img/cards/call-doctor.jpg', link: {
                     name: 'Виклик лікаря додому',
-                    route: '/some-rote-link'
+                    route: '/link-from-router'
                 },
                 subscribe: 'Якісна медична допомога у доступна з максимальною зручністю.'
             },
-            { url: '../../../assets/img/cards/review.jpg', link: {
+            { imgUrl: '../../../assets/img/cards/review.jpg', link: {
                     name: 'Комплексні обстеження',
-                    route: '/some-rote-link'
+                    route: '/link-from-router'
                 },
                 subscribe: 'Консультації та обстеження у спеціалістів дозволяють отримати найдетальнішу інформацію про стан вашої дитини.'
             },
-            { url: '../../../assets/img/cards/contact.jpg', link: {
+            { imgUrl: '../../../assets/img/cards/contact.jpg', link: {
                     name: 'Контакти',
-                    route: '/some-rote-link'
+                    route: '/link-from-router'
                 },
                 subscribe: 'Ми на зв’язку цілодобово.'
             },
-            { url: '../../../assets/img/cards/services.jpg', link: {
+            { imgUrl: '../../../assets/img/cards/services.jpg', link: {
                     name: 'Послуги',
-                    route: '/some-rote-link',
+                    route: '/link-from-router'
                 },
                 subscribe: 'Широкий вибір медичних послуг для забезпечення міцного здоров’я ваших дітей.'
             },
-            { url: '../../../assets/img/cards/patients.jpg', link: {
+            { imgUrl: '../../../assets/img/cards/patients.jpg', link: {
                     name: 'Пацієнтам',
-                    route: '/some-rote-link'
+                    route: '/link-from-router'
                 },
                 subscribe: 'Ми піклуємося про ваших дітей.'
             },
-            { url: '../../../assets/img/cards/doctors.jpg', link: {
+            { imgUrl: '../../../assets/img/cards/doctors.jpg', link: {
                     name: 'Наші лікарі',
-                    route: '/some-rote-link'
+                    route: '/link-from-router'
                 },
                 subscribe: 'Висококваліфіковані різнопрофільні спеціалісти завжди готові допомогти вашим дітям.'
             }
@@ -545,39 +565,40 @@ var CardsDataService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/card-components/link-button/link-button.component.html":
-/*!************************************************************************!*\
-  !*** ./src/app/card-components/link-button/link-button.component.html ***!
-  \************************************************************************/
+/***/ "./src/app/card-components/left-cards-column/left-cards-column.component.html":
+/*!************************************************************************************!*\
+  !*** ./src/app/card-components/left-cards-column/left-cards-column.component.html ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\r\n    <a href=\"/\">{{link.name}}</a>\r\n</div>"
+module.exports = "<div class=\"left-cards-column\">\r\n\r\n    <app-card-component [@appearLeft]=\"appear ? 'visible' : 'hidden'\" *ngFor = \"let card of cards\" [card]=\"card\"></app-card-component>\r\n\r\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/card-components/link-button/link-button.component.scss":
-/*!************************************************************************!*\
-  !*** ./src/app/card-components/link-button/link-button.component.scss ***!
-  \************************************************************************/
+/***/ "./src/app/card-components/left-cards-column/left-cards-column.component.scss":
+/*!************************************************************************************!*\
+  !*** ./src/app/card-components/left-cards-column/left-cards-column.component.scss ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".wrapper {\n  width: 100%;\n  padding: 0; }\n  .wrapper a {\n    padding: 5px 0;\n    display: block;\n    width: 100%;\n    height: auto;\n    color: white;\n    text-decoration: none; }\n"
+module.exports = ":host {\n  width: 50%; }\n\n.left-cards-column {\n  box-sizing: border-box;\n  width: 100%;\n  display: block;\n  display: flex;\n  flex-direction: column; }\n"
 
 /***/ }),
 
-/***/ "./src/app/card-components/link-button/link-button.component.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/card-components/link-button/link-button.component.ts ***!
-  \**********************************************************************/
-/*! exports provided: LinkButtonComponent */
+/***/ "./src/app/card-components/left-cards-column/left-cards-column.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/card-components/left-cards-column/left-cards-column.component.ts ***!
+  \**********************************************************************************/
+/*! exports provided: LeftCardsColumnComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkButtonComponent", function() { return LinkButtonComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeftCardsColumnComponent", function() { return LeftCardsColumnComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -588,21 +609,138 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var LinkButtonComponent = /** @class */ (function () {
-    function LinkButtonComponent() {
+
+var LeftCardsColumnComponent = /** @class */ (function () {
+    function LeftCardsColumnComponent(cd) {
+        this.cd = cd;
+        this.appear = false;
     }
+    LeftCardsColumnComponent.prototype.ngOnInit = function () { };
+    LeftCardsColumnComponent.prototype.ngAfterViewChecked = function () {
+        this.show();
+        this.cd.detectChanges();
+    };
+    LeftCardsColumnComponent.prototype.show = function () {
+        this.appear = true;
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
-    ], LinkButtonComponent.prototype, "link", void 0);
-    LinkButtonComponent = __decorate([
+    ], LeftCardsColumnComponent.prototype, "cards", void 0);
+    LeftCardsColumnComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-link-button',
-            template: __webpack_require__(/*! ./link-button.component.html */ "./src/app/card-components/link-button/link-button.component.html"),
-            styles: [__webpack_require__(/*! ./link-button.component.scss */ "./src/app/card-components/link-button/link-button.component.scss")]
-        })
-    ], LinkButtonComponent);
-    return LinkButtonComponent;
+            selector: 'app-left-cards-column',
+            template: __webpack_require__(/*! ./left-cards-column.component.html */ "./src/app/card-components/left-cards-column/left-cards-column.component.html"),
+            styles: [__webpack_require__(/*! ./left-cards-column.component.scss */ "./src/app/card-components/left-cards-column/left-cards-column.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('appearLeft', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        opacity: 0,
+                        transform: 'translateX(-100%)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        opacity: 1,
+                        transform: 'translateX(0%)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('hidden => visible', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s 100ms ease-out')])
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+    ], LeftCardsColumnComponent);
+    return LeftCardsColumnComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/card-components/right-cards-column/right-cards-column.component.html":
+/*!**************************************************************************************!*\
+  !*** ./src/app/card-components/right-cards-column/right-cards-column.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"right-cards-column\">\r\n\r\n    <app-card-component  [@appearLeft]=\"appear ? 'visible' : 'hidden'\" *ngFor = \"let card of cards\" [card]=\"card\"></app-card-component>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/card-components/right-cards-column/right-cards-column.component.scss":
+/*!**************************************************************************************!*\
+  !*** ./src/app/card-components/right-cards-column/right-cards-column.component.scss ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  width: 50%; }\n\n.right-cards-column {\n  box-sizing: border-box;\n  width: 100%;\n  display: block;\n  display: flex;\n  flex-direction: column; }\n"
+
+/***/ }),
+
+/***/ "./src/app/card-components/right-cards-column/right-cards-column.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/card-components/right-cards-column/right-cards-column.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: RightCardsColumnComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RightCardsColumnComponent", function() { return RightCardsColumnComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var RightCardsColumnComponent = /** @class */ (function () {
+    function RightCardsColumnComponent(cd) {
+        this.cd = cd;
+        this.appear = false;
+    }
+    RightCardsColumnComponent.prototype.ngOnInit = function () { };
+    RightCardsColumnComponent.prototype.ngAfterViewChecked = function () {
+        this.show();
+        this.cd.detectChanges();
+    };
+    RightCardsColumnComponent.prototype.show = function () {
+        this.appear = true;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], RightCardsColumnComponent.prototype, "cards", void 0);
+    RightCardsColumnComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-right-cards-column',
+            template: __webpack_require__(/*! ./right-cards-column.component.html */ "./src/app/card-components/right-cards-column/right-cards-column.component.html"),
+            styles: [__webpack_require__(/*! ./right-cards-column.component.scss */ "./src/app/card-components/right-cards-column/right-cards-column.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('appearLeft', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        opacity: 0,
+                        transform: 'translateX(100%)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        opacity: 1,
+                        transform: 'translateX(0%)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('hidden => visible', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.6s 300ms ease-out')])
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+    ], RightCardsColumnComponent);
+    return RightCardsColumnComponent;
 }());
 
 
@@ -656,11 +794,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var CarouselComponent = /** @class */ (function () {
     function CarouselComponent() {
+        var _this = this;
         this.counter = 0;
         this.counterText = 0;
         this.counterInfo = 0;
         this.activeButton = "";
         this.stan = 'inactive';
+        setInterval(function () {
+            _this.onClickInc();
+        }, 3000);
     }
     CarouselComponent.prototype.getState = function () {
         return this.stan;
@@ -833,6 +975,47 @@ var FooterComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], FooterComponent);
     return FooterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/http.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/http.service.ts ***!
+  \*********************************/
+/*! exports provided: HttpService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpService", function() { return HttpService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HttpService = /** @class */ (function () {
+    function HttpService(http) {
+        this.http = http;
+    }
+    HttpService.prototype.getCarouselData = function () {
+        return this.http.get('./assets/db/carousel.json');
+    };
+    HttpService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], HttpService);
+    return HttpService;
 }());
 
 

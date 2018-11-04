@@ -1,0 +1,38 @@
+[
+    {"imgUrl": "../../../assets/img/cards/call-doctor.jpg", "link": {
+        "name": "Виклик лікаря додому",
+        "route": "/link-from-router"
+    },
+    "subscribe": "Якісна медична допомога у доступна з максимальною зручністю."
+},
+    {"imgUrl": "../../../assets/img/cards/review.jpg", "link": {
+        "name": "Комплексні обстеження",
+        "route": "/link-from-router"
+    },
+    "subscribe": "Консультації та обстеження у спеціалістів дозволяють отримати найдетальнішу інформацію про стан вашої дитини."
+},
+    {"imgUrl": "../../../assets/img/cards/contact.jpg", "link": {
+        "name": "Контакти",
+        "route": "/link-from-router"
+    },
+    "subscribe": "Ми на зв’язку цілодобово."
+},
+    {"imgUrl": "../../../assets/img/cards/services.jpg", "link": {
+        "name": "Послуги",
+        "route": "/link-from-router"
+    },
+    "subscribe": "Широкий вибір медичних послуг для забезпечення міцного здоров’я ваших дітей."
+},
+    {"imgUrl": "../../../assets/img/cards/patients.jpg", "link": {
+        "name": "Пацієнтам",
+        "route": "/link-from-router"
+    },
+    "subscribe": "Ми піклуємося про ваших дітей."
+},
+    {"imgUrl": "../../../assets/img/cards/doctors.jpg", "link": {
+        "name": "Наші лікарі",
+        "route": "/link-from-router"
+    },
+    "subscribe": "Висококваліфіковані різнопрофільні спеціалісти завжди готові допомогти вашим дітям."
+}
+]
