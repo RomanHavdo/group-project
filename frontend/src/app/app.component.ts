@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpService} from './http.service';
 
 @Component({
@@ -8,8 +8,7 @@ import {HttpService} from './http.service';
     providers: [HttpService]
 
 })
-export class AppComponent implements OnInit {
-    images = [];
+export class AppComponent {
 
     menuItems = {
         logo: '/assets/img/logo.png',
@@ -27,10 +26,7 @@ export class AppComponent implements OnInit {
         mail: 'BabyMed@gmail.com'
     };
 
-    constructor(private httpService: HttpService) {
+    constructor() {
     }
 
-    ngOnInit() {
-        this.httpService.getCarouselData().subscribe((data: any[]) => this.images = data);
-    }
 }
