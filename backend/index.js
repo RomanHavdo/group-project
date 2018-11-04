@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 
-const route = require('./route/routes');
+const route = require('routes');
 
 mongoose.connect('mongodb://student:qwerty1@ds153422.mlab.com:53422/testproject', { useNewUrlParser: true });
 

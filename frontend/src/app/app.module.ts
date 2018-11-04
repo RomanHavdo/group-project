@@ -38,5 +38,3 @@ import { HttpService } from './http.service';
 
 export class AppModule {
 }
-
-
