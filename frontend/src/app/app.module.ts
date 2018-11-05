@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardsComponentModule } from './card-components/cards-component.module';
 
 import {appRoutes} from './appRoutes';
+import { LogInComponent } from './log-in/log-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +34,9 @@ import {appRoutes} from './appRoutes';
         DoctorsComponent,
         NewsComponent,
         AboutComponent,
-        MainComponent
+        MainComponent,
+        LogInComponent,
+        SignUpComponent
     ],
     imports: [
         RouterModule.forRoot(

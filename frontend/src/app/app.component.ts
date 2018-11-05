@@ -18,8 +18,8 @@ export class AppComponent {
         doctors: 'Наші спеціалісти',
         news: 'Новини',
         about: 'Про нас',
-        signIn: 'Увійти',
-        logIn: 'Зареєструватися'
+        logIn: 'Увійти',
+        signUp: 'Зареєструватися'
     };
     contacts = {
         phone: '321-654-98',
