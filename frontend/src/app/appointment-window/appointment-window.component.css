@@ -1,8 +1,8 @@
 .modalBtn {
     border-radius: 50%;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    position: fixed;
+    bottom: 70px;
+    left: 40px;
     background: -webkit-linear-gradient(#fbc315, #fded1a);
     color: white;
 }

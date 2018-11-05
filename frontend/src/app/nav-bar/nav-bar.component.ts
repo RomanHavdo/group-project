@@ -7,7 +7,7 @@ import {HttpService} from '../http.service';
     styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-    menuItems;
+  @Input()  menuItems;
     constructor(private _httpService: HttpService) {
     }
 

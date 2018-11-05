@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {Component, Input, OnInit} from '@angular/core';
+import {trigger, state, style, transition, animate} from '@angular/animations';
 import {HttpService} from '../http.service';
 
 
@@ -10,40 +10,58 @@ import {HttpService} from '../http.service';
     animations: [
         trigger('imgState', [
             state('inactive', style({
-                transform: 'translateX(110%)'
-            }
+                    transform: 'translateX(110%)'
+                }
             )),
             state('inactive-left', style({
-                transform: 'translateX(-110%)'
-            }
+                    transform: 'translateX(-110%)'
+                }
             )),
             state('active', style({
                 transform: 'translateX(0%)'
             })),
 
-            transition('inactive => active', animate('300ms ease-in-out', style({ transform: 'translateX(0%)' }))),
-            transition('active => inactive', animate('300ms ease-in-out', style({ transform: 'translateX(-110%)' }))),
-            transition('inactive-left => active', animate('300ms ease-in-out', style({ transform: 'translateX(0%)' }))),
-            transition('active => inactive-left', animate('300ms ease-in-out', style({ transform: 'translateX(110%)' }))),
+            transition('inactive => active', animate('300ms ease-in-out', style({transform: 'translateX(0%)'}))),
+            transition('active => inactive', animate('300ms ease-in-out', style({transform: 'translateX(-110%)'}))),
+            transition('inactive-left => active', animate('300ms ease-in-out', style({transform: 'translateX(0%)'}))),
+            transition('active => inactive-left', animate('300ms ease-in-out', style({transform: 'translateX(110%)'}))),
         ]),
     ]
 })
 export class CarouselComponent implements OnInit {
+
+    // images;
     counter = 0;
     counterText = 0;
-    counterInfo=0;
+    counterInfo = 0;
 
     activeButton = "";
     stan = 'inactive';
+    images = {
+        "pictures": [
+            "assets/img/slides/slide1.jpg",
+            "assets/img/slides/slide2.jpg",
+            "assets/img/slides/slide3.jpg",
+            "assets/img/slides/slide4.jpg",
+            "assets/img/slides/slide5.jpg"
+        ],
+        "textH1": [
+            "Opening",
+            "Closing",
+            "Check",
+            "Move",
+        ],
+        "textInfo":[
+            "Opening new hospital",
+            "Closing new hospital",
+            "Check hospital",
+            "Move our hospital",
+            "What is gooing"
+        ]
+    };
+
     getState() {
         return this.stan;
-    }
-
-    mouseEnterSpan() {
-        document.getElementById('carousel-btn').classList.remove('span-btn-none');
-    }
-    mouseLeaveSpan() {
-        document.getElementById('carousel-btn').classList.add('span-btn-none');
     }
 
 
@@ -51,19 +69,20 @@ export class CarouselComponent implements OnInit {
         const total = this.images.pictures.length - 1;
         const totalText = this.images.textH1.length - 1;
         const totalInfo = this.images.textInfo.length - 1;
-      
+
         this.stan = 'inactive';
         this.counter = this.counter < total ? this.counter + 1 : 0;
         this.counterText = this.counterText < totalText ? this.counterText + 1 : 0;
-        this.counterInfo=this.counterInfo < totalInfo ? this.counterInfo + 1 : 0;
+        this.counterInfo = this.counterInfo < totalInfo ? this.counterInfo + 1 : 0;
 
         this.setActive(`btn${this.counter}`);
     }
+
     onClickDec() {
         const total = this.images.pictures.length - 1;
         const totalText = this.images.textH1.length - 1;
         const totalInfo = this.images.textInfo.length - 1;
-      
+
         this.stan = 'inactive-left';
 
         this.counterInfo = this.counterInfo > 0 ? this.counterInfo - 1 : totalInfo;
@@ -72,6 +91,7 @@ export class CarouselComponent implements OnInit {
 
         this.setActive(`btn${this.counter}`);
     }
+
     onClickItem(event) {
         this.counter = Number(event.explicitOriginalTarget.value);
         this.counterText = Number(event.explicitOriginalTarget.value);
@@ -94,12 +114,12 @@ export class CarouselComponent implements OnInit {
         }, 3000);
     }
 
-
-    ngOnInit(){
-     this._httpService.getCarouselData()
-     .subscribe(res => {
-       console.log(res);
-     })
-    }
+    ngOnInit(){}
+    // ngOnInit() {
+    //     this._httpService.getCarouselData()
+    //         .subscribe(res => {
+    //             console.log(res);
+    //         })
+    // }
 
 }

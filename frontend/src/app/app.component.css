@@ -1,4 +1,4 @@
 
-#main {
-    position: relative;
+.appDiv {
+    min-height: 900px;
 }

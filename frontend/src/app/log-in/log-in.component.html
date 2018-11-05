@@ -1,0 +1,40 @@
+<a class="loginMenuItem btn  modalBtn" (click)="open(logIn)">{{menuItems.logIn}}</a>
+<ng-template #logIn let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="logIn">Увійти</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #loginForm="ngForm">
+      <div class="form-group">
+        <label for="logInEmail">Електронна адреса</label>
+        <input id='logInEmail' type="text" class="form-control"
+               ngModel
+               required
+               name='logInEmail'
+               #logInEmail="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="logInPassword">Пароль</label>
+        <input id='logInPassword' type="text" class="form-control"
+               ngModel
+               required
+               name='logInPassword'
+               #logInPassword="ngModel">
+        <div class="alert alert-danger" *ngIf="">Це поле є
+          обов'язковим
+        </div>
+      </div>
+    </form>
+    <div class="alert alert-danger" *ngIf="authError">{{authError}}
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" [disabled]="loginForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
+            (click)="login(logInEmail,logInPassword)">Підтвердити
+    </button>
+  </div>
+</ng-template>
