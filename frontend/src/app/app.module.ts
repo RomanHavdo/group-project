@@ -19,6 +19,7 @@ import {MainComponent} from './Pages/main/main.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponentModule } from './card-components/cards-component.module';
+import { HttpService } from './http.service';
 
 import {appRoutes} from './appRoutes';
 import { LogInComponent } from './log-in/log-in.component';
@@ -49,11 +50,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
         HttpClientModule,
         CardsComponentModule
     ],
-    providers: [],
+    providers: [HttpService],
     bootstrap: [AppComponent]
 })
 
 export class AppModule {
 }
-
-

@@ -1,5 +1,6 @@
 export class CardsDataService {
     private cards = [
+
         {imgUrl: '../../../assets/img/cards/call-doctor.jpg', link: {
             name: 'Виклик лікаря додому',
             route: '/link-from-router'
