@@ -1,19 +1,9 @@
 const mongoose = require('mongoose');
-const carouselData = mongoose.Schema({
-    imgUrl:{
-        type:String,
-        required:true
-    },
-    link:{
-        type:Object,
-        required:true
-    },
-    subscribe:{
-        type:String,
-        required:true
-    }
-    
-},{ collection : 'carouselData' });
+const carouselDataSchema = mongoose.Schema({
+    carouselItems: Array
+}, {
+    collection: 'carouselData',
+    versionKey: false
+});
 
-
-const carouselsData = module.exports = mongoose.model('carouselData', carouselData);
+const carouselData = module.exports = mongoose.model('carouselData', carouselDataSchema);
