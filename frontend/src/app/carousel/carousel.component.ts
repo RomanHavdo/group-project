@@ -118,8 +118,9 @@ export class CarouselComponent implements OnInit {
     // ngOnInit() {
     //     this._httpService.getCarouselData()
     //         .subscribe(res => {
-    //             console.log(res);
-    //         })
+    //             this.images = res.res[0].carouselItems;
+    //             console.log(res[0].carouselItems);
+    //         });
     // }
 
 }

@@ -5,17 +5,17 @@ const path = require('path');
 
 const app = express();
 
-const route = require('routes');
+const route = require('./route/routes');
 
-mongoose.connect('mongodb://student:qwerty1@ds153422.mlab.com:53422/testproject', { useNewUrlParser: true });
-
-mongoose.connection.on('connected', () => {
-    console.log('MongoDB connected at port 27017');
-});
-
-mongoose.connection.on('error', (err) => {
-    console.log(err);
-});
+mongoose.connect('mongodb://student:qwerty1@ds153422.mlab.com:53422/testproject', {
+        useNewUrlParser: true
+    })
+    .then(() => {
+        console.log('MongoDB connected at port 27017');
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
 const PORT = process.env.PORT || 8080;
 
