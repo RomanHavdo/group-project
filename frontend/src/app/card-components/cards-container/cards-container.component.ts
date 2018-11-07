@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {CardsDataService} from './cards-data.service';
+import { Card } from '../../interfaces/card';
 
 @Component({
     selector: 'app-cards-container',
@@ -10,9 +11,9 @@ import {CardsDataService} from './cards-data.service';
 })
 export class CardsContainerComponent implements OnInit {
 
-    cards = [];
-    leftCardsColumn = [];
-    rightCardsColumn = [];
+    cards:Array<Card> = [];
+    leftCardsColumn:Array<any> = [];
+    rightCardsColumn:Array<any> = [];
     constructor(private cardsDataService: CardsDataService) {}
 
     ngOnInit() {

@@ -31,13 +31,13 @@ import {HttpService} from '../http.service';
 export class CarouselComponent implements OnInit {
 
     // images;
-    counter = 0;
-    counterText = 0;
-    counterInfo = 0;
+    counter:any = 0;
+    counterText:any = 0;
+    counterInfo:any = 0;
 
-    activeButton = "";
-    stan = 'inactive';
-    images = {
+    activeButton:String = "";
+    stan:String = 'inactive';
+    images:any = {
         "pictures": [
             "assets/img/slides/slide1.jpg",
             "assets/img/slides/slide2.jpg",

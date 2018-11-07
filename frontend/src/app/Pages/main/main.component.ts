@@ -7,7 +7,7 @@ import {HttpService} from "../../http.service";
     styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-    images = [];
+    images:Array<any> = [];
 
     constructor(private httpService: HttpService) {
     }
