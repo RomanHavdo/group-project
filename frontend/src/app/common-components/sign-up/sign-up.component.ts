@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {AuthService} from "../auth.service";
+import {AuthService} from "../../auth.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {User} from "../interfaces/user";
+import {User} from "../../interfaces/user";
 
 @Component({
   selector: 'app-sign-up',
