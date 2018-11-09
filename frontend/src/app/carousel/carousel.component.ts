@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {trigger, state, style, transition, animate} from '@angular/animations';
-import {HttpService} from '../http.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { HttpService } from '../http.service';
 
 
 @Component({
@@ -10,67 +10,61 @@ import {HttpService} from '../http.service';
     animations: [
         trigger('imgState', [
             state('inactive', style({
-                    transform: 'translateX(110%)'
-                }
-            )),
-            state('inactive-left', style({
-                    transform: 'translateX(-110%)'
-                }
+                opacity: 0
+            }
             )),
             state('active', style({
-                transform: 'translateX(0%)'
+                opacity: 1
             })),
 
-            transition('inactive => active', animate('300ms ease-in-out', style({transform: 'translateX(0%)'}))),
-            transition('active => inactive', animate('300ms ease-in-out', style({transform: 'translateX(-110%)'}))),
-            transition('inactive-left => active', animate('300ms ease-in-out', style({transform: 'translateX(0%)'}))),
-            transition('active => inactive-left', animate('300ms ease-in-out', style({transform: 'translateX(110%)'}))),
+            transition('inactive => active', animate('300ms ease-in-out')),
+            transition('active => inactive', animate('300ms ease-in-out'))
         ]),
     ]
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent {
 
-    // images;
-    counter = 0;
-    counterText = 0;
-    counterInfo = 0;
+    counter: number = 0;
+    counterText: number = 0;
+    counterInfo: number = 0;
+    activeButton: string = "";
+    id: any;
+    images = [
+        { 'id': '0', 'url': 'assets/img/slides/slide1.jpg', 'header': 'Home', 'description': 'Home page', 'link': '' },
+        { 'id': '1', 'url': 'assets/img/slides/slide2.jpg', 'header': 'About', 'description': 'About page', 'link': 'about' },
+        { 'id': '2', 'url': 'assets/img/slides/slide3.jpg', 'header': 'Doctors', 'description': 'Doctors page', 'link': 'doctors' },
+        { 'id': '3', 'url': 'assets/img/slides/slide4.jpg', 'header': 'News', 'description': 'News page', 'link': 'news' },
+        { 'id': '4', 'url': 'assets/img/slides/slide5.jpg', 'header': 'Services', 'description': 'Services page', 'link': 'services' }
+    ];
 
-    activeButton = "";
-    stan = 'inactive';
-    images = {
-        "pictures": [
-            "assets/img/slides/slide1.jpg",
-            "assets/img/slides/slide2.jpg",
-            "assets/img/slides/slide3.jpg",
-            "assets/img/slides/slide4.jpg",
-            "assets/img/slides/slide5.jpg"
-        ],
-        "textH1": [
-            "Opening",
-            "Closing",
-            "Check",
-            "Move",
-        ],
-        "textInfo":[
-            "Opening new hospital",
-            "Closing new hospital",
-            "Check hospital",
-            "Move our hospital",
-            "What is gooing"
-        ]
-    };
-
-    getState() {
-        return this.stan;
+    runTimeout(): void {
+        this.id = setTimeout(() => {
+            this.onClickInc();
+        }, 3000);
     }
 
+    runTimeout2(): void {
+        this.id = setTimeout(() => {
+            this.runTimeout();
+        }, 7000);
+    }
 
-    onClickInc() {
-        const total = this.images.pictures.length - 1;
-        const totalText = this.images.textH1.length - 1;
-        const totalInfo = this.images.textInfo.length - 1;
+    mouseEnterSpan(): void {
+        document.getElementById('carousel-btn').classList.remove('span-btn-none');
+        clearTimeout(this.id);
+        this.runTimeout2();
+    }
+    mouseLeaveSpan(): void {
+        document.getElementById('carousel-btn').classList.add('span-btn-none');
+    }
 
-        this.stan = 'inactive';
+    onClickInc(): void {
+        clearTimeout(this.id);
+        this.runTimeout();
+        const total = this.images.length - 1;
+        const totalText = this.images.length - 1;
+        const totalInfo = this.images.length - 1;
+
         this.counter = this.counter < total ? this.counter + 1 : 0;
         this.counterText = this.counterText < totalText ? this.counterText + 1 : 0;
         this.counterInfo = this.counterInfo < totalInfo ? this.counterInfo + 1 : 0;
@@ -78,12 +72,12 @@ export class CarouselComponent implements OnInit {
         this.setActive(`btn${this.counter}`);
     }
 
-    onClickDec() {
-        const total = this.images.pictures.length - 1;
-        const totalText = this.images.textH1.length - 1;
-        const totalInfo = this.images.textInfo.length - 1;
-
-        this.stan = 'inactive-left';
+    onClickDec(): void {
+        clearTimeout(this.id);
+        this.runTimeout();
+        const total = this.images.length - 1;
+        const totalText = this.images.length - 1;
+        const totalInfo = this.images.length - 1;
 
         this.counterInfo = this.counterInfo > 0 ? this.counterInfo - 1 : totalInfo;
         this.counterText = this.counterText > 0 ? this.counterText - 1 : totalText;
@@ -92,34 +86,25 @@ export class CarouselComponent implements OnInit {
         this.setActive(`btn${this.counter}`);
     }
 
-    onClickItem(event) {
+    onClickItem(event: any): void {
+        clearTimeout(this.id);
+        this.runTimeout();
         this.counter = Number(event.explicitOriginalTarget.value);
         this.counterText = Number(event.explicitOriginalTarget.value);
         this.counterInfo = Number(event.explicitOriginalTarget.value);
         this.setActive(`btn${this.counter}`);
     }
 
-    setActive(buttonName) {
+    setActive(buttonName :string) :void{
         this.activeButton = buttonName;
     }
 
-    isActive(buttonName) {
+    isActive(buttonName: string) :any{
         return this.activeButton === buttonName;
     }
 
-    constructor(private _httpService: HttpService) {
-
-        setInterval(() => {
-            this.onClickInc();
-        }, 3000);
-    }
-
-    ngOnInit(){}
-    // ngOnInit() {
-    //     this._httpService.getCarouselData()
-    //         .subscribe(res => {
-    //             console.log(res);
-    //         })
-    // }
-
+    constructor() { 
+        this.runTimeout();
+        this.setActive('btn0');
+     }
 }
