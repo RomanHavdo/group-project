@@ -12,8 +12,8 @@ import { Card } from '../../interfaces/card';
 export class CardsContainerComponent implements OnInit {
 
     cards:Array<Card> = [];
-    leftCardsColumn:Array<any> = [];
-    rightCardsColumn:Array<any> = [];
+    leftCardsColumn:Array<Card> = [];
+    rightCardsColumn:Array<Card> = [];
     constructor(private cardsDataService: CardsDataService) {}
 
     ngOnInit() {
