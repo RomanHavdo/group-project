@@ -43,13 +43,13 @@ export class CarouselComponent implements OnInit {
         }, 7000);
     }
 
-    mouseEnterSpan(): void {
-        document.getElementById('carousel-btn').classList.remove('span-btn-none');
+    mouseEnterSpan(el): void {
+        el.classList.remove('span-btn-none');
         clearTimeout(this.id);
         this.runTimeout2();
     }
-    mouseLeaveSpan(): void {
-        document.getElementById('carousel-btn').classList.add('span-btn-none');
+    mouseLeaveSpan(el): void {
+       el.classList.add('span-btn-none');
     }
 
     onClickInc(): void {
@@ -111,3 +111,4 @@ export class CarouselComponent implements OnInit {
     }
 
 }
+
