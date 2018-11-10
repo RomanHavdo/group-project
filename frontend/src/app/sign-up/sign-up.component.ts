@@ -11,7 +11,7 @@ import {MenuItem} from '../interfaces/menuItem';
 })
 export class SignUpComponent {
     @Input() menuItems:MenuItem;
-    sexs: string[] = ["Чоловіча", "Жіноча"];
+    sexs = ["Чоловіча", "Жіноча"];
     closeResult: string;
 
     constructor(private modalService: NgbModal, private authService: AuthService) {

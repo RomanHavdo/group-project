@@ -30,7 +30,7 @@ import { Card } from '../../interfaces/card';
 export class RightCardsColumnComponent implements OnInit, AfterViewChecked {
     @Input() cards:Array<Card>;
 
-    appear:Boolean = false;
+    appear = false;
 
     constructor(public cd: ChangeDetectorRef) {}
 
