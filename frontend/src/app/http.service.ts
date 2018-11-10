@@ -8,17 +8,17 @@ export class HttpService {
     constructor(private http: HttpClient) { }
 
     getCarouselData() {
-        return this.http.get('http://localhost:8080/carousel_data')
+        return this.http.get('http:/api/carousel_data')
         .pipe(map(res => res));
     };
 
     getCardItems() {
-      return this.http.get('http://localhost:8080/card_items')
+      return this.http.get('http:/api/card_items')
       .pipe(map(res => res));
     };
 
     getMenuItems():Observable<any>{
-      return this.http.get('http://localhost:8080/menu_items')
+      return this.http.get('http:/api/menu_items')
       .pipe(map(res => res));
     };
 }

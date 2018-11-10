@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {AuthService} from "../auth.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {MenuItem} from '../interfaces/menuItem';
 
 @Component({
   selector: 'app-log-in',
@@ -8,7 +9,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
-    @Input() menuItems;
+    @Input() menuItems:MenuItem;
     authError: string;
     closeResult: string;
 
