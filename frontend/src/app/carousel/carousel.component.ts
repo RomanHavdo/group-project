@@ -103,8 +103,10 @@ export class CarouselComponent {
         return this.activeButton === buttonName;
     }
 
+
     constructor() { 
         this.runTimeout();
         this.setActive('btn0');
      }
+
 }

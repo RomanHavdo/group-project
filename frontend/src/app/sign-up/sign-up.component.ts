@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {AuthService} from "../auth.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {User} from "../interfaces/user";
+import {MenuItem} from '../interfaces/menuItem';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,8 +10,8 @@ import {User} from "../interfaces/user";
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-    @Input() menuItems;
-    sexs: string[] = ["Чоловіча", "Жіноча"];
+    @Input() menuItems:MenuItem;
+    sexs = ["Чоловіча", "Жіноча"];
     closeResult: string;
 
     constructor(private modalService: NgbModal, private authService: AuthService) {
