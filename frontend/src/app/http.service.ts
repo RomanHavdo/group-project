@@ -10,15 +10,15 @@ export class HttpService {
     getCarouselData() {
         return this.http.get('http:/api/carousel_data')
         .pipe(map(res => res));
-    };
+    }
 
     getCardItems() {
       return this.http.get('http:/api/card_items')
       .pipe(map(res => res));
-    };
+    }
 
-    getMenuItems():Observable<any>{
+    getMenuItems(): Observable<any> {
       return this.http.get('http:/api/menu_items')
       .pipe(map(res => res));
-    };
+    }
 }
