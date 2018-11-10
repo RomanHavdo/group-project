@@ -15,7 +15,8 @@ export class BreadcrumbComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.breadcrumbs = [{label:"title", url:"weffe"}];
+        this.breadcrumbs = [];
+        this.updateBreadcrumb();
         this.initBreadcrumbsListening();
     }
 
@@ -24,24 +25,28 @@ export class BreadcrumbComponent implements OnInit {
             .pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(event => {  // note, we don't use event
                 this.breadcrumbs = [];
-                let currentRoute = this.route.root,
-                    url = '';
-                do {
-                    let childrenRoutes = currentRoute.children;
-                    currentRoute = null;
-                    childrenRoutes.forEach(route => {
-                        if (route.outlet === 'primary') {
-                            let routeSnapshot = route.snapshot;
-                            url += '/' + routeSnapshot.url.map(segment => segment.path).join('/');
-                            this.breadcrumbs.push({
-                                label: route.snapshot.data.breadcrumb,
-                                url: url
-                            });
-                            console.log(JSON.stringify(this.breadcrumbs));
-                            currentRoute = route;
-                        }
-                    })
-                } while (currentRoute);
+                this.updateBreadcrumb();
             });
+    }
+
+    private updateBreadcrumb() {
+        let currentRoute = this.route.root,
+            url = '';
+        do {
+            let childrenRoutes = currentRoute.children;
+            currentRoute = null;
+            childrenRoutes.forEach(route => {
+                if (route.outlet === 'primary') {
+                    let routeSnapshot = route.snapshot;
+                    url += '/' + routeSnapshot.url.map(segment => segment.path).join('/');
+                    this.breadcrumbs.push({
+                        label: route.snapshot.data.breadcrumb,
+                        url: url
+                    });
+                    console.log(JSON.stringify(this.breadcrumbs));
+                    currentRoute = route;
+                }
+            })
+        } while (currentRoute);
     }
 }

@@ -1,6 +1,7 @@
 <div>
-    breadcrumbs:{{breadcrumbs|json}}
-    <span *ngFor="let breadcrumb of breadcrumbs;">
-      <a [routerLink]="breadcrumb.url">{{breadcrumb.label}}</a>
-    </span>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs;">
+            <a [routerLink]="breadcrumb.url">{{breadcrumb.label}}</a>
+        </li>
+    </ol>
 </div>
