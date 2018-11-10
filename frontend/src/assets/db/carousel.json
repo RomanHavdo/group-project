@@ -1,23 +1,7 @@
-{
-    "pictures": [
-        "assets/img/slides/slide1.jpg",
-        "assets/img/slides/slide2.jpg",
-        "assets/img/slides/slide3.jpg",
-        "assets/img/slides/slide4.jpg",
-        "assets/img/slides/slide5.jpg"
-    ],
-    "textH1":[
-        "Opening",
-        "Closing",
-        "Check",
-        "Move",
-        "What"
-    ],
-    "textInfo":[
-        "Opening new hospital",
-        "Closing new hospital",
-        "Check hospital",
-        "Move our hospital",
-        "What is gooing"
-    ]
-} 
+[
+    { "id": "0", "url": "assets/img/slides/slide1.jpg", "header": "Home", "description": "Home page", "link": "" },
+    { "id": "1", "url": "assets/img/slides/slide2.jpg", "header": "About", "description": "About page", "link": "about" },
+    { "id": "2", "url": "assets/img/slides/slide3.jpg", "header": "Doctors", "description": "Doctors page", "link": "doctors" },
+    { "id": "3", "url": "assets/img/slides/slide4.jpg", "header": "News", "description": "News page", "link": "news" },
+    { "id": "4", "url": "assets/img/slides/slide5.jpg", "header": "Services", "description": "Services page", "link": "services" }
+]

@@ -27,20 +27,7 @@ export class AppComponent {
         mail: 'BabyMed@gmail.com'
     };
 
-
     constructor() {
     }
 
 }
-
-// export class AppComponent implements OnInit {
-//
-//     images = [];
-
-// constructor(private httpService: HttpService) { }
-//
-// ngOnInit() {
-//     this.httpService.getCarouselData().subscribe((data: any[]) => this.images = data);
-// }
-//
-// }

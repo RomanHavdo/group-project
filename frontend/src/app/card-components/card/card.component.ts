@@ -1,6 +1,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import {HttpService} from '../../http.service';
+import { Card } from '../../interfaces/card';
 
 @Component({
     selector: 'app-card-component',
@@ -9,7 +10,7 @@ import {HttpService} from '../../http.service';
 })
 export class CardComponent implements OnInit {
 
-    @Input() card;
+    @Input() card: Card;
 
     constructor(private _httpService: HttpService) { }
 
@@ -17,6 +18,7 @@ export class CardComponent implements OnInit {
       this._httpService.getCardItems().subscribe((res) => {
         console.log(res);
       });
+
     }
 
   }
