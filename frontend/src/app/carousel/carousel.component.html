@@ -1,12 +1,12 @@
 <div class="tmb">
     <a [href]="images[counter].link" *ngFor="let img of images;let idi=index"><img [@imgState]="idi === counter ? 'active': 'inactive'" *ngFor="let img of images;let idi=index"
-            [src]="img.url" (mouseenter)="mouseEnterSpan()" (mouseleave)="mouseLeaveSpan()" /></a>
+            [src]="img.url" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" /></a>
     <h3 [@imgState]="idi === counterText ? 'active': 'inactive'" *ngFor="let text of images;let idi=index">{{text.header}}</h3>
     <p [@imgState]="idi === counterInfo ? 'active': 'inactive'" *ngFor="let textInfo of images;let idi=index">{{textInfo.description}}</p>
 </div>
-<div id="carousel-btn" class="carousel-btn span-btn-none">
-    <span class="btn-change-inc" (mouseenter)="mouseEnterSpan()" (mouseleave)="mouseLeaveSpan()" (click)="onClickInc()">&#x3e;</span>
-    <span class="btn-change-dec" (mouseenter)="mouseEnterSpan()" (mouseleave)="mouseLeaveSpan()" (click)="onClickDec()">&#x3c;</span>
+<div class="carousel-btn span-btn-none" #carouselBtn>
+    <span class="btn-change-inc" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" (click)="onClickInc()">&#x3e;</span>
+    <span class="btn-change-dec" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" (click)="onClickDec()">&#x3c;</span>
 </div>
 <div class="indecators">
     <button [class.active]="isActive('btn0')" (click)="setActive('btn1')" (click)="onClickItem($event)" value="0" class="indecator-1"></button>
