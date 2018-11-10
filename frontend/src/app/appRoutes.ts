@@ -15,12 +15,17 @@ export const appRoutes: Routes = [
         {
             path: 'services',
             component: ServicesComponent,
+            data: {breadcrumb: 'послуги'},
             children: [
                 {
-                    path: 'doctorsBySpecialization', component: DoctorsBySpecializationComponent,
+                    path: 'doctorsBySpecialization',
+                    component: DoctorsBySpecializationComponent,
+                    data: {breadcrumb: 'спеціалісти'},
                     children: [
                         {
-                            path: 'appointment', component: AppointmentComponent,
+                            path: 'appointment',
+                            component: AppointmentComponent,
+                            data: {breadcrumb: 'запис'},
                         }]
                 }
             ]
