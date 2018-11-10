@@ -1,6 +1,6 @@
-
 import { Component, Input, OnInit } from '@angular/core';
-import {HttpService} from '../../../../http.service';
+import { Card } from '../../../../interfaces/card';
+import { HttpService } from '../../../../http.service';
 
 @Component({
     selector: 'app-card-component',
@@ -9,13 +9,13 @@ import {HttpService} from '../../../../http.service';
 })
 export class CardComponent implements OnInit {
 
-    @Input() card;
+    @Input() card:Card;
 
     constructor(private _httpService: HttpService) { }
 
     ngOnInit() {
       this._httpService.getCardItems().subscribe((res) => {
-        console.log(res);
+        // console.log(res);
       })
     }
 

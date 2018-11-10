@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpService} from '../../http.service';
+import {MenuItem} from "../../interfaces/menuItem";
 
 @Component({
     selector: 'app-nav-bar',
@@ -7,7 +8,7 @@ import {HttpService} from '../../http.service';
     styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  @Input()  menuItems;
+  @Input()  menuItems:MenuItem;
     constructor(private _httpService: HttpService) {
     }
 

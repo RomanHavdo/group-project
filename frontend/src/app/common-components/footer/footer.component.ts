@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Contact} from '../../interfaces/contact';
 
 @Component({
     selector: 'app-footer',
@@ -6,7 +7,7 @@ import {Component, Input} from '@angular/core';
     styleUrls: ['./footer.component.css']
 })
 export class FooterComponent{
-    @Input() contacts;
+    @Input() contacts:Contact;
 
     constructor() {
     }

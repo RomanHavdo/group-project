@@ -6,6 +6,7 @@ import {
     animate,
     transition,
   } from '@angular/animations';
+import { Card } from '../../../../interfaces/card';
 
 @Component({
     selector: 'app-right-cards-column',
@@ -27,7 +28,7 @@ import {
     ]
     })
 export class RightCardsColumnComponent implements OnInit, AfterViewChecked {
-    @Input() cards;
+    @Input() cards:Array<Card>;
 
     appear = false;
 
