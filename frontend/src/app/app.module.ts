@@ -24,6 +24,9 @@ import { HttpService } from './http.service';
 import {appRoutes} from './appRoutes';
 import { LogInComponent } from './common-components/log-in/log-in.component';
 import { SignUpComponent } from './common-components/sign-up/sign-up.component';
+import { BreadcrumbComponent } from './common-components/breadcrumb/breadcrumb.component';
+import { DoctorsBySpecializationComponent } from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
+import { AppointmentComponent } from './common-components/appointment/appointment.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +40,10 @@ import { SignUpComponent } from './common-components/sign-up/sign-up.component';
         AboutComponent,
         MainComponent,
         LogInComponent,
-        SignUpComponent
+        SignUpComponent,
+        BreadcrumbComponent,
+        DoctorsBySpecializationComponent,
+        AppointmentComponent
     ],
     imports: [
         RouterModule.forRoot(
