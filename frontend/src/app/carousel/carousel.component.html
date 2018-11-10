@@ -1,5 +1,5 @@
 <div class="tmb">
-    <a [href]="images[counter].link"><img [@imgState]="idi === counter ? 'active': 'inactive'" *ngFor="let img of images;let idi=index"
+    <a [href]="images[counter].link" *ngFor="let img of images;let idi=index"><img [@imgState]="idi === counter ? 'active': 'inactive'" *ngFor="let img of images;let idi=index"
             [src]="img.url" (mouseenter)="mouseEnterSpan()" (mouseleave)="mouseLeaveSpan()" /></a>
     <h3 [@imgState]="idi === counterText ? 'active': 'inactive'" *ngFor="let text of images;let idi=index">{{text.header}}</h3>
     <p [@imgState]="idi === counterInfo ? 'active': 'inactive'" *ngFor="let textInfo of images;let idi=index">{{textInfo.description}}</p>

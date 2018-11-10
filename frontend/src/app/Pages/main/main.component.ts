@@ -6,15 +6,4 @@ import {HttpService} from "../../http.service";
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
-    images = [];
-
-    constructor(private httpService: HttpService) {
-    }
-
-
-    ngOnInit() {
-        this.httpService.getCarouselData().subscribe((data: any[]) => this.images = data);
-    }
-
-}
+export class MainComponent {}

@@ -22,20 +22,14 @@ import { HttpService } from '../http.service';
         ]),
     ]
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit {
 
+    images: any = [];
     counter: number = 0;
     counterText: number = 0;
     counterInfo: number = 0;
     activeButton: string = "";
     id: any;
-    images = [
-        { 'id': '0', 'url': 'assets/img/slides/slide1.jpg', 'header': 'Home', 'description': 'Home page', 'link': '' },
-        { 'id': '1', 'url': 'assets/img/slides/slide2.jpg', 'header': 'About', 'description': 'About page', 'link': 'about' },
-        { 'id': '2', 'url': 'assets/img/slides/slide3.jpg', 'header': 'Doctors', 'description': 'Doctors page', 'link': 'doctors' },
-        { 'id': '3', 'url': 'assets/img/slides/slide4.jpg', 'header': 'News', 'description': 'News page', 'link': 'news' },
-        { 'id': '4', 'url': 'assets/img/slides/slide5.jpg', 'header': 'Services', 'description': 'Services page', 'link': 'services' }
-    ];
 
     runTimeout(): void {
         this.id = setTimeout(() => {
@@ -95,18 +89,25 @@ export class CarouselComponent {
         this.setActive(`btn${this.counter}`);
     }
 
-    setActive(buttonName :string) :void{
+    setActive(buttonName: string): void {
         this.activeButton = buttonName;
     }
 
-    isActive(buttonName: string) :any{
+    isActive(buttonName: string): any {
         return this.activeButton === buttonName;
     }
 
 
-    constructor() { 
+    constructor(private _httpService: HttpService) {
         this.runTimeout();
         this.setActive('btn0');
-     }
+    }
+
+    ngOnInit() {
+        this._httpService.getCarouselData().subscribe((res) => {
+            this.images = res
+            this.images=this.images[0].carouselItems;
+        })
+    }
 
 }
