@@ -1,27 +1,31 @@
 .tmb{
-    height: 650px;
+    position: relative;
+    height: 450px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 .tmb img{
     position: absolute;
     width: 95%;
-    left: 70px;
-    height: 650px;
+    left: 2.3%;
+    height: 450px;
 }
 .tmb h3{
     position: absolute;
-    top: 29%;
-    left: 10%;
-    width: 110%;
-    text-shadow: 5px 5px 1px rgba(28,110,164,0.57);
+    top: 75%;
+    left: 7%;
+    width: 85%;
+    font-style: italic;
+    padding-left: 8px;
+    background-color:rgba(255, 255, 255, 0.5);
 }
 .tmb p{
     position: absolute;
-    top: 31%;
-    left: 10%;
-    width: 110%;
-    text-shadow: 3px 5px 6px #6C9, -6px -7px 6px #D9FFA7;
+    top: 83%;
+    left: 7%;
+    width: 85%;
+    padding-left: 8px;
+    background-color:rgba(255, 255, 255, 0.5);
 }
 a{
     text-decoration: none;
@@ -33,9 +37,9 @@ a{
 .btn-change-dec{
     position: absolute;
     top:0;
-    padding-top: 250px;
-    left: 69px;
-    height: 650px;
+    padding-top: 180px;
+    left: 1.8%;
+    height: 450px;
     width: 60px;
     font-size: 75px;
     background-color: white;
@@ -44,11 +48,11 @@ a{
 .btn-change-inc{
     position: absolute;
     top:0;
-    padding-top: 250px;
-    height: 650px;
+    padding-top: 180px;
+    height: 450px;
     width: 60px;
     font-size: 75px;
-    right: 6px;
+    right: 2.5%;
     background-color: white;
     opacity: 0.4;
 }
@@ -61,7 +65,7 @@ a{
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 600px;
+    top: 410px;
 }
 
 .indecator-2{
@@ -72,7 +76,7 @@ a{
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 600px;
+    top: 410px;
 }
 
 .indecator-3{
@@ -83,7 +87,7 @@ a{
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 600px;
+    top: 410px;
 }
 
 .indecator-4{
@@ -94,7 +98,7 @@ a{
     background-color: initial;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 600px;
+    top: 410px;
 }
 
 .indecator-5{
@@ -105,7 +109,7 @@ a{
     background-color: initial;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 600px;
+    top: 410px;
 }
 .indecators button:hover,
 .active{
