@@ -1,4 +1,13 @@
-<div class="cards-container">
-  <app-left-cards-column [cards] = "leftCardsColumn"></app-left-cards-column>
-  <app-right-cards-column [cards] = "rightCardsColumn"></app-right-cards-column>
+<div class="cards-container d-flex flex-column flex-lg-row">
+
+  <div class="container-fluid col-sm-12 col-lg-6">
+    <app-left-cards-column [cards]="leftCardsColumn"></app-left-cards-column>
+  </div>
+
+  <div class="container-fluid col-sm-12 col-lg-6">
+    <app-right-cards-column [cards]="rightCardsColumn"></app-right-cards-column>
+  </div>
+
 </div>
+
+<hr class="style-two"/>

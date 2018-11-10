@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
     ngOnInit() {
       this._httpService.getMenuItems().subscribe((res) => {
         this.menuItems = res[0];
-      })
+      });
     }
 
 }

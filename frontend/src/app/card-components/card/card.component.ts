@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
     ngOnInit() {
       this._httpService.getCardItems().subscribe((res) => {
         console.log(res);
-      })
+      });
     }
 
   }

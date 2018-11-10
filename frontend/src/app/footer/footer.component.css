@@ -1,14 +1,14 @@
 .footerItem {
     border-right: 2px solid;
     padding: 0 10px;
-    color: black;
+    color: rgb(250, 250, 250);
     text-decoration: none;
 }
 
 .footerElement {
     text-align: center;
-    background-color: #96984f;
-    height: 100px;
+    background-color: #b0bec5;
+    height: 200px;
 }
 
 .footerItem:last-child {

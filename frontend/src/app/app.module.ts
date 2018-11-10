@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
 import {AppComponent} from './app.component';
+import {SuggestionComponent} from './suggestion/suggestion.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {FooterComponent} from './footer/footer.component';
 import {AppointmentWindowComponent} from './appointment-window/appointment-window.component';
@@ -25,6 +26,7 @@ import {appRoutes} from './appRoutes';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -37,7 +39,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
         AboutComponent,
         MainComponent,
         LogInComponent,
-        SignUpComponent
+        SignUpComponent,
+        SuggestionComponent
     ],
     imports: [
         RouterModule.forRoot(

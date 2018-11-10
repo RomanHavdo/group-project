@@ -1,0 +1,20 @@
+.suggestion-container{
+    padding: 20px 50px;
+    color: #212121;
+    // box-shadow: 0 1px 2px 0 rgb(88, 85, 85);
+    text-align: end;
+
+    & .suggestion-container__data{
+        width: 70%;
+        color: #29b6f6;
+        font-size: 2rem;
+        font-weight: bold;
+        padding-right: 20px;
+    }
+}
+
+hr.style-two {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(97, 149, 209, 0.75), rgba(0, 0, 0, 0));
+}

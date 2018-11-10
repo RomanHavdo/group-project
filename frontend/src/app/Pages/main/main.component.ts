@@ -12,7 +12,6 @@ export class MainComponent implements OnInit {
     constructor(private httpService: HttpService) {
     }
 
-
     ngOnInit() {
         this.httpService.getCarouselData().subscribe((data: any[]) => this.images = data);
     }

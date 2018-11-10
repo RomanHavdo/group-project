@@ -1,10 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid p-0">
     <header>
         <app-nav-bar [menuItems]="menuItems"></app-nav-bar>
     </header>
     <div class="appDiv">
         <router-outlet></router-outlet>
         <app-appointment-window></app-appointment-window>
+        <!-- <app-carousel></app-carousel> -->
+        <!-- <app-cards-container></app-cards-container> -->
     </div>
     <footer>
         <app-footer [contacts]="contacts"></app-footer>

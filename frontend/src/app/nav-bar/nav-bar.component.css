@@ -1,3 +1,17 @@
+.header-wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 60px;
+    padding-top: 10px;
+    background: white;
+    color: #607d8b;
+    box-shadow: 0 3px 20px 0 rgb(88, 85, 85);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
 .logo {
     text-align: center;
     width: 40%;
@@ -14,7 +28,8 @@
 }
 
 .logoImg {
-    width: 100%;
+    /* width: 100%; */
+    width: 50px;
 }
 
 .menuItem {
@@ -22,27 +37,26 @@
 }
 
 .menuItem a {
-    color: black;
+    color: rgb(1, 88, 155);
 }
 
-.menuItem:hover a, .loginMenuItem:hover {
-    color: #96984f;
+.menuItem:hover a {
+    color: #29b6f6;
+    transition: 0.2s all;
 }
 
 .menuItem .active{
-    color: #96984f;
+    color: #29b6f6;
 }
 
 .loginMenuElement {
     text-align: center;
 }
 
-.loginMenuItem {
-    color: black;
-    padding: 0 10px;
-    text-decoration: none;
+.signUp, .logIn{
+    padding: 0;
 }
 
-.loginMenuItem:first-child {
-    border-right: 2px solid #96984f;
+.signUp:hover, .logIn:hover {
+    color: black;
 }
