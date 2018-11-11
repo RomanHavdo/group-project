@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {CardsDataService} from './cards-data.service';
-import { Card } from '../../interfaces/card';
+import { Card } from '../../../../interfaces/card';
 
 @Component({
     selector: 'app-cards-container',

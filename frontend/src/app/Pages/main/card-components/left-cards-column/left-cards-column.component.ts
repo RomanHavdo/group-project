@@ -6,7 +6,7 @@ import {
     animate,
     transition,
   } from '@angular/animations';
-import { Card } from '../../interfaces/card';
+import { Card } from '../../../../interfaces/card';
 
 @Component({
     selector: 'app-left-cards-column',

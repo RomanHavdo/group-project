@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {AuthService} from "../auth.service";
+import {AuthService} from "../../auth.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {MenuItem} from '../interfaces/menuItem';
+import {MenuItem} from '../../interfaces/menuItem';
 
 @Component({
   selector: 'app-log-in',

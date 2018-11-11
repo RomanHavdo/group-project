@@ -1,7 +1,6 @@
-
 import { Component, Input, OnInit } from '@angular/core';
-import {HttpService} from '../../http.service';
-import { Card } from '../../interfaces/card';
+import { Card } from '../../../../interfaces/card';
+import { HttpService } from '../../../../http.service';
 
 @Component({
     selector: 'app-card-component',
