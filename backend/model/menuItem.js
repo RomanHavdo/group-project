@@ -25,6 +25,10 @@ const menuItemsSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    news: {
+        type: String,
+        require: true
+    },
     contacts: {
         type: String,
         required: true

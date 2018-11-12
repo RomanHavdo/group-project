@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {AuthService} from "../../auth.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {User} from "../../interfaces/user";
+import {AuthService} from '../../auth.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from '../../interfaces/user';
 import {MenuItem} from '../../interfaces/menuItem';
 
 @Component({
@@ -11,14 +11,21 @@ import {MenuItem} from '../../interfaces/menuItem';
 })
 export class SignUpComponent {
     @Input() menuItems: MenuItem;
-    sexs: string[] = ["Чоловіча", "Жіноча"];
+    sexs: string[] = ['Чоловіча', 'Жіноча'];
     closeResult: string;
 
     constructor(private modalService: NgbModal, private authService: AuthService) {
     }
 
     registerUser(name, dateofbirth, sex, homeAddress, emailAddress, phoneNumber, password) {
-        let user: User = new User(name.viewModel, dateofbirth.viewModel, sex.value, homeAddress.viewModel, emailAddress.viewModel, phoneNumber.viewModel, password.viewModel);
+        const user: User = new User(
+            name.viewModel,
+            dateofbirth.viewModel,
+            sex.value,
+            homeAddress.viewModel,
+            emailAddress.viewModel,
+            phoneNumber.viewModel,
+            password.viewModel);
         this.authService.register(user);
     }
 
