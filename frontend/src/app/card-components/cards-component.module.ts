@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { CardsDataService } from './cards-container/cards-data.service';
 import { OnHoverDirective } from './card/card-hover.directive';
 
 import { CardsContainerComponent } from './cards-container/cards-container.component';
@@ -18,7 +17,6 @@ import { RightCardsColumnComponent } from './right-cards-column/right-cards-colu
         OnHoverDirective
     ],
     imports: [BrowserModule],
-    providers: [CardsDataService],
     exports: [CardsContainerComponent]
 })
 export class CardsComponentModule {

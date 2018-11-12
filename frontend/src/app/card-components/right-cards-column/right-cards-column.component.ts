@@ -29,20 +29,17 @@ import { Card } from '../../interfaces/card';
     ]
     })
 export class RightCardsColumnComponent implements OnInit, AfterViewChecked {
-    @Input() cards:Array<Card>;
+    @Input() cards: Array<Card>;
 
     appear = false;
     constructor(public cd: ChangeDetectorRef) {}
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 
     ngAfterViewChecked() {
-        // this.show();
         this.cd.detectChanges();
-
     }
+
     show(): void {
         this.appear = true;
     }
@@ -50,7 +47,6 @@ export class RightCardsColumnComponent implements OnInit, AfterViewChecked {
     @HostListener('window:scroll', ['$event']) onMouseEnter(e) {
         if (window.pageYOffset > 300) {
             this.show();
-            console.log('Scrolled');
         }
     }
 }
