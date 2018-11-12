@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardsComponentModule } from './Pages/main/card-components/cards-component.module';
 import { HttpService } from './http.service';
 
-import {appRoutes} from './appRoutes';
+import { appRoutes } from './appRoutes';
 import { LogInComponent } from './common-components/log-in/log-in.component';
 import { SignUpComponent } from './common-components/sign-up/sign-up.component';
 import { BreadcrumbComponent } from './common-components/breadcrumb/breadcrumb.component';

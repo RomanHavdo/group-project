@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
 
 import { OnHoverDirective } from './card/card-hover.directive';
 
@@ -7,6 +8,9 @@ import { CardsContainerComponent } from './cards-container/cards-container.compo
 import { CardComponent } from './card/card.component';
 import { LeftCardsColumnComponent } from './left-cards-column/left-cards-column.component';
 import { RightCardsColumnComponent } from './right-cards-column/right-cards-column.component';
+
+import { appRoutes } from '../../../appRoutes';
+
 
 @NgModule({
     declarations: [
@@ -16,7 +20,11 @@ import { RightCardsColumnComponent } from './right-cards-column/right-cards-colu
         RightCardsColumnComponent,
         OnHoverDirective
     ],
-    imports: [BrowserModule],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(
+            appRoutes,
+        )],
     exports: [CardsContainerComponent]
 })
 export class CardsComponentModule {
