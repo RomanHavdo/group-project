@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewChecked, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit, AfterViewChecked, ChangeDetectorRef, ChangeDetectionStrategy, HostListener} from '@angular/core';
 import {
     trigger,
     state,
@@ -7,6 +7,7 @@ import {
     transition,
   } from '@angular/animations';
 import { Card } from '../../../../interfaces/card';
+
 
 @Component({
     selector: 'app-right-cards-column',
@@ -23,21 +24,19 @@ import { Card } from '../../../../interfaces/card';
                 opacity: 1,
                 transform: 'translateX(0%)'
             })),
-            transition('hidden => visible', [animate('0.6s 300ms ease-out')])
+            transition('hidden => visible', [animate('1s 100ms ease-out')])
         ])
     ]
     })
 export class RightCardsColumnComponent implements OnInit, AfterViewChecked {
-    @Input() cards:Array<Card>;
+    @Input() cards: Array<Card>;
 
     appear = false;
-
     constructor(public cd: ChangeDetectorRef) {}
 
     ngOnInit() {}
 
     ngAfterViewChecked() {
-        this.show();
         this.cd.detectChanges();
     }
 
@@ -45,4 +44,10 @@ export class RightCardsColumnComponent implements OnInit, AfterViewChecked {
         this.appear = true;
     }
 
+    @HostListener('window:scroll', ['$event']) onMouseEnter(e) {
+        if (window.pageYOffset > 300) {
+            this.show();
+        }
+    }
 }
+

@@ -24,7 +24,7 @@ export class LogInComponent {
         });
     }
     login(logInEmail, logInPassword) {
-        let user = this.authService.checkUser(logInEmail, logInPassword);
+        const user = this.authService.checkUser(logInEmail, logInPassword);
         if (user) {
             this.authError = '';
             console.log('in');

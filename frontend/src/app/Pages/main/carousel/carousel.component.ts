@@ -25,10 +25,10 @@ import {HttpService} from '../../../http.service';
 export class CarouselComponent implements OnInit {
 
     images: any = [];
-    counter: number = 0;
-    counterText: number = 0;
-    counterInfo: number = 0;
-    activeButton: string = "";
+    counter  = 0;
+    counterText = 0;
+    counterInfo = 0;
+    activeButton = '';
     id: any;
 
     runTimeout(): void {
@@ -83,9 +83,9 @@ export class CarouselComponent implements OnInit {
     onClickItem(event: any): void {
         clearTimeout(this.id);
         this.runTimeout();
-        this.counter = Number(event.explicitOriginalTarget.value);
-        this.counterText = Number(event.explicitOriginalTarget.value);
-        this.counterInfo = Number(event.explicitOriginalTarget.value);
+        this.counter = Number(event.target.value);
+        this.counterText = Number(event.target.value);
+        this.counterInfo = Number(event.target.value);
         this.setActive(`btn${this.counter}`);
     }
 
@@ -105,9 +105,9 @@ export class CarouselComponent implements OnInit {
 
     ngOnInit() {
         this._httpService.getCarouselData().subscribe((res) => {
-            this.images = res
-            this.images=this.images[0].carouselItems;
-        })
+            this.images = res;
+            this.images = this.images[0].carouselItems;
+        });
     }
 
 }

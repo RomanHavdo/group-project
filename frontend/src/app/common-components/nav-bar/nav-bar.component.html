@@ -1,42 +1,45 @@
-<div class="row d-flex align-items-center">
-    <div class="col-md-2 col-lg-2 d-flex flex-column align-items-center">
-        <a class="navbar-brand logo" href="#">
-            <img [src]="menuItems.logo" class="logoImg">
-        </a>
-        <a href="" class="navbar-brand logoName">{{menuItems.clinicName}}</a>
-    </div>
-    <div class="col-md-8 col-lg-8">
-        <nav class="navbar navbar-expand-lg menu">
+<div class="container-fluid header-wrapper">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item menuItem">
-                        <a class="nav-link" routerLink="" routerLinkActive="active">{{menuItems.main}}</a>
-                    </li>
-                    <li class="nav-item menuItem">
-                        <a class="nav-link" routerLink="/services" routerLinkActive="active">{{menuItems.services}}</a>
-                    </li>
-                    <li class="nav-item menuItem">
-                        <a class="nav-link" routerLink="/doctors" routerLinkActive="active">{{menuItems.doctors}}</a>
-                    </li>
-                    <li class="nav-item menuItem">
-                        <a class="nav-link" routerLink="/news" routerLinkActive="active">{{menuItems.news}}</a>
-                    </li>
-                    <li class="nav-item menuItem">
-                        <a class="nav-link" routerLink="/about" routerLinkActive="active">{{menuItems.about}}</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+  <div class="d-flex flex-row align-items-start p-0">
+    <!-- <a class="navbar-brand logo" href="#">
+      <img [src]="menuItems.logo" class="logoImg">
+    </a> -->
+    <a href="" class="navbar-brand logoName">{{menuItems.clinicName}}</a>
+  </div>
+
+  <div class="col-md-7 col-lg-7 d-flex flex-row align-items-start p-0">
+    <nav class="navbar navbar-expand-md menu p-0">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item menuItem">
+            <a class="nav-link" routerLink="" routerLinkActive="active">{{menuItems.main}}</a>
+          </li>
+          <li class="nav-item menuItem">
+            <a class="nav-link" routerLink="/services" routerLinkActive="active">{{menuItems.services}}</a>
+          </li>
+          <li class="nav-item menuItem">
+            <a class="nav-link" routerLink="/doctors" routerLinkActive="active">{{menuItems.doctors}}</a>
+          </li>
+          <li class="nav-item menuItem">
+            <a class="nav-link" routerLink="/news" routerLinkActive="active">{{menuItems.news}}</a>
+          </li>
+          <li class="nav-item menuItem">
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">{{menuItems.about}}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="col-md-3 col-lg-3 p-0">
+    <div class="loginMenuElement d-flex flex-row justify-content-end p-0">
+      <app-sign-up [menuItems]="menuItems" class="signUp"></app-sign-up>
+      <app-log-in [menuItems]="menuItems" class="logIn"></app-log-in>
     </div>
-    <div class=" col-md-2 col-lg-2">
-        <div class="loginMenuElement">
-            <app-log-in [menuItems]="menuItems"></app-log-in>
-            <app-sign-up [menuItems]="menuItems"></app-sign-up>
-        </div>
-    </div>
+  </div>
+
 </div>

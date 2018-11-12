@@ -1,14 +1,30 @@
-.tmb{
-    position: relative;
-    height: 450px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+*{
+    box-sizing: border-box;
 }
+
+.col{
+    margin-top: 50px;
+    overflow: hidden;
+    background: white;
+    padding: 40px;
+}
+
+.tmb{
+    height: 600px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
+    position: relative;
+}
+
 .tmb img{
     position: absolute;
-    width: 95%;
-    left: 2.3%;
-    height: 450px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 600px;
 }
 .tmb h3{
     position: absolute;
@@ -58,59 +74,61 @@ a{
 }
 
 .indecator-1{
-    position: absolute;
     height: 20px;
     width: 20px;
     left: 45%;
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 410px;
 }
 
 .indecator-2{
-    position: absolute;
     height: 20px;
     width: 20px;
     left: 47%;
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 410px;
 }
 
 .indecator-3{
-    position: absolute;
     height: 20px;
     width: 20px;
     left: 49%;
     background-color: initial;;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 410px;
 }
 
 .indecator-4{
-    position: absolute;
     height: 20px;
     width: 20px;
     left: 51%;
     background-color: initial;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 410px;
 }
 
 .indecator-5{
-    position: absolute;
     height: 20px;
     width: 20px;
     left: 53%;
     background-color: initial;
     border-radius: 50%;
     border: 1px solid #ccc;
-    top: 410px;
 }
+
+.indecators{
+    position: absolute;
+    top: 550px;
+    width: 140px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .indecators button:hover,
 .active{
     background-color: white;

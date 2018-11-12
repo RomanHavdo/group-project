@@ -4,8 +4,11 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
 import {AppComponent} from './app.component';
+
+import {SuggestionComponent} from './Pages/main/suggestion/suggestion.component';
 import {NavBarComponent} from './common-components/nav-bar/nav-bar.component';
 import {FooterComponent} from './common-components/footer/footer.component';
+
 import {AppointmentWindowComponent} from './appointment-window/appointment-window.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,6 +31,7 @@ import { BreadcrumbComponent } from './common-components/breadcrumb/breadcrumb.c
 import { DoctorsBySpecializationComponent } from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
 import { AppointmentComponent } from './common-components/appointment/appointment.component';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -43,7 +47,9 @@ import { AppointmentComponent } from './common-components/appointment/appointmen
         SignUpComponent,
         BreadcrumbComponent,
         DoctorsBySpecializationComponent,
-        AppointmentComponent
+        AppointmentComponent,
+        SuggestionComponent
+
     ],
     imports: [
         RouterModule.forRoot(
