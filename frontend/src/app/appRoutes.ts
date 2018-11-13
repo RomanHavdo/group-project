@@ -6,12 +6,14 @@ import {DoctorsComponent} from './Pages/doctors/doctors.component';
 import {ServicesComponent} from './Pages/services/services.component';
 import {DoctorsBySpecializationComponent} from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
 import {AppointmentComponent} from './common-components/appointment/appointment.component';
+import {UserAccountComponent} from "./Pages/user-account/user-account.component";
 
 export const appRoutes: Routes = [
         {path: '', component: MainComponent},
         {path: 'about', component: AboutComponent},
         {path: 'doctors', component: DoctorsComponent},
         {path: 'news', component: NewsComponent},
+        {path: 'userAccount', component: UserAccountComponent},
         {
             path: 'services',
             component: ServicesComponent,

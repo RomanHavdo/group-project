@@ -30,6 +30,7 @@ import { SignUpComponent } from './common-components/sign-up/sign-up.component';
 import { BreadcrumbComponent } from './common-components/breadcrumb/breadcrumb.component';
 import { DoctorsBySpecializationComponent } from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
 import { AppointmentComponent } from './common-components/appointment/appointment.component';
+import { UserAccountComponent } from './Pages/user-account/user-account.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AppointmentComponent } from './common-components/appointment/appointmen
         BreadcrumbComponent,
         DoctorsBySpecializationComponent,
         AppointmentComponent,
-        SuggestionComponent
+        SuggestionComponent,
+        UserAccountComponent
 
     ],
     imports: [

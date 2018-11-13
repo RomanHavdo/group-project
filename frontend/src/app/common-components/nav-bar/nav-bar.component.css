@@ -49,14 +49,21 @@
     color: #29b6f6;
 }
 
-.loginMenuElement {
+.loginMenuElement, .userMenuElement {
     text-align: center;
 }
 
 .signUp, .logIn{
     padding: 0;
 }
-
-.signUp:hover, .logIn:hover {
-    color: black;
+.signUp, .logIn,.userAccount, .userExit{
+    color: rgb(1, 88, 155);
+}
+.signUp:hover, .logIn:hover, .userAccount:hover, .userExit:hover{
+    color: #29b6f6;
+    transition: 0.2s all;
+}
+.userAccount, .userExit{
+    padding: 8px;
+    text-decoration: none;
 }
