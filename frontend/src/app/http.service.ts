@@ -30,9 +30,10 @@ export class HttpService {
     }
 
     createUser(info) {
-        const newUser = info;
-        this.http.post('http:/user', newUser).subscribe();
-        console.log(newUser);
+        this.http.post('http:/user', info).subscribe();
 
+    }
+    userAuthentication(data){
+        this.http.post('http:/login', data).subscribe();
     }
 }
