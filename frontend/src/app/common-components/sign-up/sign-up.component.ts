@@ -3,6 +3,7 @@ import {AuthService} from '../../auth.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../interfaces/user';
 import {MenuItem} from '../../interfaces/menuItem';
+import {HttpService} from "../../http.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -14,19 +15,19 @@ export class SignUpComponent {
     sexs: string[] = ['Чоловіча', 'Жіноча'];
     closeResult: string;
 
-    constructor(private modalService: NgbModal, private authService: AuthService) {
+    constructor(private modalService: NgbModal, private authService: AuthService, private httpService: HttpService) {
     }
 
-    registerUser(name, dateofbirth, sex, homeAddress, emailAddress, phoneNumber, password) {
+    registerUser(name, dateofbirth, sex, homeAddress, email, phone, password) {
         const user: User = new User(
             name.viewModel,
             dateofbirth.viewModel,
             sex.value,
             homeAddress.viewModel,
-            emailAddress.viewModel,
-            phoneNumber.viewModel,
+            email.viewModel,
+            phone.viewModel,
             password.viewModel);
-        this.authService.register(user);
+        this.httpService.createUser(user);
     }
 
     open(content) {

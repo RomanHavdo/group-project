@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
         {path: 'about', component: AboutComponent},
         {path: 'doctors', component: DoctorsComponent},
         {path: 'news', component: NewsComponent},
-        {path: 'userAccount', component: UserAccountComponent},
+        {path: 'user', component: UserAccountComponent},
         {
             path: 'services',
             component: ServicesComponent,

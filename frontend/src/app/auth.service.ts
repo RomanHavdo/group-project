@@ -10,8 +10,8 @@ export class AuthService {
         dateOfBirth: "12-09-1953",
         sex: "Чоловіча",
         homeAddress: "NY, Manhattan, 22",
-        emailAddress: "admin",
-        phoneNumber: "+380001234567",
+        email: "admin",
+        phone: "+380001234567",
         password: "admin"
     }];
 
@@ -20,7 +20,7 @@ export class AuthService {
 
     checkUser(logInEmail, logInPassword) {
         let foundUser =
-            this.users.filter(item => item.emailAddress === logInEmail.viewModel && item.password === logInPassword.viewModel)[0];
+            this.users.filter(item => item.email === logInEmail.viewModel && item.password === logInPassword.viewModel)[0];
 
         return foundUser;
     }
