@@ -12,6 +12,7 @@ export const appRoutes: Routes = [
         {path: 'about', component: AboutComponent},
         {path: 'doctors', component: DoctorsComponent},
         {path: 'news', component: NewsComponent},
+        {path: 'services/doctors', component: ServicesComponent},
         {
             path: 'services',
             component: ServicesComponent,
