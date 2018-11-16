@@ -1,0 +1,22 @@
+.avatar {
+  border-radius: 50%;
+  width: 230px;
+  height: 230px;
+}
+
+.profile{
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-information{
+  flex-basis: 60%;
+}
+
+.doctor-name{
+  margin-right: 20px;
+}
+
+.appointment-section{
+  display: flex;
+}
