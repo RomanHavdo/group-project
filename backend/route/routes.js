@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-let User=  require('../model/user');
+let User = require('../model/user');
+
 
 const menuItem = require('../model/menuItem');
 const cardItem = require('../model/cardItem');
@@ -60,24 +61,23 @@ router.route('/user')
         let user = new User(req.body);
         console.log(user);
         user.save(function (err, userTest, affected) {
-            if (err ) throw  err;
+            if (err) throw  err;
         });
 
     });
 
 router.route('/login')
     .post((req, res) => {
-        let user=req.body;
-        User.findOne({email: user.email}, function (err,existingUser) {
-            if (existingUser == null){
+        let user = req.body;
+        User.findOne({email: user.email}, function (err, existingUser) {
+            if (existingUser == null) {
                 res.status(404).json(err);
-            }else {
-                if(existingUser.password === user.password){
-                    console.log(existingUser);
-                }else{
-                    console.log('wrong pass');
-                }
+            } else {
+                existingUser.comparePassword(user.password, function (err, isMatch) {
+                    if (err) throw err;
+                    console.log(user.password, isMatch);
+                });
             }
-        });
+        })
     });
 module.exports = router;

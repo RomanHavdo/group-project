@@ -32,14 +32,4 @@ export class LogInComponent {
         };
         this.httpService.userAuthentication(checkUser);
     }
-    // login(logInEmail, logInPassword) {
-    //     const user = this.authService.checkUser(logInEmail, logInPassword);
-    //     if (user) {
-    //         this.authError = '';
-    //         console.log('in');
-    //         this.modalService.dismissAll();
-    //     } else {
-    //         this.authError = 'Такого користувача не існує!';
-    //     }
-    // }
 }
