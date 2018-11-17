@@ -25,8 +25,7 @@
         <input id='dateofbirth' type="date" class="form-control"
                ngModel
                name='dateofbirth'
-               #dateofbirth="ngModel"
-               required>
+               #dateofbirth="ngModel">
         <div class="alert alert-danger" *ngIf="dateofbirth.touched && !dateofbirth.valid">Поле має бути
           заповнене
         </div>
@@ -36,8 +35,7 @@
         <select id="sex" class="form-control"
                 ngModel
                 name='sex'
-                #sex="ngModel"
-                required>
+                #sex="ngModel">
           <option *ngFor="let item of sexs" [value]="item">{{item}}
           </option>
         </select>
@@ -68,7 +66,6 @@
         <input id='phoneNumber' type="text" class="form-control"
                placeholder="+380..."
                ngModel
-               required
                name='phoneNumber'
                #phoneNumber="ngModel">
         <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">Поле має бути
@@ -79,7 +76,7 @@
         <label for="password">Створіть Пароль</label>
         <input id='password' type="password" class="form-control"
                title="Пароль повинен містити не менше 8 знаків, включаючи букви та цифри!"
-               pattern="[0-9a-zA-Z ]*"
+               pattern="[0-9a-zA-Zа-яА-Я]*"
                minlength="8"
                ngModel
                required

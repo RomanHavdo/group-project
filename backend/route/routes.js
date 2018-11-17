@@ -68,6 +68,7 @@ router.route('/user')
 
 router.route('/login')
     .post((req, res) => {
+
         let user = req.body;
         User.findOne({email: user.email}, function (err, existingUser) {
             if (existingUser == null) {
@@ -76,6 +77,7 @@ router.route('/login')
                 existingUser.comparePassword(user.password, function (err, isMatch) {
                     if (err) throw err;
                     console.log(user.password, isMatch);
+                    res.send(existingUser);
                 });
             }
         })

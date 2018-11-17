@@ -15,7 +15,7 @@ export class SignUpComponent {
     sexs: string[] = ['Чоловіча', 'Жіноча'];
     closeResult: string;
 
-    constructor(private modalService: NgbModal, private authService: AuthService, private httpService: HttpService) {
+    constructor(private modalService: NgbModal, private authService: AuthService) {
     }
 
     registerUser(name, dateofbirth, sex, homeAddress, email, phone, password) {
@@ -27,7 +27,7 @@ export class SignUpComponent {
             email.viewModel,
             phone.viewModel,
             password.viewModel);
-        this.httpService.createUser(user);
+        this.authService.createUser(user);
     }
 
     open(content) {

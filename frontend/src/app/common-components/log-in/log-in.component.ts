@@ -11,12 +11,14 @@ import {User} from "../../interfaces/user";
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
-    @Input() menuItems:MenuItem;
+
+    @Input() menuItems: MenuItem;
     authError: string;
     closeResult: string;
 
-  constructor(private modalService: NgbModal, private authService: AuthService, private httpService: HttpService) {
+    constructor(private modalService: NgbModal, private authService: AuthService) {
     }
+
     open(content) {
         this.authError = '';
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -25,11 +27,12 @@ export class LogInComponent {
             // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
     }
-    login(email,password) {
+
+    login(email, password) {
         const checkUser = {
             email: email.viewModel,
             password: password.viewModel
         };
-        this.httpService.userAuthentication(checkUser);
+        this.authService.userAuthentication(checkUser);
     }
 }

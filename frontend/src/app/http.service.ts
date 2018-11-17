@@ -24,16 +24,4 @@ export class HttpService {
             .pipe(map(res => res));
     }
 
-    getUserInformation(): Observable<any> {
-        return this.http.get('http:/user')
-            .pipe(map(res => res));
-    }
-
-    createUser(info) {
-        this.http.post('http:/user', info).subscribe();
-
-    }
-    userAuthentication(data){
-        this.http.post('http:/login', data).subscribe();
-    }
 }

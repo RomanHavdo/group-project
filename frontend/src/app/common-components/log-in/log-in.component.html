@@ -34,7 +34,7 @@
 
   <div class="modal-footer">
     <button type="submit" [disabled]="loginForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
-            (click)="login(logInEmail,logInPassword)">Підтвердити
+            (click)="login(logInEmail,logInPassword);modal.close()">Підтвердити
     </button>
   </div>
 </ng-template>
