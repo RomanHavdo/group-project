@@ -6,5 +6,5 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./suggestion.component.scss']
 })
 export class SuggestionComponent {
-    public suggestion: string = `Ми завжди готові допомогти Вам`;
+    public suggestion = `Ми завжди готові допомогти Вам`;
 }
