@@ -1,0 +1,42 @@
+<div class="container-fluid p-0">
+
+<div class="container-fluid p-0 position-relative mainContainerWrapper">
+
+  <div class="imageContainer">
+    <img class="headerImage" src="{{pageData.pictureUrl}}" alt="">
+    <div class="title">{{pageData.title}}</div>
+  </div>
+
+  <div class="col description">
+    <p>{{pageData.description}}</p>
+  </div>
+
+  <hr class="hrStyle" />
+
+  <form class="searchForm col">
+    <div class="form-row d-flex justify-content-between">
+      <div class="col-md-6 mb-3 position-relative">
+        <input type="text" name="searchField" class="form-control searchInput" placeholder="П.І.Б." [(ngModel)]="searchStr">
+        <i class="material-icons searchIcon">search</i>
+      </div>
+      <div class="col-md-6 mb-3">
+        <select class="custom-select selectField" name="selectedField" [(ngModel)]="selectedValue">
+          <option selected>Усі лікарі</option>
+          <option value="Алерголог">Алерголог</option>
+          <option value="Дерматолог">Дерматолог</option>
+          <option value="Терапевт">Терапевт</option>
+          <option value="Логопед">Логопед</option>
+          <option value="Отоларинголог">Отоларинголог</option>
+          <option value="Невролог">Неврологг</option>
+          <option value="Імунолог">Імунолог</option>
+          <option value="Хірург">Хірург</option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+      <app-specialist-card [doctors]="doctors" [searchStr]="searchStr" [selectedValue]="selectedValue"></app-specialist-card>
+
+</div>
+
+</div>

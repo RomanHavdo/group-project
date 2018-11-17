@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -9,8 +12,16 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppointmentWindowComponent {
     closeResult: string;
+    public visible = true;
 
-    constructor(private modalService: NgbModal) {
+    constructor(private modalService: NgbModal, private router: Router) {
+        this.router.events.subscribe((event) => {
+            if (this.router.url !== '/') {
+                this.visible = false;
+            } else {
+                this.visible = true;
+            }
+      });
     }
 
     open(content) {

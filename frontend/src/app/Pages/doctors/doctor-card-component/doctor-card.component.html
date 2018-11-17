@@ -1,0 +1,15 @@
+<div class="container col cardsContainer">
+
+  <div class="cardContainer col-xs-12 col-sm-6 col-md-6 col-lg-4 px-xs-3 px-md-4 px-xl-5" *ngFor="let doctor of doctors">
+    <div class="card col cardWrapper p-0" appDoctorHover routerLink="/">
+      <img class="card-img-top rounded-0 portraitImg" src="{{doctor.avatar}}" alt="Portrait">
+      <div class="card-body">
+        <h5 class="card-title text-truncate">{{doctor.surename}}<br />{{doctor.name}}</h5>
+        <p class="card-text text-truncate">{{doctor.career}}</p>
+        <!-- <a [routerLink]="['./']" fragment="{{doctor.career}}" [queryParams]="{name: doctor.name, surname: doctor.surename}"
+          class="btn recordingBtn text-truncate">Вибрати</a> -->
+        <p>Some additional information</p>
+      </div>
+    </div>
+  </div>
+</div>
