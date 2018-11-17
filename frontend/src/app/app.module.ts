@@ -15,10 +15,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from './Pages/main/carousel/carousel.module';
 
 import {ServicesComponent} from './Pages/services/services.component';
-import {DoctorsComponent} from './Pages/doctors/doctors.component';
 import {NewsComponent} from './Pages/news/news.component';
 import {AboutComponent} from './Pages/about/about.component';
 import {MainComponent} from './Pages/main/main.component';
+import { SpecialistsPageModule } from './Pages/specialists/specialists-page.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponentModule } from './Pages/main/card-components/cards-component.module';
@@ -31,6 +31,8 @@ import { BreadcrumbComponent } from './common-components/breadcrumb/breadcrumb.c
 import { DoctorsBySpecializationComponent } from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
 import { AppointmentComponent } from './common-components/appointment/appointment.component';
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
+import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
+
 
 
 @NgModule({
@@ -40,7 +42,6 @@ import { RegisterReceptionComponent } from './Pages/register-reception/register-
         FooterComponent,
         AppointmentWindowComponent,
         ServicesComponent,
-        DoctorsComponent,
         NewsComponent,
         AboutComponent,
         MainComponent,
@@ -52,17 +53,20 @@ import { RegisterReceptionComponent } from './Pages/register-reception/register-
         SuggestionComponent,
         RegisterReceptionComponent
 
+
     ],
     imports: [
         RouterModule.forRoot(
-            appRoutes,
+            appRoutes, {scrollPositionRestoration: 'enabled'}
         ),
         BrowserModule,
         FormsModule,
         NgbModule,
         CarouselModule,
         HttpClientModule,
-        CardsComponentModule
+        CardsComponentModule,
+        SpecialistsPageModule,
+        DoctorsPageModule
     ],
     providers: [HttpService],
     bootstrap: [AppComponent]

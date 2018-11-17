@@ -11,5 +11,5 @@
     </div>
 </ng-template>
 
-<button class="btn  modalBtn" (click)="open(content)">Запис на прийом</button>
+<button class="btn  modalBtn" (click)="open(content)" *ngIf="visible">Запис на прийом</button>
 

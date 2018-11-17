@@ -1,0 +1,22 @@
+<div class="container-fluid p-0">
+
+  <div class="container-fluid p-0 position-relative mainContainerWrapper">
+
+    <div class="imageContainer">
+      <img class="headerImage" src="{{pageData[0].pictureUrl}}" alt="">
+      <div class="title">{{textData.title}}</div>
+    </div>
+  
+    <div class="col description">
+      <p>{{textData.description}}</p>
+    </div>
+  
+    <hr class="hrStyle" />
+  
+    <h4 class="messageHeader">Виберіть спеціаліста</h4>
+  
+    <app-doctor-card [doctors]="doctors"></app-doctor-card>
+  
+  </div>
+
+</div>

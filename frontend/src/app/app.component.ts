@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HttpService} from './http.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {HttpService} from './http.service';
 
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     menuItems = {
         logo: '/assets/img/logo.png',
@@ -27,7 +27,14 @@ export class AppComponent {
         mail: 'BabyMed@gmail.com'
     };
 
-    constructor() {
+    constructor(private _httpService: HttpService) { }
+
+    ngOnInit() {
+        // this._httpService.dawnloadAppConfigs().subscribe( (res) => {
+        //     console.log(this._httpService.getAppConfigs());
+        // });
+        // console.log('Open page!');
+        // console.log(this._httpService.getAppConfigs());
     }
 
 }
