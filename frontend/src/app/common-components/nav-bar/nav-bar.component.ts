@@ -9,7 +9,16 @@ import {MenuItem} from '../../interfaces/menuItem';
 })
 export class NavBarComponent implements OnInit {
   @Input()  menuItems: MenuItem;
+  isShow = false;
     constructor(private _httpService: HttpService) {
+    }
+
+    showBreadcrumb() {
+       this.isShow = true;
+    }
+
+    showMenu(){
+      this.isShow = false;
     }
 
     ngOnInit() {

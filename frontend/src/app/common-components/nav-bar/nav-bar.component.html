@@ -16,22 +16,25 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item menuItem">
-            <a class="nav-link" routerLink="" routerLinkActive="active">{{menuItems.main}}</a>
+            <a class="nav-link" (click)="showMenu()"  [ngClass]="{mainPage: isShow}" routerLink="" routerLinkActive="active">{{menuItems.main}}</a>
           </li>
-          <li class="nav-item menuItem">
-            <a class="nav-link" routerLink="/services" routerLinkActive="active">{{menuItems.services}}</a>
+          <li class="nav-item menuItem" *ngIf="!isShow">
+            <a class="nav-link" (click)="showBreadcrumb()" routerLink="/services" routerLinkActive="active">{{menuItems.services}}</a>
           </li>
-          <li class="nav-item menuItem">
-            <a class="nav-link" routerLink="/doctors" routerLinkActive="active">{{menuItems.doctors}}</a>
+          <li class="nav-item menuItem" *ngIf="!isShow">
+            <a class="nav-link" (click)="showBreadcrumb()" routerLink="/doctors" routerLinkActive="active">{{menuItems.doctors}}</a>
           </li>
-          <li class="nav-item menuItem">
-            <a class="nav-link" routerLink="/news" routerLinkActive="active">{{menuItems.news}}</a>
+          <li class="nav-item menuItem" *ngIf="!isShow">
+            <a class="nav-link" (click)="showBreadcrumb()" routerLink="/news" routerLinkActive="active">{{menuItems.news}}</a>
           </li>
-          <li class="nav-item menuItem">
-            <a class="nav-link" routerLink="/about" routerLinkActive="active">{{menuItems.about}}</a>
+          <li class="nav-item menuItem" *ngIf="!isShow">
+            <a class="nav-link" (click)="showBreadcrumb()" routerLink="/about" routerLinkActive="active">{{menuItems.about}}</a>
           </li>
         </ul>
       </div>
+      <div *ngIf="isShow">
+      <app-breadcrumb></app-breadcrumb>
+    </div>
     </nav>
   </div>
 

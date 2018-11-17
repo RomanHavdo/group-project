@@ -9,9 +9,9 @@ import {AppointmentComponent} from './common-components/appointment/appointment.
 
 export const appRoutes: Routes = [
         {path: '', component: MainComponent},
-        {path: 'about', component: AboutComponent},
-        {path: 'doctors', component: DoctorsComponent},
-        {path: 'news', component: NewsComponent},
+        {path: 'about', component: AboutComponent, data: {breadcrumb: 'про нас'}},
+        {path: 'doctors', component: DoctorsComponent, data: {breadcrumb: 'лікарі'}},
+        {path: 'news', component: NewsComponent, data: {breadcrumb: 'новини'}},
         {path: 'services/doctors', component: ServicesComponent},
         {
             path: 'services',
