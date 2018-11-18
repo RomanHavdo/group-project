@@ -3,12 +3,11 @@ import {AuthService} from '../../auth.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../interfaces/user';
 import {MenuItem} from '../../interfaces/menuItem';
-import {HttpService} from "../../http.service";
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+    selector: 'app-sign-up',
+    templateUrl: './sign-up.component.html',
+    styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
     @Input() menuItems: MenuItem;
@@ -33,8 +32,6 @@ export class SignUpComponent {
     open(content) {
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-            // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
     }
 }

@@ -4,7 +4,8 @@ declare var toastr: any;
 
 @Injectable()
 export class ToastrService {
-    constructor() {}
+    constructor() {
+    }
 
     Success(message?: string) {
         toastr.success(message);

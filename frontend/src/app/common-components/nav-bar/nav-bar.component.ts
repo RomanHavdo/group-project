@@ -18,19 +18,19 @@ export class NavBarComponent implements OnInit {
     }
 
     chechUserObject() {
-       return this.authUser = this.authService.authUser;
+        return this.authUser = this.authService.authUser;
     }
 
-    userExit(){
+    userExit() {
         this.authService.userExit();
     }
 
     showBreadcrumb() {
-       this.isShow = true;
+        this.isShow = true;
     }
 
-    showMenu(){
-      this.isShow = false;
+    showMenu() {
+        this.isShow = false;
     }
 
     ngOnInit() {
