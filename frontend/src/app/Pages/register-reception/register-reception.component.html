@@ -1,0 +1,49 @@
+<div class="profile">
+<div class="avatar">
+  <img src="http://woman.ua/media/cache/e1/2f/e12f72308cbb4389323632b03c48ec50.jpg" alt="avatar" class="avatar">
+</div>
+<div class="main-information">
+  <div class="appointment-section">
+  <h1 class="doctor-name">Доктор Хаус Іванович</h1>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Записатись на прийом</button>
+  </div>
+  <p class="doctor-label">Хірург</p>
+  <p>Інформація про лікаря:</p>
+  <p class="description">Я  кандидат медичних наук. Маю великий досвід . Працював у всесвітньо відомих клініках</p>
+</div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Запис на прийом</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div class="reason">
+           <p>Виберіть дату візиту:</p>
+           <form class="form-inline">
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd"
+                         name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </div>
+            </form>
+           <p>Вкажіть причини вашого візиту:</p>
+          <textarea maxlength="150" cols="50" rows="4"></textarea>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Відмінити</button>
+          <button type="button" class="btn btn-primary">Підтвердити</button>
+        </div>
+      </div>
+    </div>
+  </div>

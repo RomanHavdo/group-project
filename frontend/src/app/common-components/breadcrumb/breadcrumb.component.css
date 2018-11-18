@@ -1,0 +1,80 @@
+.breadcrumb1 {
+  list-style: none;
+  overflow: hidden;
+  font: 18px Sans-Serif;
+  padding-left: 0px;
+}
+.breadcrumb1 li {
+  float: left;
+}
+.breadcrumb1 li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0 10px 65px;
+  background: rgb(13, 92, 165); /* fallback color */
+  /* background: rgb(13, 165, 165); */
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.breadcrumb1 li a::after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid rgb(13, 92, 165);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 100%;
+  z-index: 2;
+}
+
+.breadcrumb1 li a::before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1;
+}
+
+.breadcrumb1 li:first-child a {
+  padding-left: 10px;
+}
+
+.breadcrumb1 li:nth-child(2) a       { background:        rgb(52, 133, 209) }
+.breadcrumb1 li:nth-child(2) a:after { border-left-color: rgb(52, 133, 209) }
+.breadcrumb1 li:nth-child(3) a       { background:        rgb(13, 165, 165) }
+.breadcrumb1 li:nth-child(3) a:after { border-left-color: rgb(13, 165, 165) }
+.breadcrumb1 li:nth-child(4) a       { background:        rgb(73, 214, 214) }
+.breadcrumb1 li:nth-child(4) a:after { border-left-color: rgb(73, 214, 214) }
+.breadcrumb1 li:nth-child(5) a       { background:        rgb(148, 209, 209) }
+.breadcrumb1 li:nth-child(5) a:after { border-left-color: rgb(148, 209, 209) }
+.breadcrumb1 li:last-child a {
+  background: transparent !important;
+  color: black;
+  pointer-events: none;
+  cursor: default;
+}
+.breadcrumb1 li:last-child a::after {
+  border: 0;
+}
+
+
+.breadcrumb1 li a:hover {
+  background: rgb(13, 165, 152);
+}
+.breadcrumb1 li a:hover:after {
+  border-left-color: rgb(13, 165, 152) !important;
+}

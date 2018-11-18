@@ -6,8 +6,8 @@ import {Contact} from '../../interfaces/contact';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.css']
 })
-export class FooterComponent{
-    @Input() contacts:Contact;
+export class FooterComponent {
+    @Input() contacts: Contact;
 
     constructor() {
     }

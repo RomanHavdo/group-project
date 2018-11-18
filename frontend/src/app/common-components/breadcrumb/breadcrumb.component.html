@@ -1,7 +1,7 @@
 <div>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs;">
+    <ul class="breadcrumb1">
+        <li  *ngFor="let breadcrumb of breadcrumbs;">
             <a [routerLink]="breadcrumb.url">{{breadcrumb.label}}</a>
         </li>
-    </ol>
+      </ul>
 </div>

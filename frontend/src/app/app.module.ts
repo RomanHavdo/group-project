@@ -15,10 +15,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from './Pages/main/carousel/carousel.module';
 
 import {ServicesComponent} from './Pages/services/services.component';
-import {DoctorsComponent} from './Pages/doctors/doctors.component';
 import {NewsComponent} from './Pages/news/news.component';
 import {AboutComponent} from './Pages/about/about.component';
 import {MainComponent} from './Pages/main/main.component';
+import { SpecialistsPageModule } from './Pages/specialists/specialists-page.module';
 
 import {HttpClientModule} from '@angular/common/http';
 import {CardsComponentModule} from './Pages/main/card-components/cards-component.module';
@@ -33,6 +33,8 @@ import {AppointmentComponent} from './common-components/appointment/appointment.
 import {UserAccountComponent} from './Pages/user-account/user-account.component';
 import {AuthService} from "./auth.service";
 
+import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
+import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
 
 @NgModule({
     declarations: [
@@ -41,7 +43,6 @@ import {AuthService} from "./auth.service";
         FooterComponent,
         AppointmentWindowComponent,
         ServicesComponent,
-        DoctorsComponent,
         NewsComponent,
         AboutComponent,
         MainComponent,
@@ -52,11 +53,14 @@ import {AuthService} from "./auth.service";
         AppointmentComponent,
         SuggestionComponent,
         UserAccountComponent,
+        SuggestionComponent,
+        RegisterReceptionComponent
+
 
     ],
     imports: [
         RouterModule.forRoot(
-            appRoutes,
+            appRoutes, {scrollPositionRestoration: 'enabled'}
         ),
         BrowserModule,
         FormsModule,
@@ -64,6 +68,9 @@ import {AuthService} from "./auth.service";
         CarouselModule,
         HttpClientModule,
         CardsComponentModule,
+        CardsComponentModule,
+        SpecialistsPageModule,
+        DoctorsPageModule
     ],
     providers: [HttpService, AuthService, ToastrService],
     bootstrap: [AppComponent]

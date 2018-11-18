@@ -39,7 +39,6 @@ export class LogInComponent {
 
     checkIfObjectReturned() {
         this.authUser = this.authService.authUser;
-        console.log( this.authUser);
         if (this.authUser !== null) {
             this.SuccessLogin();
         } else if (this.authUser == null) {

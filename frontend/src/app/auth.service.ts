@@ -17,12 +17,12 @@ export class AuthService {
     // }
 
     createUser(info) {
-        this.http.post('http:/user', info).subscribe();
+        this.http.post('http:/api/user', info).subscribe();
 
     }
 
     userAuthentication(data) {
-        return this.http.post('http:/login', data).pipe(map(res => this.authUser = res));
+        return this.http.post('http:/api/login', data).pipe(map(res => this.authUser = res));
     }
 
     userExit() {

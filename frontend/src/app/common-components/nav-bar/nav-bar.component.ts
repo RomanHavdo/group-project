@@ -10,6 +10,8 @@ import {AuthService} from "../../auth.service";
 })
 export class NavBarComponent implements OnInit {
     @Input() menuItems: MenuItem;
+    isShow = false;
+
     authUser: Observable<any>;
 
     constructor(private authService: AuthService) {
@@ -21,6 +23,14 @@ export class NavBarComponent implements OnInit {
 
     userExit(){
         this.authService.userExit();
+    }
+
+    showBreadcrumb() {
+       this.isShow = true;
+    }
+
+    showMenu(){
+      this.isShow = false;
     }
 
     ngOnInit() {
