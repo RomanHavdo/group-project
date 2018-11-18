@@ -20,7 +20,6 @@
 .logoName {
     font-size: 1.5em;
     padding-top: 0;
-    /*color: black;*/
     background: -webkit-linear-gradient(white, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -28,7 +27,6 @@
 }
 
 .logoImg {
-    /* width: 100%; */
     width: 50px;
 }
 

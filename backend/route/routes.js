@@ -67,17 +67,6 @@ router.route('/carousel_data')
     });
 
 router.route('/user')
-    .get((req, res) => {
-        User.find((err, items) => {
-            if (err) {
-                res.status(404).json(err);
-            } else {
-                res.status(200).json(items);
-            }
-        })
-    });
-
-router.route('/user')
     .post((req, res) => {
         let user = new User(req.body);
         user.save(function (err, userTest, affected) {
