@@ -67,3 +67,10 @@
     padding: 8px;
     text-decoration: none;
 }
+
+.mainPage{
+  color: #007bff !important;
+  text-decoration: none;
+  background-color: transparent;
+  padding-bottom: 25px;
+}

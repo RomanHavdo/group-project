@@ -1,0 +1,41 @@
+h3{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #29b6f6;
+    color: white;
+    text-align: center;
+}
+
+h3 + ul{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 1px solid #1165de;
+    border-right: 1px solid #1165de;
+    border-bottom: 1px solid #1165de;
+}
+li:last-child{
+    border-bottom: 0;
+}
+
+li:hover{
+    background-color: #85d4f9;
+}
+
+a{
+    font-size: 23px;
+}
+a:hover{
+    text-decoration: none;
+}

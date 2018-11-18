@@ -12,11 +12,9 @@
       <div class="form-group">
         <label for="name">Прізвище, ім’я, по батькові</label>
         <input id='name' type="text" class="form-control"
-               pattern="[а-яА-Я]*"
                ngModel
                name='name'
-               #name="ngModel"
-               required>
+               #name="ngModel">
         <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Поле має бути заповнене кирилицею
         </div>
       </div>

@@ -1,7 +1,7 @@
 [
-    { "id": "0", "url": "assets/img/slides/slide1.jpg", "header": "Home", "description": "Home page", "link": "" },
-    { "id": "1", "url": "assets/img/slides/slide2.jpg", "header": "About", "description": "About page", "link": "about" },
-    { "id": "2", "url": "assets/img/slides/slide3.jpg", "header": "Doctors", "description": "Doctors page", "link": "doctors" },
-    { "id": "3", "url": "assets/img/slides/slide4.jpg", "header": "News", "description": "News page", "link": "news" },
-    { "id": "4", "url": "assets/img/slides/slide5.jpg", "header": "Services", "description": "Services page", "link": "services" }
+    { "id": "0", "url": "../../../assets/img/slides/slide1.jpg", "header": "Ми піклуємося про вас уже 7 років!", "description": "Завітайте до нас у період 26.11.2018 - 02.12.2018 і гарантовано отримайте знижку 7 % на всі консультації!", "link": "" },
+    { "id": "1", "url": "../../../assets/img/slides/slide2.jpg", "header": "Вакцинація проти грипу", "description": "У наявності вакцина “ВАКСІГРИП” французького виробника Sanofi Pasteur S.A.", "link": "about" },
+    { "id": "2", "url": "../../../assets/img/slides/slide3.jpg", "header": "Зима вже близько!", "description": "Потурбуйтеся про імунітет своєї дитини - поради наших спеціалістів.", "link": "doctors" },
+    { "id": "3", "url": "../../../assets/img/slides/slide4.jpg", "header": "УЗД дітям.", "description": "Усі види УЗД на апаратах експертного класу LOGIQ P6, виробництва США.", "link": "news" },
+    { "id": "4", "url": "../../../assets/img/slides/slide5.jpg", "header": "Відтепер працюємо й у неділю!", "description": "На численні прохання наших клієнтів ми змінили наш робочий графік. Чекаємо на вас!", "link": "services" }
 ]

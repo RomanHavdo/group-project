@@ -1,5 +1,34 @@
 <div>
-  <app-breadcrumb></app-breadcrumb>
+  <!-- <app-breadcrumb></app-breadcrumb> -->
   <router-outlet></router-outlet>
-  <a  routerLink="/services/doctorsBySpecialization" routerLinkActive="active">до спеціалістів)</a>
+  <a routerLink="/services/doctorsBySpecialization" routerLinkActive="active">до спеціалістів)</a>
+</div>
+
+<div>
+
+  <h3 (click)="isOpen= !isOpen">Консультації</h3>
+  <ul [@ulState]="isOpen ? 'open' : 'closed'">
+    <li *ngFor="let doctor of servicesList.doctors"><a [routerLink]="['./doctors']" [queryParams]="{serviceType: doctor.profession}">{{doctor.name}}</a></li>
+  </ul>
+
+  <h3 (click)="isOpenKomplex= !isOpenKomplex">Комплексні обстеження</h3>
+  <ul [@ulState]="isOpenKomplex ? 'open' : 'closed'">
+    <li *ngFor="let complexItem of servicesList.complex"><a [routerLink]="['./doctors']" [queryParams]="{serviceType: complexItem.type}">{{complexItem.name}}</a></li>
+  </ul>
+
+  <h3 (click)="isOpenDiagnostic= !isOpenDiagnostic">Діагностика</h3>
+  <ul [@ulState]="isOpenDiagnostic ? 'open' : 'closed'">
+    <li *ngFor="let diagnositicItem of servicesList.diagnositic"><a [routerLink]="['./doctors']" [queryParams]="{serviceType: diagnositicItem.type}">{{diagnositicItem.name}}</a></li>
+  </ul>
+
+  <h3 (click)="isOpenAnaliz= !isOpenAnaliz">Аналізи</h3>
+  <ul [@ulState]="isOpenAnaliz ? 'open' : 'closed'">
+    <li *ngFor="let analizItem of servicesList.analiz"><a [routerLink]="['./doctors']" [queryParams]="{serviceType: analizItem.type}">{{analizItem.name}}</a></li>
+  </ul>
+
+  <h3 (click)="isOpenVakcina= !isOpenVakcina">Вакцинація</h3>
+  <ul [@ulState]="isOpenVakcina ? 'open' : 'closed'">
+    <li *ngFor="let vakcinaItem of servicesList.vakcina"><a [routerLink]="['./doctors']" [queryParams]="{serviceType: vakcinaItem.type}">{{vakcinaItem.name}}</a></li>
+  </ul>
+
 </div>
