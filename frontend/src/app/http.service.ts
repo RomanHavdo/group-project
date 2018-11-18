@@ -41,7 +41,7 @@ export class HttpService {
     }
 
     getDoctorById(_id: number): Observable<any> {
-      return this.http.get('http:/api/doctor/:' + _id)
+      return this.http.get('http:/api/doctor/' + _id)
       .pipe(map(res => res));
     }
 
