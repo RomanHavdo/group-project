@@ -59,7 +59,6 @@ router.route('/user')
 router.route('/user')
     .post((req, res) => {
         let user = new User(req.body);
-        console.log(user);
         user.save(function (err, userTest, affected) {
             if (err) throw  err;
         });
@@ -77,7 +76,12 @@ router.route('/login')
                 existingUser.comparePassword(user.password, function (err, isMatch) {
                     if (err) throw err;
                     console.log(user.password, isMatch);
-                    res.send(existingUser);
+                    if (isMatch === true) {
+                        res.send(existingUser);
+                    } else {
+                        existingUser = null;
+                        res.send(existingUser)
+                    }
                 });
             }
         })

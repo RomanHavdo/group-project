@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-
+import {ToastrService} from "./toastr.service";
 import {AppComponent} from './app.component';
 
 import {SuggestionComponent} from './Pages/main/suggestion/suggestion.component';
@@ -51,7 +51,7 @@ import {AuthService} from "./auth.service";
         DoctorsBySpecializationComponent,
         AppointmentComponent,
         SuggestionComponent,
-        UserAccountComponent
+        UserAccountComponent,
 
     ],
     imports: [
@@ -63,9 +63,9 @@ import {AuthService} from "./auth.service";
         NgbModule,
         CarouselModule,
         HttpClientModule,
-        CardsComponentModule
+        CardsComponentModule,
     ],
-    providers: [HttpService, AuthService],
+    providers: [HttpService, AuthService, ToastrService],
     bootstrap: [AppComponent]
 })
 

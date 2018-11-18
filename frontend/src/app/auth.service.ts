@@ -5,15 +5,16 @@ import {map} from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-    authUser: any = [];
+    authUser: any = null;
 
     constructor(private http: HttpClient) {
     }
 
-    getUserInformation(): Observable<any> {
-        return this.http.get('http:/user')
-            .pipe(map(res => res));
-    }
+
+    // getUserInformation(): Observable<any> {
+    //     return this.http.get('http:/user')
+    //         .pipe(map(res => res));
+    // }
 
     createUser(info) {
         this.http.post('http:/user', info).subscribe();
@@ -21,6 +22,10 @@ export class AuthService {
     }
 
     userAuthentication(data) {
-        return this.http.post('http:/login', data).pipe(map(res => this.authUser = res)).subscribe();
+        return this.http.post('http:/login', data).pipe(map(res => this.authUser = res));
+    }
+
+    userExit() {
+        this.authUser = null;
     }
 }
