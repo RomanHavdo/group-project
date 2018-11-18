@@ -60,3 +60,10 @@
 .signUp:hover, .logIn:hover {
     color: black;
 }
+
+.mainPage{
+  color: #007bff !important;
+  text-decoration: none;
+  background-color: transparent;
+  padding-bottom: 25px;
+}

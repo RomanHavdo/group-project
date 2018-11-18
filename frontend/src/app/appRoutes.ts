@@ -16,8 +16,8 @@ import { RegisterReceptionComponent } from './Pages/register-reception/register-
 
 export const appRoutes: Routes = [
         {path: '', component: MainComponent},
-        {path: 'about', component: AboutComponent},
-        {path: 'news', component: NewsComponent},
+        {path: 'about', component: AboutComponent, data: {breadcrumb: 'про нас'}},
+        {path: 'news', component: NewsComponent, data: {breadcrumb: 'новини'}},
         {path: 'specialists', component: SpecialistsPageComponent,
             resolve: {
                 doctors: SpecialistsResolverService,
@@ -36,19 +36,19 @@ export const appRoutes: Routes = [
             path: 'services',
             component: ServicesComponent,
             data: {breadcrumb: 'послуги'},
-            // children: [
-            //     {
-            //         path: 'doctorsBySpecialization',
-            //         component: DoctorsBySpecializationComponent,
-            //         data: {breadcrumb: 'спеціалісти'},
-            //         children: [
-            //             {
-            //                 path: 'appointment',
-            //                 component: AppointmentComponent,
-            //                 data: {breadcrumb: 'запис'},
-            //             }]
-            //     }
-            // ]
+            children: [
+                {
+                    path: 'doctorsBySpecialization',
+                    component: DoctorsBySpecializationComponent,
+                    data: {breadcrumb: 'спеціалісти'},
+                    children: [
+                        {
+                            path: 'appointment',
+                            component: AppointmentComponent,
+                            data: {breadcrumb: 'запис'},
+                        }]
+                }
+            ]
         }
     ]
 ;
