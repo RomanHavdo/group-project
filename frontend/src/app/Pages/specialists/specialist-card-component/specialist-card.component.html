@@ -9,7 +9,7 @@
       <div class="card-body">
         <h5 class="card-title text-truncate">{{doctor.surename}}<br/>{{doctor.name}}</h5>
         <p class="card-text text-truncate">{{doctor.career}}</p>
-        <a [routerLink]="['./doctors']" (click)="stopPropagation($event)" [queryParams]="{serviceType: doctor.career}" class="btn recordingBtn text-truncate">Записатись</a>
+        <a [routerLink]="['./doctor', doctor._id]" (click)="stopPropagation($event)" class="btn recordingBtn text-truncate">Записатись</a>
       </div>
     </div>
   </div>

@@ -102,19 +102,19 @@ router.route('/doctor/:_id')
         if (!req.params._id) {
             res.status(404).send('No data');
         } else {
+            const _id = Number(req.params._id);
+            doctorsList.find((err, items) => {
 
-            if (err) {
-                res.status(404).json(err);
-            } else {
-                const _id = Number(req.params._id);
-                doctorsList.find((err, items) => {
+                if (err) {
+                    res.status(404).json(err);
+                } else {
                     let data = items[0].doctors.filter(doctor => {
                         return doctor._id === _id;
                     });
 
                     res.status(200).json(data);
-                })
-            }
+                }
+            })
         }
     });
 
