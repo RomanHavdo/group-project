@@ -1,22 +1,35 @@
 <div class="container-fluid p-0">
-        <div class="col p-0">
-            <div class="tmb">
-                <a [href]="images[counter].link" *ngFor="let img of images;let idi=index"><img [@imgState]="idi === counter ? 'active': 'inactive'" *ngFor="let img of images;let idi=index"
-                        [src]="img.url" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" /></a>
-                <h3 [@imgState]="idi === counterText ? 'active': 'inactive'" *ngFor="let text of images;let idi=index">{{text.header}}</h3>
-                <p [@imgState]="idi === counterInfo ? 'active': 'inactive'" *ngFor="let textInfo of images;let idi=index">{{textInfo.description}}</p>
+    <div class="col p-0">
+        <div class="tmb">
+            <div class="tmb-in" *ngFor="let img of images;let idi=index">
+                <a [href]="images[counter].link"><img [@imgState]="idi === counter ? 'active': 'inactive'" [src]="img.url"
+                        (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" />
+                    <h3 [@imgState]="idi === counterText ? 'active': 'inactive'" (mouseenter)="mouseEnterSpan(carouselBtn)"
+                        (mouseleave)="mouseLeaveSpan(carouselBtn)">{{img.header}}</h3>
+                    <p [@imgState]="idi === counterInfo ? 'active': 'inactive'" (mouseenter)="mouseEnterSpan(carouselBtn)"
+                        (mouseleave)="mouseLeaveSpan(carouselBtn)">{{img.description}}</p>
+                </a>
             </div>
-            <div class="carousel-btn span-btn-none" #carouselBtn>
-                <span class="btn-change-inc" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" (click)="onClickInc()">&#x3e;</span>
-                <span class="btn-change-dec" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)" (click)="onClickDec()">&#x3c;</span>
-            </div>
-            <div class="indecators">
-                <button [class.active]="isActive('btn0')" (click)="setActive('btn1')" (click)="onClickItem($event)" value="0" class="indecator-1"></button>
-                <button [class.active]="isActive('btn1')" (click)="setActive('btn2')" (click)="onClickItem($event)" value="1" class="indecator-2"></button>
-                <button [class.active]="isActive('btn2')" (click)="setActive('btn3')" (click)="onClickItem($event)" value="2" class="indecator-3"></button>
-                <button [class.active]="isActive('btn3')" (click)="setActive('btn4')" (click)="onClickItem($event)" value="3" class="indecator-4"></button>
-                <button [class.active]="isActive('btn4')" (click)="setActive('btn5')" (click)="onClickItem($event)" value="4" class="indecator-5"></button>
-            </div>
-    
+
         </div>
+        <div class="carousel-btn span-btn-none" #carouselBtn>
+            <span class="btn-change-inc" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)"
+                (click)="onClickInc()">&#x3e;</span>
+            <span class="btn-change-dec" (mouseenter)="mouseEnterSpan(carouselBtn)" (mouseleave)="mouseLeaveSpan(carouselBtn)"
+                (click)="onClickDec()">&#x3c;</span>
+        </div>
+        <div class="indecators">
+            <button [class.active]="isActive('btn0')" (click)="setActive('btn1')" (click)="onClickItem($event)" value="0"
+                class="indecator-1"></button>
+            <button [class.active]="isActive('btn1')" (click)="setActive('btn2')" (click)="onClickItem($event)" value="1"
+                class="indecator-2"></button>
+            <button [class.active]="isActive('btn2')" (click)="setActive('btn3')" (click)="onClickItem($event)" value="2"
+                class="indecator-3"></button>
+            <button [class.active]="isActive('btn3')" (click)="setActive('btn4')" (click)="onClickItem($event)" value="3"
+                class="indecator-4"></button>
+            <button [class.active]="isActive('btn4')" (click)="setActive('btn5')" (click)="onClickItem($event)" value="4"
+                class="indecator-5"></button>
+        </div>
+
     </div>
+</div>

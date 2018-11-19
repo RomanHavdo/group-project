@@ -6,6 +6,8 @@ let User = require('../model/user');
 const menuItem = require('../model/menuItem');
 const cardItem = require('../model/cardItem');
 const carouselData = require('../model/carouselData');
+const servicesData = require('../model/servicesData');
+
 const doctorsList = require('../model/doctors');
 const appConfigs = require('../model/appConfigs');
 const specialistsPage = require('../model/specialistsPage');
@@ -66,11 +68,22 @@ router.route('/carousel_data')
         })
     });
 
+router.route('/services_data')
+    .get((req, res) => {
+        servicesData.find((err, items) => {
+            if (err) {
+                res.status(404).json(err);
+            } else {
+                res.status(200).json(items);
+            }
+        })
+    });
+
 router.route('/user')
     .post((req, res) => {
         let user = new User(req.body);
         user.save(function (err, userTest, affected) {
-            if (err) throw  err;
+            if (err) throw err;
         });
 
     });
@@ -78,7 +91,7 @@ router.route('/user')
 router.route('/login')
     .post((req, res) => {
         let user = req.body;
-        User.findOne({email: user.email}, function (err, existingUser) {
+        User.findOne({ email: user.email }, function (err, existingUser) {
             if (existingUser == null) {
                 res.send(existingUser);
             } else {
@@ -106,6 +119,7 @@ router.route('/all_doctors')
             }
         })
     });
+
 
 router.route('/doctors')
     .get((req, res) => {
@@ -162,11 +176,11 @@ router.route('/doctorsPage')
                     res.status(200).json([{
                         pictureUrl: items[0].items[0].pictureUrl
                     },
-                        {
-                            textData: items[0].items[0].textData.filter(item => {
-                                return item.title === req.query.serviceType;
-                            })
-                        }
+                    {
+                        textData: items[0].items[0].textData.filter(item => {
+                            return item.title === req.query.serviceType;
+                        })
+                    }
                     ]);
                 }
             })
