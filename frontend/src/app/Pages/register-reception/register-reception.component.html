@@ -1,49 +1,58 @@
-<div class="profile">
+<div class="profile" *ngIf="doctorInfo">
 <div class="avatar">
-  <img src="http://woman.ua/media/cache/e1/2f/e12f72308cbb4389323632b03c48ec50.jpg" alt="avatar" class="avatar">
+  <img src="{{doctorInfo.avatar}}" alt="avatar" class="avatar">
+  <p class="doctor-label">&#9734;{{doctorInfo.career}}</p>
 </div>
 <div class="main-information">
   <div class="appointment-section">
-  <h1 class="doctor-name">Доктор Хаус Іванович</h1>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Записатись на прийом</button>
+  <h1 class="doctor-name">{{doctorInfo.name}} {{doctorInfo.surename}}</h1>
   </div>
-  <p class="doctor-label">Хірург</p>
-  <p>Інформація про лікаря:</p>
-  <p class="description">Я  кандидат медичних наук. Маю великий досвід . Працював у всесвітньо відомих клініках</p>
-</div>
-</div>
+  <span class="head-name">Посада:<p class="thin-text">Лікар-алерголог вищої категорії, кандидат медичних наук</p></span>
+  <span class="head-name">Освіта:<p class="thin-text">Львівський державний медичний інститут</p></span>
+  <span class="head-name">Медичний стаж:<p class="thin-text">33 роки, у BabyMed- із 2013 року</p></span>
+  <span class="head-name">Напрямки роботи:</span>
+  <ul>
+    <li>бронхіальна астма;</li>
+    <li>бронхіальна астма;</li>
+    <li>бронхіальна астма;</li>
+  </ul>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Запис на прийом</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-         <div class="reason">
-           <p>Виберіть дату візиту:</p>
-           <form class="form-inline">
-              <div class="form-group">
-                <div class="input-group">
-                  <input class="form-control" placeholder="yyyy-mm-dd"
-                         name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                  </div>
-                </div>
-              </div>
-            </form>
-           <p>Вкажіть причини вашого візиту:</p>
-          <textarea maxlength="150" cols="50" rows="4"></textarea>
-         </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Відмінити</button>
-          <button type="button" class="btn btn-primary">Підтвердити</button>
+</div>
+</div>
+<div class="form-section">
+  <h3 class="form-header">Заповніть форму для запису на прийом до лікаря</h3>
+<form class="form-registration">
+    <div class="form-group">
+  <label for="pib">ПІБ пацієнта:</label>
+  <input id="pib" class="form-control" type="text" placeholder="ПІБ"/>
+</div>
+<div class="form-group">
+  <label for="email">Електронна адреса:</label>
+  <input id="email" class="form-control" type="email" placeholder="email"/>
+</div>
+<div class="form-group">
+  <label for="phone">Номер телефону:</label>
+  <input id="phone" class="form-control" type="tel" placeholder="phone"/>
+</div>
+<div class="form-group">
+<label for="data-pick">Виберіть дату візиту:</label>
+<form id="data-pick" class="form-inline">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
         </div>
       </div>
     </div>
+  </form>
+</div>
+<div class="form-group">
+    <label for="reasons">Вкажіть причини вашого візиту:</label>
+    <textarea id="reasons" class="form-control" maxlength="150" cols="50" rows="4"></textarea>
   </div>
+<button type="button" data-dismiss="alert" class="btn btn-primary spec" (click)="showMsg()">Записатись на прийом</button>
+</form>
+</div>
+  <ngb-alert *ngIf="staticAlertClosed" type="success" (close)="staticAlertClosed = false">Ви успішно записались до лікаря!</ngb-alert>
