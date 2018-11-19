@@ -1,5 +1,6 @@
 <div class="divServices">
   <button (click)="switcher('isOpen')"><i [ngClass]="status1 ? 'down' :'right' "></i>Консультації</button>
+
   <ul [@ulState]="isOpen ? 'open' : 'closed'">
     <li *ngFor="let doctor of servicesList.doctors"><a [routerLink]="['./doctors']" [queryParams]="{serviceType: doctor.profession}">{{doctor.name}}</a></li>
   </ul>

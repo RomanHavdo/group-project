@@ -1,4 +1,4 @@
-.header-wrapper{
+.header-wrapper {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -20,7 +20,6 @@
 .logoName {
     font-size: 1.5em;
     padding-top: 0;
-    /*color: black;*/
     background: -webkit-linear-gradient(white, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -28,7 +27,6 @@
 }
 
 .logoImg {
-    /* width: 100%; */
     width: 50px;
 }
 
@@ -45,18 +43,35 @@
     transition: 0.2s all;
 }
 
-.menuItem .active{
+.menuItem .active {
     color: #29b6f6;
 }
 
-.loginMenuElement {
+.loginMenuElement, .userMenuElement {
     text-align: center;
 }
 
-.signUp, .logIn{
+.signUp, .logIn {
     padding: 0;
 }
 
-.signUp:hover, .logIn:hover {
-    color: black;
+.signUp, .logIn, .userAccount, .userExit {
+    color: rgb(1, 88, 155);
+}
+
+.signUp:hover, .logIn:hover, .userAccount:hover, .userExit:hover {
+    color: #29b6f6;
+    transition: 0.2s all;
+}
+
+.userAccount, .userExit {
+    padding: 8px;
+    text-decoration: none;
+}
+
+.mainPage {
+    color: #007bff !important;
+    text-decoration: none;
+    background-color: transparent;
+    padding-bottom: 25px;
 }

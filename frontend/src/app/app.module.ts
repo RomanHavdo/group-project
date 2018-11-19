@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-
+import {ToastrService} from "./toastr.service";
 import {AppComponent} from './app.component';
 
 import {SuggestionComponent} from './Pages/main/suggestion/suggestion.component';
@@ -15,23 +15,26 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from './Pages/main/carousel/carousel.module';
 
 import {ServicesComponent} from './Pages/services/services.component';
-import {DoctorsComponent} from './Pages/doctors/doctors.component';
 import {NewsComponent} from './Pages/news/news.component';
 import {AboutComponent} from './Pages/about/about.component';
 import {MainComponent} from './Pages/main/main.component';
+import { SpecialistsPageModule } from './Pages/specialists/specialists-page.module';
 
-import { HttpClientModule } from '@angular/common/http';
-import { CardsComponentModule } from './Pages/main/card-components/cards-component.module';
-import { HttpService } from './http.service';
+import {HttpClientModule} from '@angular/common/http';
+import {CardsComponentModule} from './Pages/main/card-components/cards-component.module';
+import {HttpService} from './http.service';
 
-import { appRoutes } from './appRoutes';
-import { LogInComponent } from './common-components/log-in/log-in.component';
-import { SignUpComponent } from './common-components/sign-up/sign-up.component';
-import { BreadcrumbComponent } from './common-components/breadcrumb/breadcrumb.component';
-import { DoctorsBySpecializationComponent } from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
-import { AppointmentComponent } from './common-components/appointment/appointment.component';
+import {appRoutes} from './appRoutes';
+import {LogInComponent} from './common-components/log-in/log-in.component';
+import {SignUpComponent} from './common-components/sign-up/sign-up.component';
+import {BreadcrumbComponent} from './common-components/breadcrumb/breadcrumb.component';
+import {DoctorsBySpecializationComponent} from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
+import {AppointmentComponent} from './common-components/appointment/appointment.component';
+import {UserAccountComponent} from './Pages/user-account/user-account.component';
+import {AuthService} from "./auth.service";
+
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
-
+import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
 
 @NgModule({
     declarations: [
@@ -40,7 +43,6 @@ import { RegisterReceptionComponent } from './Pages/register-reception/register-
         FooterComponent,
         AppointmentWindowComponent,
         ServicesComponent,
-        DoctorsComponent,
         NewsComponent,
         AboutComponent,
         MainComponent,
@@ -50,21 +52,27 @@ import { RegisterReceptionComponent } from './Pages/register-reception/register-
         DoctorsBySpecializationComponent,
         AppointmentComponent,
         SuggestionComponent,
+        UserAccountComponent,
+        SuggestionComponent,
         RegisterReceptionComponent
+
 
     ],
     imports: [
         RouterModule.forRoot(
-            appRoutes,
+            appRoutes, {scrollPositionRestoration: 'enabled'}
         ),
         BrowserModule,
         FormsModule,
         NgbModule,
         CarouselModule,
         HttpClientModule,
-        CardsComponentModule
+        CardsComponentModule,
+        CardsComponentModule,
+        SpecialistsPageModule,
+        DoctorsPageModule
     ],
-    providers: [HttpService],
+    providers: [HttpService, AuthService, ToastrService],
     bootstrap: [AppComponent]
 })
 

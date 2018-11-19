@@ -1,0 +1,16 @@
+<div class="container col cardsContainer">
+
+  <h4 *ngIf="(doctors | search:searchStr:selectedValue) ?.length === 0" class="noFound">Не знайдено жодних спеціалістів за вказаними даними</h4>
+
+  <div class="cardContainer col-xs-12 col-sm-6 col-md-6 col-lg-4 px-xs-3 px-md-4 px-xl-5" *ngFor="let doctor of doctors | search:searchStr:selectedValue">
+    <div class="card col cardWrapper p-0" appHover routerLink="/">
+       <a [routerLink]="['/' , doctor._id]" class="popUpText"><span>ДЕТАЛЬНІШЕ</span></a>
+      <img class="card-img-top rounded-0 portraitImg" src="{{doctor.avatar}}" alt="Portrait">
+      <div class="card-body">
+        <h5 class="card-title text-truncate">{{doctor.surename}}<br/>{{doctor.name}}</h5>
+        <p class="card-text text-truncate">{{doctor.career}}</p>
+        <a [routerLink]="['./doctor', doctor._id]" (click)="stopPropagation($event)" class="btn recordingBtn text-truncate">Записатись</a>
+      </div>
+    </div>
+  </div>
+</div>

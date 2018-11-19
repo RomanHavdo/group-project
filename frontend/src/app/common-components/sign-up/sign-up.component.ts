@@ -5,9 +5,9 @@ import {User} from '../../interfaces/user';
 import {MenuItem} from '../../interfaces/menuItem';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+    selector: 'app-sign-up',
+    templateUrl: './sign-up.component.html',
+    styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
     @Input() menuItems: MenuItem;
@@ -17,23 +17,22 @@ export class SignUpComponent {
     constructor(private modalService: NgbModal, private authService: AuthService) {
     }
 
-    registerUser(name, dateofbirth, sex, homeAddress, emailAddress, phoneNumber, password) {
+    registerUser(name, dateOfBirth, sex, homeAddress, email, phone, password) {
         const user: User = new User(
             name.viewModel,
-            dateofbirth.viewModel,
+            dateOfBirth.viewModel,
             sex.value,
             homeAddress.viewModel,
-            emailAddress.viewModel,
-            phoneNumber.viewModel,
+            email.viewModel,
+            phone.viewModel,
             password.viewModel);
-        this.authService.register(user);
+        this.authService.createUser(user);
     }
 
     open(content) {
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
-            // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
     }
 }

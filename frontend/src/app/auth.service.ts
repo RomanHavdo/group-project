@@ -1,34 +1,23 @@
 import {Injectable} from '@angular/core';
-import {User} from "./interfaces/user";
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
-    users: User[] = [{
-        name: "Petia",
-        dateOfBirth: "12-09-1953",
-        sex: "Чоловіча",
-        homeAddress: "NY, Manhattan, 22",
-        emailAddress: "admin",
-        phoneNumber: "+380001234567",
-        password: "admin"
-    }];
+    authUser: any = null;
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
-    checkUser(logInEmail, logInPassword) {
-        let foundUser =
-            this.users.filter(item => item.emailAddress === logInEmail.viewModel && item.password === logInPassword.viewModel)[0];
-
-        return foundUser;
+    createUser(info) {
+        this.http.post('http:/api/user', info).subscribe();
     }
 
-    register(user: User){
-        this.users.push(user);
-
-        return user;
+    userAuthentication(data) {
+        return this.http.post('http:/api/login', data).pipe(map(res => this.authUser = res));
     }
 
+    userExit() {
+        this.authUser = null;
+    }
 }
