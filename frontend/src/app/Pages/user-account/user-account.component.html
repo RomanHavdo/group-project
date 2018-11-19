@@ -1,3 +1,36 @@
-<p>{{UserInfo.username}}</p>
-<p>{{UserInfo.email}}</p>
-<p>{{UserInfo.password}}</p>
+<div class="userCabinetForm">
+    <form>
+        <div class="form-group row">
+            <label for="userName" class="col-sm-3 col-form-label">ПІП</label>
+            <input id='userName' type="text" class="form-control" name="userName"
+                   [(ngModel)]="UserInfo.name">
+        </div>
+        <div class="form-group row">
+            <label for="userDateOfbirth" class="col-sm-3 col-form-label">Дата народження</label>
+            <input type="text" id='userDateOfbirth' class="form-control" name="userDateOfbirth"
+                   [(ngModel)]="UserInfo.dateOfBirth">
+        </div>
+        <div class="form-group row">
+            <label for="userSex" class="col-sm-3 col-form-label">Стать</label>
+            <input id='userSex' type="text" class="form-control" name="userSex"
+                   [(ngModel)]="UserInfo.sex"
+                   #sex="ngModel">
+        </div>
+        <div class="form-group row">
+            <label for="userAddress" class="col-sm-3 col-form-label">Адреса проживання</label>
+            <input id='userAddress' type="text" class="form-control" name="userAddress"
+                   [(ngModel)]="UserInfo.homeAddress">
+        </div>
+        <div class="form-group row">
+            <label for="userEmail" class="col-sm-3 col-form-label">Електронна адреса</label>
+            <input id='userEmail' type="email" class="form-control" name="userEmail"
+                   [(ngModel)]='UserInfo.email'>
+        </div>
+        <div class="form-group row">
+            <label for="userPhone" class="col-sm-3 col-form-label">Контактний номер</label>
+            <input id='userPhone' type="text" class="form-control" name="userPhone"
+                   placeholder="+380..."
+                   [(ngModel)]='UserInfo.phone'>
+        </div>
+    </form>
+</div>

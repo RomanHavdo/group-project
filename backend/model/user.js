@@ -8,7 +8,7 @@ let UserSchema = new Schema({
         type: String,
         trim: true,
     },
-    dateOfbirth: {
+    dateOfBirth: {
         type: String,
     },
     sex: {
