@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+let User = require('../model/user');
+
 
 const menuItem = require('../model/menuItem');
 const cardItem = require('../model/cardItem');
@@ -31,8 +33,7 @@ router.route('/app_configs')
             }
         })
     });
-
-router.route('/menu_items')
+router.route('/api/menu_items')
     .get((req, res) => {
         menuItem.find((err, items) => {
             if (err) {
@@ -61,6 +62,36 @@ router.route('/carousel_data')
                 res.status(404).json(err);
             } else {
                 res.status(200).json(items);
+            }
+        })
+    });
+
+router.route('/user')
+    .post((req, res) => {
+        let user = new User(req.body);
+        user.save(function (err, userTest, affected) {
+            if (err) throw  err;
+        });
+
+    });
+
+router.route('/login')
+    .post((req, res) => {
+        let user = req.body;
+        User.findOne({email: user.email}, function (err, existingUser) {
+            if (existingUser == null) {
+                res.status(404).json(err);
+            } else {
+                existingUser.comparePassword(user.password, function (err, isMatch) {
+                    if (err) throw err;
+                    console.log(user.password, isMatch);
+                    if (isMatch === true) {
+                        res.send(existingUser);
+                    } else {
+                        existingUser = null;
+                        res.send(existingUser)
+                    }
+                });
             }
         })
     });
@@ -129,8 +160,8 @@ router.route('/doctorsPage')
                     res.status(404).json(err);
                 } else {
                     res.status(200).json([{
-                            pictureUrl: items[0].items[0].pictureUrl
-                        },
+                        pictureUrl: items[0].items[0].pictureUrl
+                    },
                         {
                             textData: items[0].items[0].textData.filter(item => {
                                 return item.title === req.query.serviceType;
@@ -141,5 +172,4 @@ router.route('/doctorsPage')
             })
         }
     });
-
 module.exports = router;

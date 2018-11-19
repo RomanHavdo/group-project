@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpService} from './http.service';
 
 @Component({
@@ -9,8 +9,7 @@ import {HttpService} from './http.service';
 
 })
 
-export class AppComponent implements OnInit {
-
+export class AppComponent {
     menuItems = {
         logo: '/assets/img/logo.png',
         clinicName: 'BabyMed',
@@ -20,21 +19,15 @@ export class AppComponent implements OnInit {
         news: 'Новини',
         about: 'Про нас',
         logIn: 'Увійти',
-        signUp: 'Зареєструватися'
+        signUp: 'Зареєструватися',
+        user:'Особистий кабінет',
+        exit: 'Вихід'
     };
     contacts = {
         phone: '321-654-98',
         mail: 'BabyMed@gmail.com'
     };
 
-    constructor(private _httpService: HttpService) { }
-
-    ngOnInit() {
-        // this._httpService.dawnloadAppConfigs().subscribe( (res) => {
-        //     console.log(this._httpService.getAppConfigs());
-        // });
-        // console.log('Open page!');
-        // console.log(this._httpService.getAppConfigs());
-    }
+    constructor() {}
 
 }

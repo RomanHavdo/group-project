@@ -1,120 +1,115 @@
-<a class="loginMenuItem btn  modalBtn" (click)="open(signUp)">{{menuItems.signIn}}</a>
+<a class="loginMenuItem btn  modalBtn" (click)="open(signUp)">{{menuItems.signUp}}</a>
 
 <ng-template #signUp let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="signUp">Зареєструватися</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form #registrationForm="ngForm">
-      <div class="form-group">
-        <label for="name">Прізвище, ім’я, по батькові</label>
-        <input id='name' type="text" class="form-control"
-               pattern="[а-яА-Я]*"
-               ngModel
-               name='name'
-               #name="ngModel"
-               required>
-        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Поле має бути заповнене кирилицею
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="dateofbirth">Дата народження</label>
-        <input id='dateofbirth' type="date" class="form-control"
-               ngModel
-               name='dateofbirth'
-               #dateofbirth="ngModel"
-               required>
-        <div class="alert alert-danger" *ngIf="dateofbirth.touched && !dateofbirth.valid">Поле має бути
-          заповнене
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="sex">Стать</label>
-        <select id="sex" class="form-control"
-                ngModel
-                name='sex'
-                #sex="ngModel"
-                required>
-          <option *ngFor="let item of sexs" [value]="item">{{item}}
-          </option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="homeAddress">Адреса проживання</label>
-        <input id='homeAddress' type="text" class="form-control"
-               ngModel
-               name='homeAddress'
-               #homeAddress="ngModel">
-        <div class="alert alert-danger" *ngIf="homeAddress.touched && !homeAddress.valid">Поле має бути
-          заповнене
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="emailAddress">Електронна адреса</label>
-        <input id='emailAddress' type="email" class="form-control"
-               ngModel
-               required
-               name='emailAddress'
-               #emailAddress="ngModel">
-        <div class="alert alert-danger" *ngIf="emailAddress.touched && !emailAddress.valid">Поле має бути
-          заповнене
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="phoneNumber">Контактний номер</label>
-        <input id='phoneNumber' type="text" class="form-control"
-               placeholder="+380..."
-               ngModel
-               required
-               name='phoneNumber'
-               #phoneNumber="ngModel">
-        <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">Поле має бути
-          заповнене
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Створіть Пароль</label>
-        <input id='password' type="password" class="form-control"
-               title="Пароль повинен містити не менше 8 знаків, включаючи букви та цифри!"
-               pattern="[0-9a-zA-Z ]*"
-               minlength="8"
-               ngModel
-               required
-               name='password'
-               #password="ngModel">
-        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
-          Пароль повинен містити не менше 8 знаків, включаючи букви та цифри!
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="passCheck">Підтвердити пароль</label>
-        <input id='passCheck' type="password" class="form-control"
-               ngModel
-               required
-               name='passCheck'
-               #passCheck="ngModel">
-        <div class="alert alert-danger" *ngIf="passCheck.touched && passCheck.viewModel !== password.viewModel">
-          Невірно введений пароль
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="privacyNotice"
-               ngModel
-               name='privacyNotice'
-               #privacyNotice="ngModel"
-               required>
-        <label class="form-check-label" for="privacyNotice">Я погоджуюсь з умовами надання послуг та політикою
-          конфіденційності</label>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="submit" [disabled]="registrationForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
-            (click)="registerUser(name,dateofbirth,sex,homeAddress,emailAddress,phoneNumber, password);modal.close() ">
-      Підтвердити
-    </button>
-  </div>
+    <div class="modal-header">
+        <h4 class="modal-title" id="signUp">Зареєструватися</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #registrationForm="ngForm">
+            <div class="form-group">
+                <label for="name">Прізвище, ім’я, по батькові</label>
+                <input id='name' type="text" class="form-control"
+                       ngModel
+                       name='name'
+                       #name="ngModel">
+                <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Поле має бути заповнене кирилицею
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dateofbirth">Дата народження</label>
+                <input id='dateofbirth' type="date" class="form-control"
+                       ngModel
+                       name='dateofbirth'
+                       #dateofbirth="ngModel">
+                <div class="alert alert-danger" *ngIf="dateofbirth.touched && !dateofbirth.valid">Поле має бути
+                    заповнене
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sex">Стать</label>
+                <select id="sex" class="form-control"
+                        ngModel
+                        name='sex'
+                        #sex="ngModel">
+                    <option *ngFor="let item of sexs" [value]="item">{{item}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="homeAddress">Адреса проживання</label>
+                <input id='homeAddress' type="text" class="form-control"
+                       ngModel
+                       name='homeAddress'
+                       #homeAddress="ngModel">
+                <div class="alert alert-danger" *ngIf="homeAddress.touched && !homeAddress.valid">Поле має бути
+                    заповнене
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="emailAddress">Електронна адреса</label>
+                <input id='emailAddress' type="email" class="form-control"
+                       ngModel
+                       required
+                       name='emailAddress'
+                       #emailAddress="ngModel">
+                <div class="alert alert-danger" *ngIf="emailAddress.touched && !emailAddress.valid">Поле має бути
+                    заповнене
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Контактний номер</label>
+                <input id='phoneNumber' type="text" class="form-control"
+                       placeholder="+380..."
+                       ngModel
+                       name='phoneNumber'
+                       #phoneNumber="ngModel">
+                <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">Поле має бути
+                    заповнене
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Створіть Пароль</label>
+                <input id='password' type="password" class="form-control"
+                       title="Пароль повинен містити не менше 8 знаків, включаючи букви та цифри!"
+                       pattern="[0-9a-zA-Zа-яА-Я]*"
+                       minlength="8"
+                       ngModel
+                       required
+                       name='password'
+                       #password="ngModel">
+                <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                    Пароль повинен містити не менше 8 знаків, включаючи букви та цифри!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="passCheck">Підтвердити пароль</label>
+                <input id='passCheck' type="password" class="form-control"
+                       ngModel
+                       required
+                       name='passCheck'
+                       #passCheck="ngModel">
+                <div class="alert alert-danger" *ngIf="passCheck.touched && passCheck.viewModel !== password.viewModel">
+                    Невірно введений пароль
+                </div>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="privacyNotice"
+                       ngModel
+                       name='privacyNotice'
+                       #privacyNotice="ngModel"
+                       required>
+                <label class="form-check-label" for="privacyNotice">Я погоджуюсь з умовами надання послуг та політикою
+                    конфіденційності</label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" [disabled]="registrationForm.form.invalid" class="btn btn-outline-dark btn btn-primary"
+                (click)="registerUser(name,dateofbirth,sex,homeAddress,emailAddress,phoneNumber, password);modal.close() ">
+            Підтвердити
+        </button>
+    </div>
 </ng-template>
