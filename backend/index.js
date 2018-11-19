@@ -8,8 +8,8 @@ const app = express();
 const route = require('./route/routes');
 
 mongoose.connect('mongodb://student:qwerty1@ds153422.mlab.com:53422/testproject', {
-        useNewUrlParser: true
-    })
+    useNewUrlParser: true
+})
     .then(() => {
         console.log('MongoDB connected at port 27017');
     })

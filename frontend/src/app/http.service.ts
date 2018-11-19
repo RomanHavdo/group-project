@@ -12,6 +12,11 @@ export class HttpService {
         .pipe(map(res => res));
     }
 
+    getServicesData() {
+      return this.http.get('http:/api/services_data')
+      .pipe(map(res => res));
+  }
+
     getCardItems() {
       return this.http.get('http:/api/card_items')
       .pipe(map(res => res));
