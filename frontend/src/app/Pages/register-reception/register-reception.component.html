@@ -7,14 +7,12 @@
   <div class="appointment-section">
   <h1 class="doctor-name">{{doctorInfo.name}} {{doctorInfo.surename}}</h1>
   </div>
-  <span class="head-name">Посада:<p class="thin-text">Лікар-алерголог вищої категорії, кандидат медичних наук</p></span>
-  <span class="head-name">Освіта:<p class="thin-text">Львівський державний медичний інститут</p></span>
-  <span class="head-name">Медичний стаж:<p class="thin-text">33 роки, у BabyMed- із 2013 року</p></span>
+  <span class="head-name">Посада:<p class="thin-text">{{doctorInfo.position}}</p></span>
+  <span class="head-name">Освіта:<p class="thin-text">{{doctorInfo.education}}</p></span>
+  <span class="head-name">Медичний стаж:<p class="thin-text">{{doctorInfo.experience}}</p></span>
   <span class="head-name">Напрямки роботи:</span>
-  <ul>
-    <li>бронхіальна астма;</li>
-    <li>бронхіальна астма;</li>
-    <li>бронхіальна астма;</li>
+  <ul *ngFor="let direction of doctorInfo.direction">
+    <li>{{direction}}</li>
   </ul>
 
 </div>
@@ -52,7 +50,7 @@
     <label for="reasons">Вкажіть причини вашого візиту:</label>
     <textarea id="reasons" class="form-control" maxlength="150" cols="50" rows="4"></textarea>
   </div>
-<button type="button" data-dismiss="alert" class="btn btn-primary spec" (click)="showMsg()">Записатись на прийом</button>
+<button type="button" data-dismiss="alert" [disabled]="!isLogin" class="btn btn-primary spec" (click)="showMsg()">Записатись на прийом</button>
 </form>
 </div>
   <ngb-alert *ngIf="staticAlertClosed" type="success" (close)="staticAlertClosed = false">Ви успішно записались до лікаря!</ngb-alert>
