@@ -20,16 +20,21 @@ export class BreadcrumbComponent implements OnInit {
     this.breadcrumbs1 = []
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
       this.breadcrumbs1.push({ label: this.router.url, url: this.router.url })
-
       var arrt = this.breadcrumbs1[0].label.split('/');
       if (arrt.length >= 3) {
+        if(arrt[2].indexOf('doctors?serviceType') !== -1){
+          arrt[2] = 'doctors'
+         }
         this.breadcrumbs[0] = { label: arrt[1], url: '/' + arrt[1] }
-        this.breadcrumbs[1] = { label: arrt[2], url: '/' + arrt[1] + '/' + arrt[2] }
+        this.breadcrumbs[1] = { label: arrt[2], url: '/' + arrt[1] + '/' + 'doctors?serviceType=%D0%90%D0%BB%D0%B5%D1%80%D0%B3%D0%BE%D0%BB%D0%BE%D0%B3'}
 
         if (arrt[1] == 'services') {
           this.breadcrumbs[0].label = 'послуги'
         }
         if (arrt[2] == 'doctorsBySpecialization') {
+          this.breadcrumbs[1].label = 'спеціалісти'
+        }
+        if (arrt[2] == 'doctors') {
           this.breadcrumbs[1].label = 'спеціалісти'
         }
         if (this.breadcrumbs1.length > 1) {
