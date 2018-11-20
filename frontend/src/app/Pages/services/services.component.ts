@@ -29,7 +29,7 @@ export class ServicesComponent implements OnInit {
 
   servicesList: any = [];
   newItem;
-  oldItem = "isOpen";
+  oldItem = 'isOpen';
 
   isOpen = true;
   status1 = true;
