@@ -1,56 +1,64 @@
 <div class="profile" *ngIf="doctorInfo">
-<div class="avatar">
-  <img src="{{doctorInfo.avatar}}" alt="avatar" class="avatar">
-  <p class="doctor-label">&#9734;{{doctorInfo.career}}</p>
-</div>
-<div class="main-information">
-  <div class="appointment-section">
-  <h1 class="doctor-name">{{doctorInfo.name}} {{doctorInfo.surename}}</h1>
+  <div class="avatar">
+    <img src="{{doctorInfo.avatar}}" alt="avatar" class="avatar">
+    <p class="doctor-label">&#9734;{{doctorInfo.career}}</p>
   </div>
-  <span class="head-name">Посада:<p class="thin-text">{{doctorInfo.position}}</p></span>
-  <span class="head-name">Освіта:<p class="thin-text">{{doctorInfo.education}}</p></span>
-  <span class="head-name">Медичний стаж:<p class="thin-text">{{doctorInfo.experience}}</p></span>
-  <span class="head-name">Напрямки роботи:</span>
-  <ul *ngFor="let direction of doctorInfo.direction">
-    <li>{{direction}}</li>
-  </ul>
+  <div class="main-information">
+    <div class="appointment-section">
+      <h1 class="doctor-name">{{doctorInfo.name}} {{doctorInfo.surename}}</h1>
+    </div>
+    <span class="head-name">Посада:<p class="thin-text">{{doctorInfo.position}}</p></span>
+    <span class="head-name">Освіта:<p class="thin-text">{{doctorInfo.education}}</p></span>
+    <span class="head-name">Медичний стаж:<p class="thin-text">{{doctorInfo.experience}}</p></span>
+    <span class="head-name">Напрямки роботи:</span>
+    <ul *ngFor="let direction of doctorInfo.direction">
+      <li>{{direction}}</li>
+    </ul>
 
-</div>
+  </div>
 </div>
 <div class="form-section">
   <h3 class="form-header">Заповніть форму для запису на прийом до лікаря</h3>
-<form class="form-registration">
+  <form class="form-registration">
     <div class="form-group">
-  <label for="pib">ПІБ пацієнта:</label>
-  <input id="pib" class="form-control" type="text" placeholder="ПІБ"/>
-</div>
-<div class="form-group">
-  <label for="email">Електронна адреса:</label>
-  <input id="email" class="form-control" type="email" placeholder="email"/>
-</div>
-<div class="form-group">
-  <label for="phone">Номер телефону:</label>
-  <input id="phone" class="form-control" type="tel" placeholder="phone"/>
-</div>
-<div class="form-group">
-<label for="data-pick">Виберіть дату візиту:</label>
-<form id="data-pick" class="form-inline">
-    <div class="form-group">
-      <div class="input-group">
-        <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-        </div>
-      </div>
+      <label for="pib">ПІБ пацієнта:</label>
+      <input id="pib" class="form-control" type="text" name='pib' [(ngModel)]="userInf.name" placeholder="ПІБ"/>
     </div>
+    <div class="form-group">
+      <label for="email">Електронна адреса:</label>
+      <input id="email" class="form-control" type="email" name='email' [(ngModel)]="userInf.email"
+             placeholder="email"/>
+    </div>
+    <div class="form-group">
+      <label for="phone">Номер телефону:</label>
+      <input id="phone" class="form-control" type="tel" name='tel' [(ngModel)]="userInf.phone"
+             placeholder="phone"/>
+    </div>
+    <div class="form-group">
+      <label for="data-pick">Виберіть дату візиту:</label>
+      <form id="data-pick" class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                      type="button"></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="form-group">
+      <label for="reasons">Вкажіть причини вашого візиту:</label>
+      <textarea id="reasons" class="form-control" maxlength="150" cols="50" rows="4"></textarea>
+    </div>
+    <button type="button" data-dismiss="alert" [disabled]="!isLogin" class="btn btn-primary spec"
+            title="Увійдіть в профіль щоб записатися до лікаря"
+            (click)="showMsg()">Записатись на прийом
+    </button>
   </form>
 </div>
-<div class="form-group">
-    <label for="reasons">Вкажіть причини вашого візиту:</label>
-    <textarea id="reasons" class="form-control" maxlength="150" cols="50" rows="4"></textarea>
-  </div>
-<button type="button" data-dismiss="alert" [disabled]="!isLogin" class="btn btn-primary spec" (click)="showMsg()">Записатись на прийом</button>
-</form>
-</div>
-  <ngb-alert *ngIf="staticAlertClosed" type="success" (close)="staticAlertClosed = false">Ви успішно записались до лікаря!</ngb-alert>
+<ngb-alert *ngIf="staticAlertClosed" type="success" (close)="staticAlertClosed = false">Ви успішно записались до
+  лікаря!
+</ngb-alert>

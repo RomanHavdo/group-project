@@ -7,7 +7,7 @@ import {AuthService} from "../../auth.service";
     styleUrls: ['./user-account.component.css']
 })
 export class UserAccountComponent implements OnInit {
-    UserInfo: any = [];
+  UserInfo: any = [];
 
     constructor(private authService: AuthService) {
     }
