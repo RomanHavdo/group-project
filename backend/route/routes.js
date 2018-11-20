@@ -10,7 +10,31 @@ const doctorsList = require('../model/doctors');
 const appConfigs = require('../model/appConfigs');
 const specialistsPage = require('../model/specialistsPage');
 const doctorsPage = require('../model/doctorsPage');
+const newsPage = require('../model/newsPage');
+const newsList = require('../model/news');
 
+
+router.route('/news_page')
+    .get((req, res) => {
+        newsPage.find((err, items) => {
+            if (err) {
+                res.status(404).json(err);
+            } else {
+                res.status(200).json(items);
+            }
+        })
+    });
+
+router.route('/all_news')
+    .get((req, res) => {
+        newsList.find((err, items) => {
+            if (err) {
+                res.status(404).json(err);
+            } else {
+                res.status(200).json(items);
+            }
+        })
+    });
 
 router.route('/specialists_page')
     .get((req, res) => {
@@ -33,6 +57,7 @@ router.route('/app_configs')
             }
         })
     });
+
 router.route('/api/menu_items')
     .get((req, res) => {
         menuItem.find((err, items) => {
@@ -70,7 +95,7 @@ router.route('/user')
     .post((req, res) => {
         let user = new User(req.body);
         user.save(function (err, userTest, affected) {
-            if (err) throw  err;
+            if (err) throw err;
         });
 
     });
@@ -78,7 +103,9 @@ router.route('/user')
 router.route('/login')
     .post((req, res) => {
         let user = req.body;
-        User.findOne({email: user.email}, function (err, existingUser) {
+        User.findOne({
+            email: user.email
+        }, function (err, existingUser) {
             if (existingUser == null) {
                 res.status(404).json(err);
             } else {
@@ -160,8 +187,8 @@ router.route('/doctorsPage')
                     res.status(404).json(err);
                 } else {
                     res.status(200).json([{
-                        pictureUrl: items[0].items[0].pictureUrl
-                    },
+                            pictureUrl: items[0].items[0].pictureUrl
+                        },
                         {
                             textData: items[0].items[0].textData.filter(item => {
                                 return item.title === req.query.serviceType;
@@ -172,4 +199,5 @@ router.route('/doctorsPage')
             })
         }
     });
+
 module.exports = router;
