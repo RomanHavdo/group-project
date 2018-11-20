@@ -1,0 +1,53 @@
+* {
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.postCard {
+    margin: 0 0 50px 0;
+    padding: 0;
+    position: relative;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post{
+    font-size: 0.8rem;
+}
+
+.postHeader {
+    padding: 10px 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    & h6, span {
+        color: #9e9e9e;
+        margin: 0;
+        padding: 0;
+    }
+    & span {
+        font-size: 0.7rem;
+    }
+}
+
+.card-body{
+    padding: 10px;
+}
+
+.card-title {
+    margin: 10px 0;
+}
+
+.newsPhoto{
+    padding: 5px 10px 10px 0;
+    float: left;
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+.noFound{
+    text-align: center;
+    color: #424242;
+    margin: 0 auto;
+}

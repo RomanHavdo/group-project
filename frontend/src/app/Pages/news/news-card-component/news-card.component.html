@@ -1,0 +1,15 @@
+<h4 *ngIf="(newsList | searchNews:searchStr) ?.length === 0" class="noFound">Не знайдено жодних новин за вказаними даними</h4>
+
+<div class="card col-md-10 mx-auto postCard" *ngFor="let post of newsList | searchNews:searchStr">
+  <div class="postHeader card-header">
+    <h6 class="post">Автор: {{post.author}}</h6>
+    <span class="date">{{post.date | date: 'dd/MM/yyyy' }}</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{post.theme}}</h5>
+    <div class="postContent">
+      <img src="{{post.photoUrl}}" alt="" class="newsPhoto">
+      <p class="card-text">{{post.article}}</p>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-import {ToastrService} from "./toastr.service";
+import {ToastrService} from './toastr.service';
 import {AppComponent} from './app.component';
 
 import {SuggestionComponent} from './Pages/main/suggestion/suggestion.component';
@@ -15,7 +15,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from './Pages/main/carousel/carousel.module';
 
 import {ServicesComponent} from './Pages/services/services.component';
-import {NewsComponent} from './Pages/news/news.component';
 import {AboutComponent} from './Pages/about/about.component';
 import {MainComponent} from './Pages/main/main.component';
 import { SpecialistsPageModule } from './Pages/specialists/specialists-page.module';
@@ -31,7 +30,7 @@ import {BreadcrumbComponent} from './common-components/breadcrumb/breadcrumb.com
 import {DoctorsBySpecializationComponent} from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
 import {AppointmentComponent} from './common-components/appointment/appointment.component';
 import {UserAccountComponent} from './Pages/user-account/user-account.component';
-import {AuthService} from "./auth.service";
+import {AuthService} from './auth.service';
 
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
 import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
@@ -43,7 +42,6 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
         FooterComponent,
         AppointmentWindowComponent,
         ServicesComponent,
-        NewsComponent,
         AboutComponent,
         MainComponent,
         LogInComponent,
@@ -55,8 +53,6 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
         UserAccountComponent,
         SuggestionComponent,
         RegisterReceptionComponent
-
-
     ],
     imports: [
         RouterModule.forRoot(
@@ -70,7 +66,7 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
         CardsComponentModule,
         CardsComponentModule,
         SpecialistsPageModule,
-        DoctorsPageModule
+        DoctorsPageModule,
     ],
     providers: [HttpService, AuthService, ToastrService],
     bootstrap: [AppComponent]

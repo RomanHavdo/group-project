@@ -1,0 +1,24 @@
+<div class="container-fluid p-0">
+
+  <div class="container-fluid p-0 position-relative mainContainerWrapper">
+  
+    <div class="imageContainer">
+      <img class="headerImage" src="{{pageData.pictireUrl}}" alt="">
+      <div class="title">{{pageData.title}}</div>
+    </div>
+
+    <hr class="hrStyle" />
+  
+    <form class="searchForm col">
+      <div class="form-row d-flex justify-content-between">
+        <div class="col position-relative">
+          <input type="text" name="searchField" class="form-control searchInput" placeholder="Знайти новини" [(ngModel)]="searchStr">
+          <i class="material-icons searchIcon">search</i>
+        </div>
+      </div>
+    </form>
+
+    <app-news-card [newsList]="news" [searchStr]="searchStr"></app-news-card>
+  </div>
+  
+  </div>

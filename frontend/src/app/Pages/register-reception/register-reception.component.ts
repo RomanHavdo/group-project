@@ -11,10 +11,10 @@ import { AuthService} from '../../auth.service';
 })
 export class RegisterReceptionComponent implements OnInit {
 
-  constructor(private _http:HttpService, private route: ActivatedRoute, private router: Router, private _auth:AuthService) { }
-   queryId:number;
-   doctorInfo:any;
-   isLogin:boolean;
+  constructor(private _http: HttpService, private route: ActivatedRoute, private router: Router, private _auth: AuthService) { }
+   queryId: number;
+   doctorInfo: any;
+   isLogin: boolean;
    staticAlertClosed = false;
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -24,19 +24,18 @@ export class RegisterReceptionComponent implements OnInit {
 
       this.doctorInfo = res[0];
     });
-     if(this._auth.authUser == null){
+     if (this._auth.authUser == null) {
      this.isLogin = false;
-     }
-     else if(this._auth.authUser){
+     } else if (this._auth.authUser) {
       this.isLogin = true;
      }
   }
 
-  showMsg(){
+  showMsg() {
     this.staticAlertClosed = true;
    setTimeout(() => {
     this.router.navigate(['/']);
-   }, 2000)
+   }, 2000);
   }
 
 }

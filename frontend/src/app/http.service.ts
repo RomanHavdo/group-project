@@ -61,4 +61,14 @@ export class HttpService {
         return this.http.get('http:/api/doctorsPage?serviceType=' + serviceType)
             .pipe(map(res => res));
     }
+
+    getNewsPageData(): Observable<any> {
+        return this.http.get('http:/api/news_page')
+            .pipe(map( res => res ));
+    }
+
+    getNewsData(): Observable<any> {
+        return this.http.get('http:/api/all_news')
+            .pipe(map( res => res ));
+    }
 }
