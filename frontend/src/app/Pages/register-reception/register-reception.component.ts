@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpService} from '../../http.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from '../../auth.service';
+import { Component, OnInit } from '@angular/core';
+import { HttpService} from '../../http.service';
+import { ActivatedRoute, Router} from '@angular/router';
+import { AuthService} from '../../auth.service';
 import {User} from "../../interfaces/user";
-
 
 @Component({
     selector: 'app-register-reception',

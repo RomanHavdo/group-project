@@ -12,7 +12,31 @@ const doctorsList = require('../model/doctors');
 const appConfigs = require('../model/appConfigs');
 const specialistsPage = require('../model/specialistsPage');
 const doctorsPage = require('../model/doctorsPage');
+const newsPage = require('../model/newsPage');
+const newsList = require('../model/news');
 
+
+router.route('/news_page')
+    .get((req, res) => {
+        newsPage.find((err, items) => {
+            if (err) {
+                res.status(404).json(err);
+            } else {
+                res.status(200).json(items);
+            }
+        })
+    });
+
+router.route('/all_news')
+    .get((req, res) => {
+        newsList.find((err, items) => {
+            if (err) {
+                res.status(404).json(err);
+            } else {
+                res.status(200).json(items);
+            }
+        })
+    });
 
 router.route('/specialists_page')
     .get((req, res) => {
@@ -35,6 +59,7 @@ router.route('/app_configs')
             }
         })
     });
+
 router.route('/api/menu_items')
     .get((req, res) => {
         menuItem.find((err, items) => {
@@ -174,6 +199,7 @@ router.route('/doctorsPage')
                     res.status(404).json(err);
                 } else {
                     res.status(200).json([{
+
                         pictureUrl: items[0].items[0].pictureUrl
                     },
                     {
@@ -186,4 +212,5 @@ router.route('/doctorsPage')
             })
         }
     });
+
 module.exports = router;

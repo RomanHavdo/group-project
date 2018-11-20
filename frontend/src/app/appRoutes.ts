@@ -1,11 +1,10 @@
 import {AboutComponent} from './Pages/about/about.component';
 import {Routes} from '@angular/router';
-import {NewsComponent} from './Pages/news/news.component';
 import {MainComponent} from './Pages/main/main.component';
 import {ServicesComponent} from './Pages/services/services.component';
 import {DoctorsBySpecializationComponent} from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
 import {AppointmentComponent} from './common-components/appointment/appointment.component';
-import {UserAccountComponent} from "./Pages/user-account/user-account.component";
+import {UserAccountComponent} from './Pages/user-account/user-account.component';
 import {SpecialistsPageComponent} from './Pages/specialists/specialists-page.component';
 
 import {SpecialistsResolverService} from './Pages/specialists/specialists-resolver.service';
@@ -19,7 +18,7 @@ export const appRoutes: Routes = [
         {path: '', component: MainComponent},
         {path: 'user', component: UserAccountComponent},
         {path: 'about', component: AboutComponent, data: {breadcrumb: 'про нас'}},
-        {path: 'news', component: NewsComponent, data: {breadcrumb: 'новини'}},
+        {path: 'news', loadChildren: 'src/app/Pages/news/news-page.module#NewsPageModule'},
         {
             path: 'specialists', component: SpecialistsPageComponent,
             resolve: {
@@ -28,6 +27,7 @@ export const appRoutes: Routes = [
             },
         },
         {path: 'specialists/doctor/:id', component: RegisterReceptionComponent},
+        {path: 'services/doctors/doctor/:id', component: RegisterReceptionComponent},
         {
             path: 'services/doctors', component: DoctorsPageComponent,
             resolve: {
