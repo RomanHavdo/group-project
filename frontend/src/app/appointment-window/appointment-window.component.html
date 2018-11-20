@@ -1,39 +1,29 @@
 <ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Запис на прийом</h4>
+    <div class="modal-header leaveContactHeader">
+        <p class="modal-title " id="modal-basic-title">Залиште контакти і ми зв'яжемося з Вами найближчим часом!</p>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
         <div>
-          <p>ПІБ пацієнта:</p>
-          <input class="form-control" type="text"/>
-          <p>Номер телефону:</p>
-          <input class="form-control" type="tel"/>
-          <p>Електронна адреса:</p>
-          <input class="form-control" type="email"/>
-            <p>Виберіть дату візиту:</p>
-            <form class="form-inline">
-               <div class="form-group">
-                 <div class="input-group">
-                   <input class="form-control" placeholder="yyyy-mm-dd"
-                          name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                   <div class="input-group-append">
-                     <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                   </div>
-                 </div>
-               </div>
-             </form>
-            <p>Вкажіть причини вашого візиту:</p>
-           <textarea class="form-control" maxlength="150" cols="50" rows="4"></textarea>
-           </div>
+            <p>ПІБ:</p>
+            <input class="form-control" type="text" name='name' [ngModel]="userInfo.name"/>
+            <p>Номер телефону:</p>
+            <input class="form-control" type="tel" name='tel' #tel="ngModel" [ngModel]="userInfo.phone"/>
+            <p>Електронна адреса:</p>
+            <input class="form-control" type="email" name='email' #email="ngModel" [ngModel]="userInfo.email"/>
+            <p>Додаткова інформація:</p>
+            <textarea class="form-control" maxlength="150" cols="50" rows="4"></textarea>
+        </div>
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Записатися</button>
+        <button type="button" class="btn sendMessageButton"
+                (click)="modal.close('Save click'); sendMessage(tel.viewModel, email.viewModel)">Надіслати
+        </button>
     </div>
 </ng-template>
 
-<button class="btn  modalBtn" (click)="open(content)" *ngIf="visible">Запис на прийом</button>
+<button class="btn  modalBtn" (click)="open(content)" *ngIf="visible">Замовити дзвінок</button>
 
