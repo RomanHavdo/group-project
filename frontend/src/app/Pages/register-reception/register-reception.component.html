@@ -1,6 +1,6 @@
 <div class="profile" *ngIf="doctorInfo">
   <div class="avatar">
-    <img src="{{doctorInfo.avatar}}" alt="avatar" class="avatar">
+    <img src="{{doctorInfo.avatar}}" class="avatarImg" alt="avatar" class="avatar">
     <p class="doctor-label">&#9734;{{doctorInfo.career}}</p>
   </div>
   <div class="main-information">
@@ -17,7 +17,7 @@
 
   </div>
 </div>
-<div class="form-section">
+<div class="form-section" id="recording">
   <h3 class="form-header">Заповніть форму для запису на прийом до лікаря</h3>
   <form class="form-registration">
     <div class="form-group">

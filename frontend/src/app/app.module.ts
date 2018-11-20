@@ -34,6 +34,7 @@ import {AuthService} from './auth.service';
 
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
 import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
+import { RegisterReciptionsResolverService } from './Pages/register-reception/register-reception-resolve.service';
 
 @NgModule({
     declarations: [
@@ -56,7 +57,11 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
     ],
     imports: [
         RouterModule.forRoot(
-            appRoutes, {scrollPositionRestoration: 'enabled'}
+            appRoutes,
+            {
+                scrollPositionRestoration: 'enabled',
+                anchorScrolling: 'enabled'
+            }
         ),
         BrowserModule,
         FormsModule,
@@ -68,7 +73,12 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
         SpecialistsPageModule,
         DoctorsPageModule,
     ],
-    providers: [HttpService, AuthService, ToastrService],
+    providers: [
+        HttpService,
+        AuthService,
+        ToastrService,
+        RegisterReciptionsResolverService
+    ],
     bootstrap: [AppComponent]
 })
 

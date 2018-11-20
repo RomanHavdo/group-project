@@ -14,7 +14,6 @@ export class DoctorsPageComponent implements OnInit {
     constructor(private route: ActivatedRoute) {
         this.doctors = this.route.snapshot.data['doctors'];
         this.pageData = this.route.snapshot.data['pageData'];
-        console.log(this.pageData);
     }
 
     ngOnInit() {
