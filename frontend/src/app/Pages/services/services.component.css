@@ -1,15 +1,21 @@
-h3{
-    display: block;
+button{
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #29b6f6;
     color: white;
     text-align: center;
+    font-size: 25px;
+    border: 0;
+    box-shadow: 0 10px 6px -6px #777;
+    position: relative;
+}
+button:focus {
+    outline: none;
 }
 
-h3 + ul{
+button + ul{
     text-align: center;
 }
 
@@ -24,18 +30,49 @@ li{
     border-left: 1px solid #1165de;
     border-right: 1px solid #1165de;
     border-bottom: 1px solid #1165de;
+    width: 85%;
+    margin: 0 auto;
 }
 li:last-child{
-    border-bottom: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 li:hover{
-    background-color: #85d4f9;
+    background-color: #c6c8c9;
 }
 
 a{
-    font-size: 23px;
+    font-size: 20px;
 }
 a:hover{
     text-decoration: none;
+}
+
+
+.divServices{
+    margin-top: 72px;
+    min-height: calc(82vh - 37px);
+    text-align: center;
+}
+
+i {
+    border: solid white;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+    left: 10px;
+    height: 18px;
+    width: 18px;
+  }
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.down {
+    transform: rotate(43deg);
+    -webkit-transform: rotate(43deg);
 }

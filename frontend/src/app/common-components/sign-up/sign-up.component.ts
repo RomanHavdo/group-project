@@ -17,10 +17,10 @@ export class SignUpComponent {
     constructor(private modalService: NgbModal, private authService: AuthService) {
     }
 
-    registerUser(name, dateofbirth, sex, homeAddress, email, phone, password) {
+    registerUser(name, dateOfBirth, sex, homeAddress, email, phone, password) {
         const user: User = new User(
             name.viewModel,
-            dateofbirth.viewModel,
+            dateOfBirth.viewModel,
             sex.value,
             homeAddress.viewModel,
             email.viewModel,
@@ -32,6 +32,7 @@ export class SignUpComponent {
     open(content) {
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
         });
     }
 }

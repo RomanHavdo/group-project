@@ -10,30 +10,38 @@
 }
 
 .tmb {
-  height: 600px;
+  height: 500px;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  /* margin-top: 20px;
-      margin-bottom: 20px; */
   position: relative;
 }
 
+.tmb-in{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 500px;
+}
 .tmb img {
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
-  height: 600px;
+  height: 500px;
 }
 
 .tmb h3 {
   position: absolute;
   top: 75%;
   left: 7%;
-  width: 85%;
   font-style: italic;
   padding-left: 8px;
+  padding-right: 8px;
+  color: black;
+  font-size: 30xp;
+  font-weight: 600;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -41,8 +49,11 @@
   position: absolute;
   top: 83%;
   left: 7%;
-  width: 85%;
   padding-left: 8px;
+  padding-right: 8px;
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -131,7 +142,7 @@ a {
 
 .indecators {
   position: absolute;
-  top: 550px;
+  top: 460px;
   width: 140px;
   display: flex;
   flex-flow: row nowrap;

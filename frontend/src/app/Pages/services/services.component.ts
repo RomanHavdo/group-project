@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { HttpService } from '../../../app/http.service';
 
 @Component({
   selector: 'app-services',
@@ -10,61 +11,128 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       state('closed', style({
         height: '0',
         overflow: 'hidden',
+        opacity: 0,
       }
       )),
       state('open', style({
         height: '*',
+        overflow: 'hidden',
+        opacity: 1,
       })),
 
-      transition('closed => open', animate('200ms ease-in')),
-      transition('open => closed', animate('200ms ease-in'))
+      transition('closed => open', animate('500ms ease-in')),
+      transition('open => closed', animate('500ms ease-in'))
     ]),
   ]
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  servicesList: any = [];
+  newItem;
+  oldItem = "isOpen";
+
+  isOpen = true;
+  status1 = true;
+  isOpenKomplex = false;
+  status2 = false;
+  isOpenDiagnostic = false;
+  status3 = false;
+  isOpenAnaliz = false;
+  status4 = false;
+  isOpenVakcina = false;
+  status5 = false;
+
+  switcher(newItem) {
+    this.newItem = newItem;
+    if (newItem === this.oldItem) {
+      switch (this.oldItem) {
+        case 'isOpen':
+          this.isOpen = !this.isOpen;
+          this.status1 = !this.status1;
+          break;
+        case 'isOpenKomplex':
+          this.isOpenKomplex = !this.isOpenKomplex;
+          this.status2 = !this.status2;
+          break;
+        case 'isOpenDiagnostic':
+          this.isOpenDiagnostic = !this.isOpenDiagnostic;
+          this.status3 = !this.status3;
+          break;
+        case 'isOpenAnaliz':
+          this.isOpenAnaliz = !this.isOpenAnaliz;
+          this.status4 = !this.status4;
+          break;
+        case 'isOpenVakcina':
+          this.isOpenVakcina = !this.isOpenVakcina;
+          this.status5 = !this.status5;
+          break;
+        default:
+          alert('somethink goes wrong!');
+      }
+      return;
+
+    }
+    switch (this.oldItem) {
+      case 'isOpen':
+        this.isOpen = false;
+        this.status1 = false;
+        break;
+      case 'isOpenKomplex':
+        this.isOpenKomplex = false;
+        this.status2 = false;
+        break;
+      case 'isOpenDiagnostic':
+        this.isOpenDiagnostic = false;
+        this.status3 = false;
+        break;
+      case 'isOpenAnaliz':
+        this.isOpenAnaliz = false;
+        this.status4 = false;
+        break;
+      case 'isOpenVakcina':
+        this.isOpenVakcina = false;
+        this.status5 = false;
+        break;
+      default:
+        alert('somethink goes wrong!');
+    }
+    setTimeout(() => {
+      switch (this.newItem) {
+        case 'isOpen':
+          this.isOpen = true;
+          this.status1 = true;
+          break;
+        case 'isOpenKomplex':
+          this.isOpenKomplex = true;
+          this.status2 = true;
+          break;
+        case 'isOpenDiagnostic':
+          this.isOpenDiagnostic = true;
+          this.status3 = true;
+          break;
+        case 'isOpenAnaliz':
+          this.isOpenAnaliz = true;
+          this.status4 = true;
+          break;
+        case 'isOpenVakcina':
+          this.isOpenVakcina = true;
+          this.status5 = true;
+          break;
+        default:
+          alert('somethink goes wrong!');
+      }
+
+      this.oldItem = this.newItem;
+    }, 500);
+
+  }
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
-  }
-
-  servicesList = {
-    "doctors": [
-      { "id": "0", "profession": "Алерголог", "name": "Алерголог" },
-      { "id": "1", "profession": "Терапевт", "name": "Терапевт" },
-      { "id": "2", "profession": "Логопед", "name": "Логопед" },
-      { "id": "3", "profession": "Імунолог", "name": "Імунолог" },
-      { "id": "4", "profession": "Отоларинголог", "name": "Отоларинголог" },
-      { "id": "5", "profession": "Хірург" , "name": "Хірург"},
-      { "id": "6", "profession": "Невролог", "name": "Невролог"},
-      { "id": "7", "profession": "Алерголог", "name": "Алерголог" },
-      { "id": "8", "profession": "Виклик_лікаря_додому", "name": "Виклик лікаря додому" }
-    ],
-    "complex": [
-      { "id": "0", "type": "Для_хлопчиків", "name": "Комплексні обстеження для хлопчиків" },
-      { "id": "1", "type": "Для_дівчаток", "name": "Комплексні обстеження для дівчаток" },
-      { "id": "2", "type": "В_садочку", "name": "Медогляд в садочок" },
-      { "id": "3", "type": "В_школі", "name": "Медогляд в школу" },
-      { "id": "4", "type": "В_ВНЗ", "name": "Медогляд в ВНЗ" }
-    ],
-    "diagnositic": [
-      { "id": "0", "type": "Томографія", "name": "Комп'ютерна томографія" },
-      { "id": "1", "type": "УЗД_дітям", "name": "УЗД дітям" },
-      { "id": "2", "type": "Цифровий_рентген", "name": "Цифровий рентген" },
-      { "id": "3", "type": "Електроенцефалографія", "name": "Електроенцефалографія" }
-    ],
-    "analiz": [
-      { "id": "0", "type": "Біохімічний_аналіз", "name": "Біохімічний аналіз крові" },
-      { "id": "1", "type": "Цитологічне_дослідження", "name": "Цитологічні дослідження" },
-      { "id": "2", "type": "Загальний_аналіз_крові_та_сечі", "name": "Загальний аналіз крові та сечі" },
-      { "id": "3", "type": "Дихальний_водневий_тест_лактазної_недостатності", "name": "Дихальний водневий тест лактазної недостатності" }
-    ],
-    "vakcina": [
-      { "id": "0", "type": "Біохімічний_аналіз", "name": "Біохімічний аналіз крові" },
-      { "id": "1", "type": "Цитологічне_дослідження", "name": "Цитологічні дослідження" },
-      { "id": "2", "type": "Загальний_аналіз_крові_та_сечі", "name": "Загальний аналіз крові та сечі" },
-      { "id": "3", "type": "Дихальний_водневий_тест_лактазної_недостатності", "name": "Дихальний водневий тест лактазної недостатності" }
-    ],
+    this._httpService.getServicesData().subscribe((res) => {
+      this.servicesList = res[0];
+      this.servicesList = this.servicesList.servicesItems[0];
+   });
   }
 
 }

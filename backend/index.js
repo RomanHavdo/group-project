@@ -9,33 +9,9 @@ const route = require('./route/routes');
 
 mongoose.connect('mongodb://student:qwerty1@ds153422.mlab.com:53422/testproject', {
     useNewUrlParser: true
+
 });
 const PORT = process.env.PORT || 8080;
-
-//===========================================Add data to Momgoose db=============
-
-// const newsList = require('./model/news');
-
-
-// let items = new newsList ({
-//     news: [
-//     ]
-//   });
-
-//   doctorsList.find((err, res) => {
-//     console.log(res);
-// })
-
-// newsList.deleteMany( err => {
-//     if(err) throw err;
-//     console.log('Deleted');
-// })
-
-// items.save( err => {
-//     if(err) throw err;
-//     console.log('Saved!');
-// })
-//============================================
 
 app.use(cors());
 app.use(express.json());
