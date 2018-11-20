@@ -3,6 +3,7 @@ import {HttpService} from '../../http.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../auth.service';
 import {User} from "../../interfaces/user";
+import {ToastrService} from "../../toastr.service";
 
 @Component({
   selector: 'app-register-reception',
@@ -11,7 +12,7 @@ import {User} from "../../interfaces/user";
 })
 export class RegisterReceptionComponent implements OnInit {
 
-  constructor(private _http: HttpService, private route: ActivatedRoute, private router: Router, private _auth: AuthService) {
+  constructor(private _http: HttpService, private route: ActivatedRoute, private router: Router, private _auth: AuthService, private toastrService: ToastrService) {
   }
 
   queryId: number;
@@ -42,9 +43,12 @@ export class RegisterReceptionComponent implements OnInit {
   }
 
   showMsg() {
-    this.staticAlertClosed = true;
+    this.toastrService.Success('Ви успішно записались до лікаря!');
     setTimeout(() => {
       this.router.navigate(['/']);
+      setTimeout(() => {
+        location.reload();
+      })
     }, 2000)
   }
 
