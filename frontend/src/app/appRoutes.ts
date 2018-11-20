@@ -13,6 +13,7 @@ import {DoctorsPageComponent} from './Pages/doctors/doctors-page.component';
 import {DoctorsResolverService} from './Pages/doctors/doctors-resolver.service';
 import {DoctorsPageResolverService} from './Pages/doctors/doctors-page-resolver.service';
 import {RegisterReceptionComponent} from './Pages/register-reception/register-reception.component';
+import { RegisterReciptionsResolverService } from './Pages/register-reception/register-reception-resolve.service';
 
 export const appRoutes: Routes = [
         {path: '', component: MainComponent},
@@ -26,33 +27,50 @@ export const appRoutes: Routes = [
                 pageData: SpecialistsPageResolverService
             },
         },
-        {path: 'specialists/doctor/:id', component: RegisterReceptionComponent},
-        {path: 'services/doctors/doctor/:id', component: RegisterReceptionComponent},
+        {
+            path: 'specialists/doctor/:id', component: RegisterReceptionComponent,
+            resolve: {
+                doctorInfo: RegisterReciptionsResolverService
+            }
+        },
+        {
+            path: 'services/doctors/doctor/:id', component: RegisterReceptionComponent,
+            resolve: {
+                doctorInfo: RegisterReciptionsResolverService
+            }
+        },
         {
             path: 'services/doctors', component: DoctorsPageComponent,
             resolve: {
                 doctors: DoctorsResolverService,
                 pageData: DoctorsPageResolverService
-            }
+            },
         },
         {path: 'services', component: ServicesComponent},
-        {
-            path: 'services',
-            component: ServicesComponent,
-            data: {breadcrumb: 'послуги'},
-            children: [
-                {
-                    path: 'doctorsBySpecialization',
-                    component: DoctorsBySpecializationComponent,
-                    data: {breadcrumb: 'спеціалісти'},
-                    children: [
-                        {
-                            path: 'appointment',
-                            component: AppointmentComponent,
-                            data: {breadcrumb: 'запис'},
-                        }]
-                }
-            ]
-        }
+        // {
+        //     path: 'services',
+        //     component: ServicesComponent,
+        //     data: {breadcrumb: 'послуги'},
+        //     children: [
+        //         {
+        //                 path: 'doctors', component: DoctorsPageComponent,
+        //                 resolve: {
+        //                     doctors: DoctorsResolverService,
+        //                     pageData: DoctorsPageResolverService
+        //                 }
+        //             },
+        //         {
+        //             path: 'doctorsBySpecialization',
+        //             component: DoctorsBySpecializationComponent,
+        //             data: {breadcrumb: 'спеціалісти'},
+        //             children: [
+        //                 {
+        //                     path: 'appointment',
+        //                     component: AppointmentComponent,
+        //                     data: {breadcrumb: 'запис'},
+        //                 }]
+        //         }
+        //     ]
+        // }
     ]
 ;
