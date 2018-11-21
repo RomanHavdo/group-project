@@ -22,6 +22,7 @@ import { SpecialistsPageModule } from './Pages/specialists/specialists-page.modu
 import {HttpClientModule} from '@angular/common/http';
 import {CardsComponentModule} from './Pages/main/card-components/cards-component.module';
 import {HttpService} from './http.service';
+import {ChangerService} from './changer.service';
 
 import {appRoutes} from './appRoutes';
 import {LogInComponent} from './common-components/log-in/log-in.component';
@@ -34,6 +35,7 @@ import {AuthService} from './auth.service';
 
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
 import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
+import { RegisterReciptionsResolverService } from './Pages/register-reception/register-reception-resolve.service';
 
 @NgModule({
     declarations: [
@@ -56,7 +58,11 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
     ],
     imports: [
         RouterModule.forRoot(
-            appRoutes, {scrollPositionRestoration: 'enabled'}
+            appRoutes,
+            {
+                scrollPositionRestoration: 'enabled',
+                anchorScrolling: 'enabled'
+            }
         ),
         BrowserModule,
         FormsModule,
@@ -68,7 +74,13 @@ import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
         SpecialistsPageModule,
         DoctorsPageModule,
     ],
-    providers: [HttpService, AuthService, ToastrService],
+    providers: [
+        HttpService,
+        AuthService,
+        ToastrService,
+        RegisterReciptionsResolverService,
+        ChangerService
+    ],
     bootstrap: [AppComponent]
 })
 

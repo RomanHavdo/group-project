@@ -17,22 +17,22 @@
                         <a class="nav-link" (click)="showMenu()" [ngClass]="{mainPage: isShow}" routerLink=""
                            routerLinkActive="active">{{menuItems.main}}</a>
                     </li>
-                    <li class="nav-item menuItem" *ngIf="!isShow">
+                    <li class="nav-item menuItem" *ngIf="!isShow || change">
                         <a class="nav-link" (click)="showBreadcrumb()" routerLink="/services" routerLinkActive="active">{{menuItems.services}}</a>
                     </li>
-                    <li class="nav-item menuItem" *ngIf="!isShow">
+                    <li class="nav-item menuItem" *ngIf="!isShow || change">
                         <a class="nav-link" (click)="showBreadcrumb()" routerLink="/specialists"
                            routerLinkActive="active">{{menuItems.doctors}}</a>
                     </li>
-                    <li class="nav-item menuItem" *ngIf="!isShow">
+                    <li class="nav-item menuItem" *ngIf="!isShow || change">
                         <a class="nav-link" (click)="showBreadcrumb()" routerLink="/news" routerLinkActive="active">{{menuItems.news}}</a>
                     </li>
-                    <li class="nav-item menuItem" *ngIf="!isShow">
+                    <li class="nav-item menuItem" *ngIf="!isShow || change">
                         <a class="nav-link" (click)="showBreadcrumb()" routerLink="/about" routerLinkActive="active">{{menuItems.about}}</a>
                     </li>
                 </ul>
             </div>
-            <div *ngIf="isShow">
+            <div *ngIf="isShow && !change">
                 <app-breadcrumb></app-breadcrumb>
             </div>
         </nav>
