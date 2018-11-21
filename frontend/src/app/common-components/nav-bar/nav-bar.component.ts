@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {MenuItem} from '../../interfaces/menuItem';
-import {Observable} from 'rxjs/internal/Observable';
-import {AuthService} from '../../auth.service';
+import { MenuItem } from '../../interfaces/menuItem';
+import { Observable } from 'rxjs/internal/Observable';
+import { AuthService } from '../../auth.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+
 
 @Component({
     selector: 'app-nav-bar',
@@ -24,9 +25,7 @@ export class NavBarComponent implements OnInit {
             this.navPath = decodeURI(this.router.url);
             this.showBreadcrumb(this.router.url);
         });
-
       }
-
 
     chechUserObject() {
         return this.authUser = this.authService.authUser;
@@ -45,7 +44,10 @@ export class NavBarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.chechUserObject();
+        // this.chechUserObject();
+        // this._changer.configObservable.subscribe((res) => {
+        //   this.change = res;
+        // });
     }
 
 }
