@@ -1,3 +1,4 @@
+import {enableProdMode} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -36,6 +37,9 @@ import { RegisterReceptionComponent } from './Pages/register-reception/register-
 import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
 import { RegisterReciptionsResolverService } from './Pages/register-reception/register-reception-resolve.service';
 import { NavigationService } from './navigation.service';
+
+
+enableProdMode();
 
 @NgModule({
     declarations: [
