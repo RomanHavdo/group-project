@@ -30,7 +30,7 @@ export class LogInComponent {
     }
 
     SuccessLogin() {
-        this.toastrService.Success('Ви успішно залоновані');
+        this.toastrService.Success('Ви успішно залоговані');
     }
 
     ErrorLogin() {
