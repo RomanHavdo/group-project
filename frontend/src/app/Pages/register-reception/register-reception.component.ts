@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../auth.service';
+import {ToastrService} from "../../toastr.service";
+import {ChangerService} from '../../changer.service';
 
 @Component({
   selector: 'app-register-reception',
@@ -19,11 +21,12 @@ export class RegisterReceptionComponent implements OnInit {
   isLogin: boolean;
   staticAlertClosed = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private _auth: AuthService) {
+  constructor(private route: ActivatedRoute, private router: Router, private _auth: AuthService, private toastrService: ToastrService, private _change:ChangerService) {
     this.doctorInfo = this.route.snapshot.data['doctorInfo'][0];
   }
 
   ngOnInit() {
+    this._change.emitConfig(false);
     if (this._auth.authUser == null) {
       this.isLogin = false;
     } else if (this._auth.authUser) {
@@ -32,11 +35,12 @@ export class RegisterReceptionComponent implements OnInit {
     }
   }
 
-  showMsg() {
-    this.staticAlertClosed = true;
+    showMsg() {
+    this.toastrService.Success('Ви успішно записались до лікаря!');
     setTimeout(() => {
       this.router.navigate(['/']);
-    }, 2000);
+      this._change.emitConfig(true);
+    }, 2000)
   }
 
 }

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from '../../interfaces/menuItem';
 import {Observable} from "rxjs/internal/Observable";
 import {AuthService} from "../../auth.service";
+import {ChangerService} from '../../changer.service';
 
 @Component({
     selector: 'app-nav-bar',
@@ -11,10 +12,10 @@ import {AuthService} from "../../auth.service";
 export class NavBarComponent implements OnInit {
     @Input() menuItems: MenuItem;
     isShow = false;
-
+    change:boolean;
     authUser: Observable<any>;
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService, private _changer: ChangerService) {
     }
 
     chechUserObject() {
@@ -35,6 +36,9 @@ export class NavBarComponent implements OnInit {
 
     ngOnInit() {
         this.chechUserObject();
+        this._changer.configObservable.subscribe((res) => {
+          this.change = res;
+        })
     }
 
 }
