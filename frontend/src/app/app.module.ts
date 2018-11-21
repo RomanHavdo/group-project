@@ -35,6 +35,7 @@ import {AuthService} from './auth.service';
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
 import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
 import { RegisterReciptionsResolverService } from './Pages/register-reception/register-reception-resolve.service';
+import { NavigationService } from './navigation.service';
 
 @NgModule({
     declarations: [
@@ -77,7 +78,8 @@ import { RegisterReciptionsResolverService } from './Pages/register-reception/re
         HttpService,
         AuthService,
         ToastrService,
-        RegisterReciptionsResolverService
+        RegisterReciptionsResolverService,
+        NavigationService
     ],
     bootstrap: [AppComponent]
 })
