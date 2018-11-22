@@ -19,20 +19,17 @@ export class AppointmentWindowComponent {
   };
 
   sendMessage(email, phone) {
-    if (!email && !phone) {
-      this.toastrService.Error('Повідомлення не надіслано. Додайте телефон або пошту');
-    } else {
+    if (email && phone) {
       this.toastrService.Success('Повідомлення надіслано');
     }
   }
 
   checkUserInformation() {
-    if (this.authService.authUser !== null) {
-      this.userInfo = this.authService.authUser;
+    if (JSON.parse(localStorage.getItem('authUser'))) {
+      this.userInfo = JSON.parse(localStorage.getItem('authUser'));
     }
   }
 
-  // tslint:disable-next-line:max-line-length
   constructor(private modalService: NgbModal, private router: Router, private toastrService: ToastrService, private authService: AuthService) {
     this.router.events.subscribe((event) => {
       if (this.router.url !== '/') {

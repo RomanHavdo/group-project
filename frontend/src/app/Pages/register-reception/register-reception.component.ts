@@ -21,21 +21,21 @@ export class RegisterReceptionComponent implements OnInit {
   isLogin: boolean;
   staticAlertClosed = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private _auth: AuthService, private toastrService: ToastrService, private _change:ChangerService) {
+  constructor(private route: ActivatedRoute, private router: Router, private _auth: AuthService, private toastrService: ToastrService, private _change: ChangerService) {
     this.doctorInfo = this.route.snapshot.data['doctorInfo'][0];
   }
 
   ngOnInit() {
     this._change.emitConfig(false);
-    if (this._auth.authUser == null) {
+    if (!JSON.parse(localStorage.getItem('authUser'))) {
       this.isLogin = false;
-    } else if (this._auth.authUser) {
+    } else {
       this.isLogin = true;
-      this.userInf = this._auth.authUser;
+      this.userInf = JSON.parse(localStorage.getItem('authUser'));
     }
   }
 
-    showMsg() {
+  showMsg() {
     this.toastrService.Success('Ви успішно записались до лікаря!');
     setTimeout(() => {
       this.router.navigate(['/']);

@@ -4,20 +4,22 @@ import {map} from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-    authUser: any = null;
+  authUser: any = null;
 
-    constructor(private http: HttpClient) {
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    createUser(info) {
-        this.http.post('http:/api/user', info).subscribe();
-    }
+  createUser(info) {
+    this.http.post('http:/api/user', info).subscribe();
+  }
 
-    userAuthentication(data) {
-        return this.http.post('http:/api/login', data).pipe(map(res => this.authUser = res));
-    }
+  userAuthentication(data) {
+    return this.http.post('http:/api/login', data).pipe(map(res => this.authUser = res));
 
-    userExit() {
-        this.authUser = null;
-    }
+  }
+
+  userExit() {
+    this.authUser = null;
+    localStorage.removeItem('authUser')
+  }
 }
