@@ -2,8 +2,6 @@ import {AboutComponent} from './Pages/about/about.component';
 import {Routes} from '@angular/router';
 import {MainComponent} from './Pages/main/main.component';
 import {ServicesComponent} from './Pages/services/services.component';
-import {DoctorsBySpecializationComponent} from './Pages/services/doctors-by-specialization/doctors-by-specialization.component';
-import {AppointmentComponent} from './common-components/appointment/appointment.component';
 import {UserAccountComponent} from './Pages/user-account/user-account.component';
 import {SpecialistsPageComponent} from './Pages/specialists/specialists-page.component';
 
@@ -47,30 +45,6 @@ export const appRoutes: Routes = [
             },
         },
         {path: 'services', component: ServicesComponent},
-        // {
-        //     path: 'services',
-        //     component: ServicesComponent,
-        //     data: {breadcrumb: 'послуги'},
-        //     children: [
-        //         {
-        //                 path: 'doctors', component: DoctorsPageComponent,
-        //                 resolve: {
-        //                     doctors: DoctorsResolverService,
-        //                     pageData: DoctorsPageResolverService
-        //                 }
-        //             },
-        //         {
-        //             path: 'doctorsBySpecialization',
-        //             component: DoctorsBySpecializationComponent,
-        //             data: {breadcrumb: 'спеціалісти'},
-        //             children: [
-        //                 {
-        //                     path: 'appointment',
-        //                     component: AppointmentComponent,
-        //                     data: {breadcrumb: 'запис'},
-        //                 }]
-        //         }
-        //     ]
-        // }
+        {path: '**', redirectTo: '/'}
     ]
 ;

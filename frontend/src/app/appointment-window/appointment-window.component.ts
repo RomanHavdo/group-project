@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
-import {ToastrService} from "../toastr.service";
-import {AuthService} from "../auth.service";
+import {ToastrService} from '../toastr.service';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-appointment-window',
@@ -32,6 +32,7 @@ export class AppointmentWindowComponent {
     }
   }
 
+  // tslint:disable-next-line:max-line-length
   constructor(private modalService: NgbModal, private router: Router, private toastrService: ToastrService, private authService: AuthService) {
     this.router.events.subscribe((event) => {
       if (this.router.url !== '/') {

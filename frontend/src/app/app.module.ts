@@ -1,3 +1,4 @@
+import {enableProdMode} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -22,7 +23,6 @@ import { SpecialistsPageModule } from './Pages/specialists/specialists-page.modu
 import {HttpClientModule} from '@angular/common/http';
 import {CardsComponentModule} from './Pages/main/card-components/cards-component.module';
 import {HttpService} from './http.service';
-import {ChangerService} from './changer.service';
 
 import {appRoutes} from './appRoutes';
 import {LogInComponent} from './common-components/log-in/log-in.component';
@@ -36,6 +36,10 @@ import {AuthService} from './auth.service';
 import { RegisterReceptionComponent } from './Pages/register-reception/register-reception.component';
 import { DoctorsPageModule } from './Pages/doctors/doctors-page.module';
 import { RegisterReciptionsResolverService } from './Pages/register-reception/register-reception-resolve.service';
+import { NavigationService } from './navigation.service';
+
+
+enableProdMode();
 
 @NgModule({
     declarations: [
@@ -79,7 +83,7 @@ import { RegisterReciptionsResolverService } from './Pages/register-reception/re
         AuthService,
         ToastrService,
         RegisterReciptionsResolverService,
-        ChangerService
+        NavigationService
     ],
     bootstrap: [AppComponent]
 })
