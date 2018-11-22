@@ -44,10 +44,6 @@ export class NavBarComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.chechUserObject();
-        // this._changer.configObservable.subscribe((res) => {
-        //   this.change = res;
-        // });
     }
 
 }

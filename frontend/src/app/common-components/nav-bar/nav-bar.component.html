@@ -14,8 +14,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item menuItem">
-                        <a class="nav-link" [ngClass]="{mainPage: isShow}" routerLink=""
-                           routerLinkActive="active">{{menuItems.main}}</a>
+                        <a class="nav-link" [ngClass]="{mainPage: isShow}" routerLink="/"
+                           routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{menuItems.main}}</a>
                     </li>
                     <li class="nav-item menuItem" *ngIf="!isShow">
                         <a class="nav-link" routerLink="/services" routerLinkActive="active">{{menuItems.services}}</a>
