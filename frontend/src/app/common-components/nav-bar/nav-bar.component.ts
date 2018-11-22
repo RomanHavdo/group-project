@@ -1,8 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MenuItem} from '../../interfaces/menuItem';
-import {Observable} from "rxjs/internal/Observable";
-import {AuthService} from "../../auth.service";
-import {ChangerService} from '../../changer.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { MenuItem } from '../../interfaces/menuItem';
+import { Observable } from 'rxjs/internal/Observable';
+import { AuthService } from '../../auth.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
     selector: 'app-nav-bar',
@@ -12,11 +14,18 @@ import {ChangerService} from '../../changer.service';
 export class NavBarComponent implements OnInit {
     @Input() menuItems: MenuItem;
     isShow = false;
-    change:boolean;
+    public navPath: string;
+
     authUser: Observable<any>;
 
-    constructor(private authService: AuthService, private _changer: ChangerService) {
-    }
+    constructor(private router: Router, private route: ActivatedRoute,
+        private authService: AuthService) {
+
+        this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
+            this.navPath = decodeURI(this.router.url);
+            this.showBreadcrumb(this.router.url);
+        });
+      }
 
     chechUserObject() {
         return this.authUser = this.authService.authUser;
@@ -26,19 +35,15 @@ export class NavBarComponent implements OnInit {
         this.authService.userExit();
     }
 
-    showBreadcrumb() {
-        this.isShow = true;
-    }
-
-    showMenu() {
-        this.isShow = false;
+    showBreadcrumb(url) {
+        if ( url.includes('services') || url.includes('specialists')) {
+            this.isShow = true;
+        } else {
+            this.isShow = false;
+        }
     }
 
     ngOnInit() {
-        this.chechUserObject();
-        this._changer.configObservable.subscribe((res) => {
-          this.change = res;
-        })
     }
 
 }

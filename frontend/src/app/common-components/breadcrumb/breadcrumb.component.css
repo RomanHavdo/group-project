@@ -1,16 +1,16 @@
 .breadcrumb1 {
   list-style: none;
   overflow: hidden;
-  font: 18px Sans-Serif;
   padding-left: 0px;
 }
+
 .breadcrumb1 li {
   float: left;
 }
 .breadcrumb1 li a {
   color: white;
   text-decoration: none;
-  padding: 10px 0 10px 65px;
+  padding: 3px 0 3px 40px;
   background: rgb(13, 92, 165); /* fallback color */
   /* background: rgb(13, 165, 165); */
   position: relative;
@@ -63,7 +63,7 @@
 .breadcrumb1 li:nth-child(5) a:after { border-left-color: rgb(148, 209, 209) }
 .breadcrumb1 li:last-child a {
   background: transparent !important;
-  color: black;
+  color: rgb(1, 88, 155) !important;
   pointer-events: none;
   cursor: default;
 }

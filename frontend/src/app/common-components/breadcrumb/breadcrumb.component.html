@@ -1,7 +1,7 @@
 <div>
     <ul class="breadcrumb1">
-        <li  *ngFor="let breadcrumb of breadcrumbs;">
-            <a [routerLink]="breadcrumb.url">{{breadcrumb.label}}</a>
+        <li  *ngFor="let breadcrumb of bc">
+            <a [routerLink]="breadcrumb.url" [queryParams]="{serviceType: params}">{{breadcrumb.title}}</a>
         </li>
       </ul>
 </div>

@@ -1,4 +1,4 @@
 export interface BreadCrumb {
-    url: string;
-    label: string;
+    breadcrumbs: Array<string>;
+    queryParams: string;
 }
