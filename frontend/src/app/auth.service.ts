@@ -5,12 +5,13 @@ import {map} from 'rxjs/operators';
 @Injectable()
 export class AuthService {
   authUser: any = null;
+  existUser:any;
 
   constructor(private http: HttpClient) {
   }
 
   createUser(info) {
-    this.http.post('http:/api/user', info).subscribe();
+    return this.http.post('http:/api/user', info).pipe(map(res => this.existUser = res));
   }
 
   userAuthentication(data) {
