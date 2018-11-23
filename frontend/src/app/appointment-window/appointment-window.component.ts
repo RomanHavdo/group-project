@@ -19,7 +19,7 @@ export class AppointmentWindowComponent {
   };
 
   sendMessage(email, phone) {
-    if (email && phone) {
+    if (email || phone) {
       this.toastrService.Success('Повідомлення надіслано');
     }
   }
