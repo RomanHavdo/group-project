@@ -14,12 +14,26 @@ export class SignUpComponent {
   @Input() menuItems: MenuItem;
   sexs: string[] = ['Чоловіча', 'Жіноча'];
   closeResult: string;
+  existUser: any;
 
   constructor(private modalService: NgbModal, private authService: AuthService, private toastrService: ToastrService) {
   }
 
   SuccessLogin() {
     this.toastrService.Success('Дякуємо за реєстрацію');
+  }
+
+  ErrorLogin() {
+    this.toastrService.Error('Такий користувач вже існує');
+  }
+
+  checkIfExist() {
+    this.existUser = this.authService.existUser;
+    if (this.existUser === false) {
+      this.ErrorLogin();
+    } else {
+      this.SuccessLogin();
+    }
   }
 
   registerUser(name, dateOfBirth, sex, homeAddress, email, phone, password) {
@@ -31,8 +45,9 @@ export class SignUpComponent {
       email.viewModel,
       phone.viewModel,
       password.viewModel);
-    this.authService.createUser(user);
-    this.SuccessLogin();
+    this.authService.createUser(user).subscribe(() => {
+      this.checkIfExist();
+    })
   }
 
   open(content) {
